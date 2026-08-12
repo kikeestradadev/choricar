@@ -1,0 +1,25 @@
+---
+description: Obligatorio al inicio de cualquier tarea: leer rules y skills relevantes antes de editar
+alwaysApply: true
+---
+
+# Revisar rules y skills primero
+
+Antes de implementar, refactorizar o crear archivos en este repo:
+
+1. Revisa `.cursor/rules/` y `.cursor/skills/`.
+2. **Lee** (con la herramienta Read) los rules/skills que apliquen a la tarea.
+3. Solo entonces edita código.
+
+No omitas convenciones del proyecto por asumirlas. En especial:
+
+- Sass + `@import` (`sass-breakpoints`) — **no Tailwind**
+- Hover solo con puntero fino (`sass-hover-touch`)
+- Layout `.main-container` / `.container` (`bem-module-layout`, `layout-containers`)
+- Simetría Pug/SCSS/JS (`component-symmetry`)
+- Pug sintaxis larga + datos en `src/data/*-data.json` (`pug-long-syntax`, `pug-data-files`)
+- Módulos JS camelCase + Swiper CDN (`javascript-modules`, skill `create-slider-data`)
+- Formularios fake / datos fake estáticos (`static-json-data`, skill `create-static-json-module`)
+- Emulación BD (`emulated-db`, skill `emulated-db`) → seeds en `src/data/db/`, JS en `src/js/db/`
+
+El skill `review-rules-skills` detalla el mapa completo. Síguelo al inicio de cada tarea.

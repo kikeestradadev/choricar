@@ -1,0 +1,35 @@
+---
+description: Sintaxis Pug explicita con atributo class; BEM sin shorthand Emmet
+globs: src/pug/**/*.pug
+alwaysApply: false
+---
+
+# Sintaxis Pug Explicita
+
+En este proyecto, los componentes Pug se escriben con sintaxis larga para que las clases BEM y partes dinamicas sean mas legibles.
+
+## Correcto
+
+```pug
+section(class='color-table' id='colores')
+	div(class='main-container color-table__shell')
+		div(class='container color-table__container')
+			h2(class='color-table__title')= colorTableData.title
+```
+
+## Incorrecto
+
+```pug
+section.color-table#colores
+	.main-container
+		.container
+			h2.title Titulo
+```
+
+## Reglas
+
+1. No uses shorthand de Pug tipo `tag.class`, `tag#id`, `.class` o cadenas estilo Emmet.
+2. Declara las clases con atributo explicito: `tag(class="...")` o `tag(class='...')`.
+3. Para clases dinamicas, manten todo dentro del atributo `class`.
+4. Prioriza legibilidad sobre brevedad, especialmente en componentes, layout y storybook.
+5. Clases BEM + shell `.main-container` / `.container` (ver `bem-module-layout`). No uses utilidades Tailwind.
