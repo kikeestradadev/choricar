@@ -1,8 +1,10 @@
 //layout
 :root {
 	/*text set up*/
-	--header-color			: #1F2024;
-	--paragraph-color		:#1F2024;
+	--header-color: #1E293B;
+	--paragraph-color: #1E293B;
+	--font-heading: 'Poppins', sans-serif;
+	--font-body: 'Inter', sans-serif;
 
 	/*breakpoints*/
 	--s: #{$s};
@@ -14,38 +16,54 @@
 	--xxl: #{$xxl};
 	--xxxl: #{$xxxl};
 	--xxxxl: #{$xxxxl};
-	--header-height: 3rem;
+	--header-height: 4rem;
 	--main-container: 3000px;
-	--container: 1600px;
+	--container: 1280px;
 
-	/*palette colors*/
+	/* Choricar palette */
+	--color-primary: #0B2545;
+	--color-primary-mid: #1A3A5C;
+	--color-accent: #F4841A;
+	--color-accent-hover: #D96F0F;
+	--color-bg: #FFFFFF;
+	--color-bg-muted: #F5F7FA;
+	--color-text: #1E293B;
+	--color-text-muted: #64748B;
+	--color-border: #E2E8F0;
+	--color-success: #16A34A;
+	--color-danger: #DC2626;
+	--color-premium: #D4AF37;
+	--color-card-shadow: 0 4px 20px rgba(11, 37, 69, 0.08);
+	--radius-card: 12px;
+	--radius-btn: 8px;
+
+	/*legacy palette (style-guide)*/
 	--color-yellow: #FFB824;
-	--color-orange: #FF9100;
+	--color-orange: #F4841A;
 	--color-orange-light: #FF4A00;
 	--color-magenta: #F20059;
-	--color-green: #3DF500;
+	--color-green: #16A34A;
 	--color-green-dark: #00A652;
 	--color-green-deep: #0B3D2E;
-	--color-blue: #00BEDA;
+	--color-blue: #1A3A5C;
 	--color-purple: #7A29FF;
 	--color-fuchsia: #BA1CFF;
 
 	/*buttons & links*/
-	--btn-primary: #8B852E;
-	--btn-primary-hover: #736D2E;
-	--btn-secondary: #7D7D7D;
-	--btn-secondary-hover: #555454;
+	--btn-primary: #0B2545;
+	--btn-primary-hover: #1A3A5C;
+	--btn-secondary: #F4841A;
+	--btn-secondary-hover: #D96F0F;
 	--btn-text: #ffffff;
-	--link-color: #8B852E;
+	--link-color: #1A3A5C;
 
 	@media (width >= $l) {
-		--header-height: 4rem;
+		--header-height: 4.5rem;
 	}
 
-	//native color vars
-	--header-bg: #007BDF;
-	--body-bg: #ffffff;
-	--footer-bg: #007BDF;
+	--header-bg: #0B2545;
+	--body-bg: #F5F7FA;
+	--footer-bg: #0B2545;
 }
 
 *,
@@ -76,6 +94,7 @@ body {
 	min-height: var(--header-height);
 	position: fixed;
 	top: 0;
+	left: 0;
 	width: 100%;
 }
 

@@ -1,0 +1,67 @@
+section(class='vehicle-form' data-vehicle-form)
+	div(class='main-container vehicle-form__shell')
+		div(class='container vehicle-form__container')
+			div(class='vehicle-form__card')
+				h1(class='vehicle-form__title' data-form-title)= vehicleFormData.title
+				div(class='vehicle-form__limit' data-form-limit hidden)
+					p(class='vehicle-form__limit-text')= vehicleFormData.freeLimitMessage
+					a(class='vehicle-form__limit-link' href=vehicleFormData.upgradeHref)= vehicleFormData.upgradeLabel
+				form(class='vehicle-form__form' novalidate)
+					input(type='hidden' name='id' data-form-id)
+					each field in vehicleFormData.fields
+						div(class='vehicle-form__group')
+							label(class='vehicle-form__label' for=`vf-${field.name}`)= field.label
+							if field.type === 'select'
+								select(
+									class='vehicle-form__select'
+									id=`vf-${field.name}`
+									name=field.name
+									required=field.required
+								)
+									option(value='') Seleccionar
+									if field.options
+										each opt in field.options
+											option(value=opt.value)= opt.label
+									else if field.name === 'brand'
+										each brand in filtersData.brands
+											option(value=brand)= brand
+									else if field.name === 'location'
+										each location in filtersData.locations
+											option(value=location)= location
+							else if field.type === 'textarea'
+								textarea(
+									class='vehicle-form__textarea'
+									id=`vf-${field.name}`
+									name=field.name
+									rows='4'
+									required=field.required
+								)
+							else
+								input(
+									class='vehicle-form__input'
+									id=`vf-${field.name}`
+									name=field.name
+									type=field.type
+									required=field.required
+									min=field.min
+									max=field.max
+								)
+					div(class='vehicle-form__group vehicle-form__group--images')
+						span(class='vehicle-form__label' id='vf-images-label')= vehicleFormData.images.label
+						p(class='vehicle-form__hint')= vehicleFormData.images.hint
+						div(class='vehicle-form__upload')
+							input(
+								class='vehicle-form__file'
+								id='vf-images'
+								type='file'
+								accept='image/jpeg,image/png,image/webp'
+								multiple
+								aria-labelledby='vf-images-label'
+								data-image-input
+							)
+							label(class='vehicle-form__upload-btn' for='vf-images')= vehicleFormData.images.button
+						p(class='vehicle-form__images-empty' data-images-empty)= vehicleFormData.images.empty
+						ul(class='vehicle-form__previews' data-image-previews aria-live='polite')
+					p(class='vehicle-form__error' data-form-error hidden role='alert')
+					button(class='vehicle-form__submit' type='submit' data-form-submit)= vehicleFormData.submitCreate
+script(type='application/json' id='vehicle-form-copy')!= JSON.stringify({ editTitle: vehicleFormData.editTitle, submitUpdate: vehicleFormData.submitUpdate, submitCreate: vehicleFormData.submitCreate, images: vehicleFormData.images })

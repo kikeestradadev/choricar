@@ -1,0 +1,36 @@
+{
+	"brand": "Choricar",
+	"tagline": "Compra y vende vehículos en Costa Rica",
+	"columns": [
+		{
+			"title": "Explorar",
+			"links": [
+				{ "label": "Todos los vehículos", "href": "./vehiculos.html" },
+				{ "label": "Planes", "href": "./suscripcion.html" },
+				{ "label": "Vender mi carro", "href": "./agregar-vehiculo.html" }
+			]
+		},
+		{
+			"title": "Cuenta",
+			"links": [
+				{ "label": "Iniciar sesión", "href": "./login.html" },
+				{ "label": "Registrarse", "href": "./registro.html" },
+				{ "label": "Dashboard", "href": "./dashboard.html" }
+			]
+		},
+		{
+			"title": "Contacto",
+			"links": [
+				{ "label": "demo@correo.com", "href": "mailto:demo@correo.com" },
+				{ "label": "+506 8888-8888", "href": "tel:+50688888888" },
+				{ "label": "San José, Costa Rica", "href": "#" }
+			]
+		}
+	],
+	"social": [
+		{ "label": "Facebook", "href": "#" },
+		{ "label": "Instagram", "href": "#" },
+		{ "label": "WhatsApp", "href": "#" }
+	],
+	"copyright": "© 2026 Choricar. Todos los derechos reservados."
+}

@@ -1,0 +1,31 @@
+{
+	"login": {
+		"title": "Iniciar sesión",
+		"subtitle": "Accede a tu cuenta Choricar",
+		"submit": "Entrar",
+		"switchText": "¿No tienes cuenta?",
+		"switchHref": "./registro.html",
+		"switchLabel": "Regístrate",
+		"mode": "login"
+	},
+	"register": {
+		"title": "Crear cuenta",
+		"subtitle": "Regístrate gratis y publica tu primer vehículo",
+		"submit": "Registrarme",
+		"switchText": "¿Ya tienes cuenta?",
+		"switchHref": "./login.html",
+		"switchLabel": "Inicia sesión",
+		"mode": "register"
+	},
+	"fields": {
+		"name": "Nombre completo",
+		"email": "Correo electrónico",
+		"password": "Contraseña",
+		"phone": "Teléfono"
+	},
+	"social": {
+		"google": "Continuar con Google",
+		"facebook": "Continuar con Facebook"
+	},
+	"or": "o"
+}

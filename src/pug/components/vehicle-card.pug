@@ -1,0 +1,22 @@
+article(class='vehicle-card' data-vehicle-card)
+	a(class='vehicle-card__media' href='#' data-card-link)
+		img(class='vehicle-card__image' src='' alt='' data-card-image loading='lazy')
+		span(class='vehicle-card__badge vehicle-card__badge--condition' data-card-condition)
+		span(class='vehicle-card__badge vehicle-card__badge--premium' data-card-premium hidden) Premium
+	div(class='vehicle-card__body')
+		div(class='vehicle-card__top')
+			h3(class='vehicle-card__title')
+				a(class='vehicle-card__title-link' href='#' data-card-title-link)
+					span(data-card-title)
+			button(
+				class='vehicle-card__fav'
+				type='button'
+				aria-label='Agregar a favoritos'
+				data-card-fav
+			)
+				span(aria-hidden='true') ♥
+		p(class='vehicle-card__price' data-card-price)
+		ul(class='vehicle-card__meta')
+			li(class='vehicle-card__meta-item' data-card-year)
+			li(class='vehicle-card__meta-item' data-card-mileage)
+			li(class='vehicle-card__meta-item' data-card-location)

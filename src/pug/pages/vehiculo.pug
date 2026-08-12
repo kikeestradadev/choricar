@@ -1,0 +1,19 @@
+extends ../config/template
+
+block append config
+	- currentPage = 'vehiculo';
+	- siteName = 'Choricar';
+	- content = 'content';
+	- pageDescription = 'Detalle del vehículo: galería, características e historial de mantenimientos.';
+
+block main-header
+	include ../components/main-header
+
+block main-container
+	include ../components/vehicle-detail
+	include ../components/toast
+
+block main-footer
+	include ../components/main-footer
+
+block scripts

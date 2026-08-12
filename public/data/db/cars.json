@@ -1,0 +1,2077 @@
+{
+  "cars": [
+    {
+      "id": "car-001",
+      "brand": "Toyota",
+      "model": "Corolla",
+      "year": 2013,
+      "price": 8713333,
+      "currency": "CRC",
+      "mileage": 10347,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "diesel",
+      "location": "Alajuela",
+      "description": "Toyota Corolla 2013. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
+      "images": [
+        "https://picsum.photos/seed/car-001-1/800/600",
+        "https://picsum.photos/seed/car-001-2/800/600",
+        "https://picsum.photos/seed/car-001-3/800/600",
+        "https://picsum.photos/seed/car-001-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2013-02-04",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 85000
+        },
+        {
+          "date": "2014-03-05",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 40000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-02-02T10:00:00Z"
+    },
+    {
+      "id": "car-002",
+      "brand": "Toyota",
+      "model": "RAV4",
+      "year": 2016,
+      "price": 9426666,
+      "currency": "CRC",
+      "mileage": 12694,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "electric",
+      "location": "Heredia",
+      "description": "Toyota RAV4 2016. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Heredia.",
+      "images": [
+        "https://picsum.photos/seed/car-002-1/800/600",
+        "https://picsum.photos/seed/car-002-2/800/600",
+        "https://picsum.photos/seed/car-002-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2016-03-07",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 35000
+        },
+        {
+          "date": "2017-04-08",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 100000
+        },
+        {
+          "date": "2018-05-09",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 38000
+        }
+      ],
+      "sellerId": "user-002",
+      "isPremium": false,
+      "createdAt": "2024-03-03T10:00:00Z"
+    },
+    {
+      "id": "car-003",
+      "brand": "Toyota",
+      "model": "Hilux",
+      "year": 2019,
+      "price": 10139999,
+      "currency": "CRC",
+      "mileage": 15041,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "hybrid",
+      "location": "Cartago",
+      "description": "Toyota Hilux 2019. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Cartago.",
+      "images": [
+        "https://picsum.photos/seed/car-003-1/800/600",
+        "https://picsum.photos/seed/car-003-2/800/600",
+        "https://picsum.photos/seed/car-003-3/800/600",
+        "https://picsum.photos/seed/car-003-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2019-04-10",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 95000
+        },
+        {
+          "date": "2020-05-11",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 33000
+        },
+        {
+          "date": "2021-06-12",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 190000
+        },
+        {
+          "date": "2022-07-13",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 235000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-04-04T10:00:00Z"
+    },
+    {
+      "id": "car-004",
+      "brand": "Toyota",
+      "model": "Yaris",
+      "year": 2022,
+      "price": 10853332,
+      "currency": "CRC",
+      "mileage": 17388,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "gasoline",
+      "location": "Guanacaste",
+      "description": "Toyota Yaris 2022. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Guanacaste.",
+      "images": [
+        "https://picsum.photos/seed/car-004-1/800/600",
+        "https://picsum.photos/seed/car-004-2/800/600",
+        "https://picsum.photos/seed/car-004-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2022-05-13",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 28000
+        },
+        {
+          "date": "2023-06-14",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 185000
+        },
+        {
+          "date": "2024-07-15",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 230000
+        },
+        {
+          "date": "2025-08-16",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 60000
+        },
+        {
+          "date": "2025-09-17",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 105000
+        }
+      ],
+      "sellerId": "user-003",
+      "isPremium": false,
+      "createdAt": "2024-05-05T10:00:00Z"
+    },
+    {
+      "id": "car-005",
+      "brand": "Toyota",
+      "model": "Fortuner",
+      "year": 2025,
+      "price": 11566665,
+      "currency": "CRC",
+      "mileage": 19735,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "diesel",
+      "location": "Puntarenas",
+      "description": "Toyota Fortuner 2025. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Puntarenas.",
+      "images": [
+        "https://picsum.photos/seed/car-005-1/800/600",
+        "https://picsum.photos/seed/car-005-2/800/600",
+        "https://picsum.photos/seed/car-005-3/800/600",
+        "https://picsum.photos/seed/car-005-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2025-06-16",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 180000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": true,
+      "createdAt": "2024-06-06T10:00:00Z"
+    },
+    {
+      "id": "car-006",
+      "brand": "Honda",
+      "model": "Civic",
+      "year": 2012,
+      "price": 12279998,
+      "currency": "CRC",
+      "mileage": 22082,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "electric",
+      "location": "Limón",
+      "description": "Honda Civic 2012. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Limón.",
+      "images": [
+        "https://picsum.photos/seed/car-006-1/800/600",
+        "https://picsum.photos/seed/car-006-2/800/600",
+        "https://picsum.photos/seed/car-006-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2012-07-19",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 220000
+        },
+        {
+          "date": "2013-08-20",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 50000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-07-07T10:00:00Z"
+    },
+    {
+      "id": "car-007",
+      "brand": "Honda",
+      "model": "CR-V",
+      "year": 2015,
+      "price": 18419,
+      "currency": "USD",
+      "mileage": 24429,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "hybrid",
+      "location": "San José",
+      "description": "Honda CR-V 2015. Único dueño, mantenimientos al día, excelente estado general. Ubicado en San José.",
+      "images": [
+        "https://picsum.photos/seed/car-007-1/800/600",
+        "https://picsum.photos/seed/car-007-2/800/600",
+        "https://picsum.photos/seed/car-007-3/800/600",
+        "https://picsum.photos/seed/car-007-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2015-08-22",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 45000
+        },
+        {
+          "date": "2016-09-23",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 90000
+        },
+        {
+          "date": "2017-10-24",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 45000
+        }
+      ],
+      "sellerId": "user-002",
+      "isPremium": true,
+      "createdAt": "2024-08-08T10:00:00Z"
+    },
+    {
+      "id": "car-008",
+      "brand": "Honda",
+      "model": "HR-V",
+      "year": 2018,
+      "price": 13706664,
+      "currency": "CRC",
+      "mileage": 26776,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "gasoline",
+      "location": "Alajuela",
+      "description": "Honda HR-V 2018. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
+      "images": [
+        "https://picsum.photos/seed/car-008-1/800/600",
+        "https://picsum.photos/seed/car-008-2/800/600",
+        "https://picsum.photos/seed/car-008-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2018-09-25",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 85000
+        },
+        {
+          "date": "2019-10-26",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 40000
+        },
+        {
+          "date": "2020-11-27",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 105000
+        },
+        {
+          "date": "2021-12-28",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 43000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-09-09T10:00:00Z"
+    },
+    {
+      "id": "car-009",
+      "brand": "Honda",
+      "model": "Accord",
+      "year": 2021,
+      "price": 14419997,
+      "currency": "CRC",
+      "mileage": 29123,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "diesel",
+      "location": "Heredia",
+      "description": "Honda Accord 2021. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Heredia.",
+      "images": [
+        "https://picsum.photos/seed/car-009-1/800/600",
+        "https://picsum.photos/seed/car-009-2/800/600",
+        "https://picsum.photos/seed/car-009-3/800/600",
+        "https://picsum.photos/seed/car-009-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2021-10-28",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 35000
+        },
+        {
+          "date": "2022-11-01",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 100000
+        },
+        {
+          "date": "2023-12-02",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 38000
+        },
+        {
+          "date": "2024-01-03",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 195000
+        },
+        {
+          "date": "2025-02-04",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 240000
+        }
+      ],
+      "sellerId": "user-003",
+      "isPremium": false,
+      "createdAt": "2024-10-10T10:00:00Z"
+    },
+    {
+      "id": "car-010",
+      "brand": "Honda",
+      "model": "Pilot",
+      "year": 2024,
+      "price": 15133330,
+      "currency": "CRC",
+      "mileage": 0,
+      "condition": "new",
+      "transmission": "automatic",
+      "fuel": "electric",
+      "location": "Cartago",
+      "description": "Honda Pilot 2024. Vehículo nuevo de agencia, garantía de fábrica. Ubicado en Cartago.",
+      "images": [
+        "https://picsum.photos/seed/car-010-1/800/600",
+        "https://picsum.photos/seed/car-010-2/800/600",
+        "https://picsum.photos/seed/car-010-3/800/600"
+      ],
+      "maintenance": [],
+      "sellerId": "user-001",
+      "isPremium": true,
+      "createdAt": "2024-11-11T10:00:00Z"
+    },
+    {
+      "id": "car-011",
+      "brand": "Nissan",
+      "model": "Sentra",
+      "year": 2011,
+      "price": 15846663,
+      "currency": "CRC",
+      "mileage": 33817,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "hybrid",
+      "location": "Guanacaste",
+      "description": "Nissan Sentra 2011. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Guanacaste.",
+      "images": [
+        "https://picsum.photos/seed/car-011-1/800/600",
+        "https://picsum.photos/seed/car-011-2/800/600",
+        "https://picsum.photos/seed/car-011-3/800/600",
+        "https://picsum.photos/seed/car-011-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2011-12-06",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 28000
+        },
+        {
+          "date": "2012-01-07",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 185000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-12-12T10:00:00Z"
+    },
+    {
+      "id": "car-012",
+      "brand": "Nissan",
+      "model": "X-Trail",
+      "year": 2014,
+      "price": 16559996,
+      "currency": "CRC",
+      "mileage": 36164,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "gasoline",
+      "location": "Puntarenas",
+      "description": "Nissan X-Trail 2014. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Puntarenas.",
+      "images": [
+        "https://picsum.photos/seed/car-012-1/800/600",
+        "https://picsum.photos/seed/car-012-2/800/600",
+        "https://picsum.photos/seed/car-012-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2014-01-09",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 180000
+        },
+        {
+          "date": "2015-02-10",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 225000
+        },
+        {
+          "date": "2016-03-11",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 55000
+        }
+      ],
+      "sellerId": "user-002",
+      "isPremium": false,
+      "createdAt": "2024-01-13T10:00:00Z"
+    },
+    {
+      "id": "car-013",
+      "brand": "Nissan",
+      "model": "Frontier",
+      "year": 2017,
+      "price": 17273329,
+      "currency": "CRC",
+      "mileage": 38511,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "diesel",
+      "location": "Limón",
+      "description": "Nissan Frontier 2017. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Limón.",
+      "images": [
+        "https://picsum.photos/seed/car-013-1/800/600",
+        "https://picsum.photos/seed/car-013-2/800/600",
+        "https://picsum.photos/seed/car-013-3/800/600",
+        "https://picsum.photos/seed/car-013-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2017-02-12",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 220000
+        },
+        {
+          "date": "2018-03-13",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 50000
+        },
+        {
+          "date": "2019-04-14",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 95000
+        },
+        {
+          "date": "2020-05-15",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 50000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-02-14T10:00:00Z"
+    },
+    {
+      "id": "car-014",
+      "brand": "Nissan",
+      "model": "Versa",
+      "year": 2020,
+      "price": 24838,
+      "currency": "USD",
+      "mileage": 40858,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "electric",
+      "location": "San José",
+      "description": "Nissan Versa 2020. Único dueño, mantenimientos al día, excelente estado general. Ubicado en San José.",
+      "images": [
+        "https://picsum.photos/seed/car-014-1/800/600",
+        "https://picsum.photos/seed/car-014-2/800/600",
+        "https://picsum.photos/seed/car-014-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2020-03-15",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 45000
+        },
+        {
+          "date": "2021-04-16",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 90000
+        },
+        {
+          "date": "2022-05-17",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 45000
+        },
+        {
+          "date": "2023-06-18",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 110000
+        },
+        {
+          "date": "2024-07-19",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 48000
+        }
+      ],
+      "sellerId": "user-003",
+      "isPremium": true,
+      "createdAt": "2024-03-15T10:00:00Z"
+    },
+    {
+      "id": "car-015",
+      "brand": "Nissan",
+      "model": "Kicks",
+      "year": 2023,
+      "price": 18699995,
+      "currency": "CRC",
+      "mileage": 43205,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "hybrid",
+      "location": "Alajuela",
+      "description": "Nissan Kicks 2023. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
+      "images": [
+        "https://picsum.photos/seed/car-015-1/800/600",
+        "https://picsum.photos/seed/car-015-2/800/600",
+        "https://picsum.photos/seed/car-015-3/800/600",
+        "https://picsum.photos/seed/car-015-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2023-04-18",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 85000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": true,
+      "createdAt": "2024-04-16T10:00:00Z"
+    },
+    {
+      "id": "car-016",
+      "brand": "Hyundai",
+      "model": "Tucson",
+      "year": 2010,
+      "price": 19413328,
+      "currency": "CRC",
+      "mileage": 45552,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "gasoline",
+      "location": "Heredia",
+      "description": "Hyundai Tucson 2010. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Heredia.",
+      "images": [
+        "https://picsum.photos/seed/car-016-1/800/600",
+        "https://picsum.photos/seed/car-016-2/800/600",
+        "https://picsum.photos/seed/car-016-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2010-05-21",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 35000
+        },
+        {
+          "date": "2011-06-22",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 100000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-05-17T10:00:00Z"
+    },
+    {
+      "id": "car-017",
+      "brand": "Hyundai",
+      "model": "Elantra",
+      "year": 2013,
+      "price": 20126661,
+      "currency": "CRC",
+      "mileage": 47899,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "diesel",
+      "location": "Cartago",
+      "description": "Hyundai Elantra 2013. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Cartago.",
+      "images": [
+        "https://picsum.photos/seed/car-017-1/800/600",
+        "https://picsum.photos/seed/car-017-2/800/600",
+        "https://picsum.photos/seed/car-017-3/800/600",
+        "https://picsum.photos/seed/car-017-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2013-06-24",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 95000
+        },
+        {
+          "date": "2014-07-25",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 33000
+        },
+        {
+          "date": "2015-08-26",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 190000
+        }
+      ],
+      "sellerId": "user-002",
+      "isPremium": false,
+      "createdAt": "2024-06-18T10:00:00Z"
+    },
+    {
+      "id": "car-018",
+      "brand": "Hyundai",
+      "model": "Santa Fe",
+      "year": 2016,
+      "price": 20839994,
+      "currency": "CRC",
+      "mileage": 50246,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "electric",
+      "location": "Guanacaste",
+      "description": "Hyundai Santa Fe 2016. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Guanacaste.",
+      "images": [
+        "https://picsum.photos/seed/car-018-1/800/600",
+        "https://picsum.photos/seed/car-018-2/800/600",
+        "https://picsum.photos/seed/car-018-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2016-07-27",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 28000
+        },
+        {
+          "date": "2017-08-28",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 185000
+        },
+        {
+          "date": "2018-09-01",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 230000
+        },
+        {
+          "date": "2019-10-02",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 60000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-07-19T10:00:00Z"
+    },
+    {
+      "id": "car-019",
+      "brand": "Hyundai",
+      "model": "Creta",
+      "year": 2019,
+      "price": 21553327,
+      "currency": "CRC",
+      "mileage": 52593,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "hybrid",
+      "location": "Puntarenas",
+      "description": "Hyundai Creta 2019. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Puntarenas.",
+      "images": [
+        "https://picsum.photos/seed/car-019-1/800/600",
+        "https://picsum.photos/seed/car-019-2/800/600",
+        "https://picsum.photos/seed/car-019-3/800/600",
+        "https://picsum.photos/seed/car-019-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2019-08-02",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 180000
+        },
+        {
+          "date": "2020-09-03",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 225000
+        },
+        {
+          "date": "2021-10-04",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 55000
+        },
+        {
+          "date": "2022-11-05",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 100000
+        },
+        {
+          "date": "2023-12-06",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 55000
+        }
+      ],
+      "sellerId": "user-003",
+      "isPremium": false,
+      "createdAt": "2024-08-20T10:00:00Z"
+    },
+    {
+      "id": "car-020",
+      "brand": "Hyundai",
+      "model": "Accent",
+      "year": 2022,
+      "price": 22266660,
+      "currency": "CRC",
+      "mileage": 54940,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "gasoline",
+      "location": "Limón",
+      "description": "Hyundai Accent 2022. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Limón.",
+      "images": [
+        "https://picsum.photos/seed/car-020-1/800/600",
+        "https://picsum.photos/seed/car-020-2/800/600",
+        "https://picsum.photos/seed/car-020-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2022-09-05",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 220000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": true,
+      "createdAt": "2024-09-21T10:00:00Z"
+    },
+    {
+      "id": "car-021",
+      "brand": "Kia",
+      "model": "Sportage",
+      "year": 2025,
+      "price": 31257,
+      "currency": "USD",
+      "mileage": 0,
+      "condition": "new",
+      "transmission": "manual",
+      "fuel": "diesel",
+      "location": "San José",
+      "description": "Kia Sportage 2025. Vehículo nuevo de agencia, garantía de fábrica. Ubicado en San José.",
+      "images": [
+        "https://picsum.photos/seed/car-021-1/800/600",
+        "https://picsum.photos/seed/car-021-2/800/600",
+        "https://picsum.photos/seed/car-021-3/800/600",
+        "https://picsum.photos/seed/car-021-4/800/600"
+      ],
+      "maintenance": [],
+      "sellerId": "user-001",
+      "isPremium": true,
+      "createdAt": "2024-10-22T10:00:00Z"
+    },
+    {
+      "id": "car-022",
+      "brand": "Kia",
+      "model": "Rio",
+      "year": 2012,
+      "price": 23693326,
+      "currency": "CRC",
+      "mileage": 59634,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "electric",
+      "location": "Alajuela",
+      "description": "Kia Rio 2012. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
+      "images": [
+        "https://picsum.photos/seed/car-022-1/800/600",
+        "https://picsum.photos/seed/car-022-2/800/600",
+        "https://picsum.photos/seed/car-022-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2012-11-11",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 85000
+        },
+        {
+          "date": "2013-12-12",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 40000
+        },
+        {
+          "date": "2014-01-13",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 105000
+        }
+      ],
+      "sellerId": "user-002",
+      "isPremium": false,
+      "createdAt": "2024-11-23T10:00:00Z"
+    },
+    {
+      "id": "car-023",
+      "brand": "Kia",
+      "model": "Sorento",
+      "year": 2015,
+      "price": 24406659,
+      "currency": "CRC",
+      "mileage": 61981,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "hybrid",
+      "location": "Heredia",
+      "description": "Kia Sorento 2015. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Heredia.",
+      "images": [
+        "https://picsum.photos/seed/car-023-1/800/600",
+        "https://picsum.photos/seed/car-023-2/800/600",
+        "https://picsum.photos/seed/car-023-3/800/600",
+        "https://picsum.photos/seed/car-023-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2015-12-14",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 35000
+        },
+        {
+          "date": "2016-01-15",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 100000
+        },
+        {
+          "date": "2017-02-16",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 38000
+        },
+        {
+          "date": "2018-03-17",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 195000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-12-24T10:00:00Z"
+    },
+    {
+      "id": "car-024",
+      "brand": "Kia",
+      "model": "Seltos",
+      "year": 2018,
+      "price": 25119992,
+      "currency": "CRC",
+      "mileage": 64328,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "gasoline",
+      "location": "Cartago",
+      "description": "Kia Seltos 2018. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Cartago.",
+      "images": [
+        "https://picsum.photos/seed/car-024-1/800/600",
+        "https://picsum.photos/seed/car-024-2/800/600",
+        "https://picsum.photos/seed/car-024-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2018-01-17",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 95000
+        },
+        {
+          "date": "2019-02-18",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 33000
+        },
+        {
+          "date": "2020-03-19",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 190000
+        },
+        {
+          "date": "2021-04-20",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 235000
+        },
+        {
+          "date": "2022-05-21",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 65000
+        }
+      ],
+      "sellerId": "user-003",
+      "isPremium": false,
+      "createdAt": "2024-01-25T10:00:00Z"
+    },
+    {
+      "id": "car-025",
+      "brand": "Kia",
+      "model": "Forte",
+      "year": 2021,
+      "price": 25833325,
+      "currency": "CRC",
+      "mileage": 66675,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "diesel",
+      "location": "Guanacaste",
+      "description": "Kia Forte 2021. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Guanacaste.",
+      "images": [
+        "https://picsum.photos/seed/car-025-1/800/600",
+        "https://picsum.photos/seed/car-025-2/800/600",
+        "https://picsum.photos/seed/car-025-3/800/600",
+        "https://picsum.photos/seed/car-025-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2021-02-20",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 28000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": true,
+      "createdAt": "2024-02-26T10:00:00Z"
+    },
+    {
+      "id": "car-026",
+      "brand": "Suzuki",
+      "model": "Swift",
+      "year": 2024,
+      "price": 26546658,
+      "currency": "CRC",
+      "mileage": 69022,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "electric",
+      "location": "Puntarenas",
+      "description": "Suzuki Swift 2024. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Puntarenas.",
+      "images": [
+        "https://picsum.photos/seed/car-026-1/800/600",
+        "https://picsum.photos/seed/car-026-2/800/600",
+        "https://picsum.photos/seed/car-026-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2024-03-23",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 180000
+        },
+        {
+          "date": "2025-04-24",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 225000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-03-27T10:00:00Z"
+    },
+    {
+      "id": "car-027",
+      "brand": "Suzuki",
+      "model": "Vitara",
+      "year": 2011,
+      "price": 27259991,
+      "currency": "CRC",
+      "mileage": 71369,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "hybrid",
+      "location": "Limón",
+      "description": "Suzuki Vitara 2011. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Limón.",
+      "images": [
+        "https://picsum.photos/seed/car-027-1/800/600",
+        "https://picsum.photos/seed/car-027-2/800/600",
+        "https://picsum.photos/seed/car-027-3/800/600",
+        "https://picsum.photos/seed/car-027-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2011-04-26",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 220000
+        },
+        {
+          "date": "2012-05-27",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 50000
+        },
+        {
+          "date": "2013-06-28",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 95000
+        }
+      ],
+      "sellerId": "user-002",
+      "isPremium": false,
+      "createdAt": "2024-04-28T10:00:00Z"
+    },
+    {
+      "id": "car-028",
+      "brand": "Suzuki",
+      "model": "Jimny",
+      "year": 2014,
+      "price": 37676,
+      "currency": "USD",
+      "mileage": 73716,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "gasoline",
+      "location": "San José",
+      "description": "Suzuki Jimny 2014. Único dueño, mantenimientos al día, excelente estado general. Ubicado en San José.",
+      "images": [
+        "https://picsum.photos/seed/car-028-1/800/600",
+        "https://picsum.photos/seed/car-028-2/800/600",
+        "https://picsum.photos/seed/car-028-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2014-05-01",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 45000
+        },
+        {
+          "date": "2015-06-02",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 90000
+        },
+        {
+          "date": "2016-07-03",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 45000
+        },
+        {
+          "date": "2017-08-04",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 110000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": true,
+      "createdAt": "2024-05-01T10:00:00Z"
+    },
+    {
+      "id": "car-029",
+      "brand": "Suzuki",
+      "model": "Baleno",
+      "year": 2017,
+      "price": 28686657,
+      "currency": "CRC",
+      "mileage": 76063,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "diesel",
+      "location": "Alajuela",
+      "description": "Suzuki Baleno 2017. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
+      "images": [
+        "https://picsum.photos/seed/car-029-1/800/600",
+        "https://picsum.photos/seed/car-029-2/800/600",
+        "https://picsum.photos/seed/car-029-3/800/600",
+        "https://picsum.photos/seed/car-029-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2017-06-04",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 85000
+        },
+        {
+          "date": "2018-07-05",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 40000
+        },
+        {
+          "date": "2019-08-06",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 105000
+        },
+        {
+          "date": "2020-09-07",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 43000
+        },
+        {
+          "date": "2021-10-08",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 200000
+        }
+      ],
+      "sellerId": "user-003",
+      "isPremium": false,
+      "createdAt": "2024-06-02T10:00:00Z"
+    },
+    {
+      "id": "car-030",
+      "brand": "Suzuki",
+      "model": "SX4",
+      "year": 2020,
+      "price": 29399990,
+      "currency": "CRC",
+      "mileage": 78410,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "electric",
+      "location": "Heredia",
+      "description": "Suzuki SX4 2020. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Heredia.",
+      "images": [
+        "https://picsum.photos/seed/car-030-1/800/600",
+        "https://picsum.photos/seed/car-030-2/800/600",
+        "https://picsum.photos/seed/car-030-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2020-07-07",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 35000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": true,
+      "createdAt": "2024-07-03T10:00:00Z"
+    },
+    {
+      "id": "car-031",
+      "brand": "Mitsubishi",
+      "model": "L200",
+      "year": 2023,
+      "price": 30113323,
+      "currency": "CRC",
+      "mileage": 0,
+      "condition": "new",
+      "transmission": "manual",
+      "fuel": "hybrid",
+      "location": "Cartago",
+      "description": "Mitsubishi L200 2023. Vehículo nuevo de agencia, garantía de fábrica. Ubicado en Cartago.",
+      "images": [
+        "https://picsum.photos/seed/car-031-1/800/600",
+        "https://picsum.photos/seed/car-031-2/800/600",
+        "https://picsum.photos/seed/car-031-3/800/600",
+        "https://picsum.photos/seed/car-031-4/800/600"
+      ],
+      "maintenance": [],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-08-04T10:00:00Z"
+    },
+    {
+      "id": "car-032",
+      "brand": "Mitsubishi",
+      "model": "Outlander",
+      "year": 2010,
+      "price": 30826656,
+      "currency": "CRC",
+      "mileage": 83104,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "gasoline",
+      "location": "Guanacaste",
+      "description": "Mitsubishi Outlander 2010. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Guanacaste.",
+      "images": [
+        "https://picsum.photos/seed/car-032-1/800/600",
+        "https://picsum.photos/seed/car-032-2/800/600",
+        "https://picsum.photos/seed/car-032-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2010-09-13",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 28000
+        },
+        {
+          "date": "2011-10-14",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 185000
+        },
+        {
+          "date": "2012-11-15",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 230000
+        }
+      ],
+      "sellerId": "user-002",
+      "isPremium": false,
+      "createdAt": "2024-09-05T10:00:00Z"
+    },
+    {
+      "id": "car-033",
+      "brand": "Mitsubishi",
+      "model": "Montero",
+      "year": 2013,
+      "price": 31539989,
+      "currency": "CRC",
+      "mileage": 85451,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "diesel",
+      "location": "Puntarenas",
+      "description": "Mitsubishi Montero 2013. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Puntarenas.",
+      "images": [
+        "https://picsum.photos/seed/car-033-1/800/600",
+        "https://picsum.photos/seed/car-033-2/800/600",
+        "https://picsum.photos/seed/car-033-3/800/600",
+        "https://picsum.photos/seed/car-033-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2013-10-16",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 180000
+        },
+        {
+          "date": "2014-11-17",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 225000
+        },
+        {
+          "date": "2015-12-18",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 55000
+        },
+        {
+          "date": "2016-01-19",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 100000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-10-06T10:00:00Z"
+    },
+    {
+      "id": "car-034",
+      "brand": "Mitsubishi",
+      "model": "ASX",
+      "year": 2016,
+      "price": 32253322,
+      "currency": "CRC",
+      "mileage": 87798,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "electric",
+      "location": "Limón",
+      "description": "Mitsubishi ASX 2016. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Limón.",
+      "images": [
+        "https://picsum.photos/seed/car-034-1/800/600",
+        "https://picsum.photos/seed/car-034-2/800/600",
+        "https://picsum.photos/seed/car-034-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2016-11-19",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 220000
+        },
+        {
+          "date": "2017-12-20",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 50000
+        },
+        {
+          "date": "2018-01-21",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 95000
+        },
+        {
+          "date": "2019-02-22",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 50000
+        },
+        {
+          "date": "2020-03-23",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 115000
+        }
+      ],
+      "sellerId": "user-003",
+      "isPremium": false,
+      "createdAt": "2024-11-07T10:00:00Z"
+    },
+    {
+      "id": "car-035",
+      "brand": "Mitsubishi",
+      "model": "Mirage",
+      "year": 2019,
+      "price": 44095,
+      "currency": "USD",
+      "mileage": 90145,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "hybrid",
+      "location": "San José",
+      "description": "Mitsubishi Mirage 2019. Único dueño, mantenimientos al día, excelente estado general. Ubicado en San José.",
+      "images": [
+        "https://picsum.photos/seed/car-035-1/800/600",
+        "https://picsum.photos/seed/car-035-2/800/600",
+        "https://picsum.photos/seed/car-035-3/800/600",
+        "https://picsum.photos/seed/car-035-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2019-12-22",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 45000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": true,
+      "createdAt": "2024-12-08T10:00:00Z"
+    },
+    {
+      "id": "car-036",
+      "brand": "Mazda",
+      "model": "CX-5",
+      "year": 2022,
+      "price": 33679988,
+      "currency": "CRC",
+      "mileage": 92492,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "gasoline",
+      "location": "Alajuela",
+      "description": "Mazda CX-5 2022. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
+      "images": [
+        "https://picsum.photos/seed/car-036-1/800/600",
+        "https://picsum.photos/seed/car-036-2/800/600",
+        "https://picsum.photos/seed/car-036-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2022-01-25",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 85000
+        },
+        {
+          "date": "2023-02-26",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 40000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-01-09T10:00:00Z"
+    },
+    {
+      "id": "car-037",
+      "brand": "Mazda",
+      "model": "Mazda3",
+      "year": 2025,
+      "price": 34393321,
+      "currency": "CRC",
+      "mileage": 94839,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "diesel",
+      "location": "Heredia",
+      "description": "Mazda Mazda3 2025. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Heredia.",
+      "images": [
+        "https://picsum.photos/seed/car-037-1/800/600",
+        "https://picsum.photos/seed/car-037-2/800/600",
+        "https://picsum.photos/seed/car-037-3/800/600",
+        "https://picsum.photos/seed/car-037-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2025-02-28",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 35000
+        },
+        {
+          "date": "2025-03-01",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 100000
+        },
+        {
+          "date": "2025-04-02",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 38000
+        }
+      ],
+      "sellerId": "user-002",
+      "isPremium": false,
+      "createdAt": "2024-02-10T10:00:00Z"
+    },
+    {
+      "id": "car-038",
+      "brand": "Mazda",
+      "model": "CX-30",
+      "year": 2012,
+      "price": 35106654,
+      "currency": "CRC",
+      "mileage": 97186,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "electric",
+      "location": "Cartago",
+      "description": "Mazda CX-30 2012. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Cartago.",
+      "images": [
+        "https://picsum.photos/seed/car-038-1/800/600",
+        "https://picsum.photos/seed/car-038-2/800/600",
+        "https://picsum.photos/seed/car-038-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2012-03-03",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 95000
+        },
+        {
+          "date": "2013-04-04",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 33000
+        },
+        {
+          "date": "2014-05-05",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 190000
+        },
+        {
+          "date": "2015-06-06",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 235000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-03-11T10:00:00Z"
+    },
+    {
+      "id": "car-039",
+      "brand": "Mazda",
+      "model": "CX-9",
+      "year": 2015,
+      "price": 35819987,
+      "currency": "CRC",
+      "mileage": 99533,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "hybrid",
+      "location": "Guanacaste",
+      "description": "Mazda CX-9 2015. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Guanacaste.",
+      "images": [
+        "https://picsum.photos/seed/car-039-1/800/600",
+        "https://picsum.photos/seed/car-039-2/800/600",
+        "https://picsum.photos/seed/car-039-3/800/600",
+        "https://picsum.photos/seed/car-039-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2015-04-06",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 28000
+        },
+        {
+          "date": "2016-05-07",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 185000
+        },
+        {
+          "date": "2017-06-08",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 230000
+        },
+        {
+          "date": "2018-07-09",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 60000
+        },
+        {
+          "date": "2019-08-10",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 105000
+        }
+      ],
+      "sellerId": "user-003",
+      "isPremium": false,
+      "createdAt": "2024-04-12T10:00:00Z"
+    },
+    {
+      "id": "car-040",
+      "brand": "Mazda",
+      "model": "Mazda6",
+      "year": 2018,
+      "price": 36533320,
+      "currency": "CRC",
+      "mileage": 101880,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "gasoline",
+      "location": "Puntarenas",
+      "description": "Mazda Mazda6 2018. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Puntarenas.",
+      "images": [
+        "https://picsum.photos/seed/car-040-1/800/600",
+        "https://picsum.photos/seed/car-040-2/800/600",
+        "https://picsum.photos/seed/car-040-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2018-05-09",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 180000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": true,
+      "createdAt": "2024-05-13T10:00:00Z"
+    },
+    {
+      "id": "car-041",
+      "brand": "Ford",
+      "model": "Ranger",
+      "year": 2021,
+      "price": 37246653,
+      "currency": "CRC",
+      "mileage": 104227,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "diesel",
+      "location": "Limón",
+      "description": "Ford Ranger 2021. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Limón.",
+      "images": [
+        "https://picsum.photos/seed/car-041-1/800/600",
+        "https://picsum.photos/seed/car-041-2/800/600",
+        "https://picsum.photos/seed/car-041-3/800/600",
+        "https://picsum.photos/seed/car-041-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2021-06-12",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 220000
+        },
+        {
+          "date": "2022-07-13",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 50000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-06-14T10:00:00Z"
+    },
+    {
+      "id": "car-042",
+      "brand": "Ford",
+      "model": "Escape",
+      "year": 2024,
+      "price": 12514,
+      "currency": "USD",
+      "mileage": 0,
+      "condition": "new",
+      "transmission": "automatic",
+      "fuel": "electric",
+      "location": "San José",
+      "description": "Ford Escape 2024. Vehículo nuevo de agencia, garantía de fábrica. Ubicado en San José.",
+      "images": [
+        "https://picsum.photos/seed/car-042-1/800/600",
+        "https://picsum.photos/seed/car-042-2/800/600",
+        "https://picsum.photos/seed/car-042-3/800/600"
+      ],
+      "maintenance": [],
+      "sellerId": "user-002",
+      "isPremium": true,
+      "createdAt": "2024-07-15T10:00:00Z"
+    },
+    {
+      "id": "car-043",
+      "brand": "Ford",
+      "model": "Explorer",
+      "year": 2011,
+      "price": 38673319,
+      "currency": "CRC",
+      "mileage": 108921,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "hybrid",
+      "location": "Alajuela",
+      "description": "Ford Explorer 2011. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
+      "images": [
+        "https://picsum.photos/seed/car-043-1/800/600",
+        "https://picsum.photos/seed/car-043-2/800/600",
+        "https://picsum.photos/seed/car-043-3/800/600",
+        "https://picsum.photos/seed/car-043-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2011-08-18",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 85000
+        },
+        {
+          "date": "2012-09-19",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 40000
+        },
+        {
+          "date": "2013-10-20",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 105000
+        },
+        {
+          "date": "2014-11-21",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 43000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-08-16T10:00:00Z"
+    },
+    {
+      "id": "car-044",
+      "brand": "Ford",
+      "model": "Mustang",
+      "year": 2014,
+      "price": 39386652,
+      "currency": "CRC",
+      "mileage": 111268,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "gasoline",
+      "location": "Heredia",
+      "description": "Ford Mustang 2014. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Heredia.",
+      "images": [
+        "https://picsum.photos/seed/car-044-1/800/600",
+        "https://picsum.photos/seed/car-044-2/800/600",
+        "https://picsum.photos/seed/car-044-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2014-09-21",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 35000
+        },
+        {
+          "date": "2015-10-22",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 100000
+        },
+        {
+          "date": "2016-11-23",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 38000
+        },
+        {
+          "date": "2017-12-24",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 195000
+        },
+        {
+          "date": "2018-01-25",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 240000
+        }
+      ],
+      "sellerId": "user-003",
+      "isPremium": false,
+      "createdAt": "2024-09-17T10:00:00Z"
+    },
+    {
+      "id": "car-045",
+      "brand": "Ford",
+      "model": "F-150",
+      "year": 2017,
+      "price": 40099985,
+      "currency": "CRC",
+      "mileage": 113615,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "diesel",
+      "location": "Cartago",
+      "description": "Ford F-150 2017. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Cartago.",
+      "images": [
+        "https://picsum.photos/seed/car-045-1/800/600",
+        "https://picsum.photos/seed/car-045-2/800/600",
+        "https://picsum.photos/seed/car-045-3/800/600",
+        "https://picsum.photos/seed/car-045-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2017-10-24",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 95000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": true,
+      "createdAt": "2024-10-18T10:00:00Z"
+    },
+    {
+      "id": "car-046",
+      "brand": "Chevrolet",
+      "model": "Spark",
+      "year": 2020,
+      "price": 40813318,
+      "currency": "CRC",
+      "mileage": 115962,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "electric",
+      "location": "Guanacaste",
+      "description": "Chevrolet Spark 2020. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Guanacaste.",
+      "images": [
+        "https://picsum.photos/seed/car-046-1/800/600",
+        "https://picsum.photos/seed/car-046-2/800/600",
+        "https://picsum.photos/seed/car-046-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2020-11-27",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 28000
+        },
+        {
+          "date": "2021-12-28",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 185000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-11-19T10:00:00Z"
+    },
+    {
+      "id": "car-047",
+      "brand": "Chevrolet",
+      "model": "Tracker",
+      "year": 2023,
+      "price": 41526651,
+      "currency": "CRC",
+      "mileage": 118309,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "hybrid",
+      "location": "Puntarenas",
+      "description": "Chevrolet Tracker 2023. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Puntarenas.",
+      "images": [
+        "https://picsum.photos/seed/car-047-1/800/600",
+        "https://picsum.photos/seed/car-047-2/800/600",
+        "https://picsum.photos/seed/car-047-3/800/600",
+        "https://picsum.photos/seed/car-047-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2023-12-02",
+          "type": "Suspensión",
+          "description": "Amortiguadores delanteros",
+          "cost": 180000
+        },
+        {
+          "date": "2024-01-03",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 225000
+        },
+        {
+          "date": "2025-02-04",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 55000
+        }
+      ],
+      "sellerId": "user-002",
+      "isPremium": false,
+      "createdAt": "2024-12-20T10:00:00Z"
+    },
+    {
+      "id": "car-048",
+      "brand": "Chevrolet",
+      "model": "Tahoe",
+      "year": 2010,
+      "price": 42239984,
+      "currency": "CRC",
+      "mileage": 120656,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "gasoline",
+      "location": "Limón",
+      "description": "Chevrolet Tahoe 2010. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Limón.",
+      "images": [
+        "https://picsum.photos/seed/car-048-1/800/600",
+        "https://picsum.photos/seed/car-048-2/800/600",
+        "https://picsum.photos/seed/car-048-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2010-01-05",
+          "type": "Correa de distribución",
+          "description": "Kit completo",
+          "cost": 220000
+        },
+        {
+          "date": "2011-02-06",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 50000
+        },
+        {
+          "date": "2012-03-07",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 95000
+        },
+        {
+          "date": "2013-04-08",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 50000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": false,
+      "createdAt": "2024-01-21T10:00:00Z"
+    },
+    {
+      "id": "car-049",
+      "brand": "Chevrolet",
+      "model": "Silverado",
+      "year": 2013,
+      "price": 18933,
+      "currency": "USD",
+      "mileage": 123003,
+      "condition": "used",
+      "transmission": "manual",
+      "fuel": "diesel",
+      "location": "San José",
+      "description": "Chevrolet Silverado 2013. Único dueño, mantenimientos al día, excelente estado general. Ubicado en San José.",
+      "images": [
+        "https://picsum.photos/seed/car-049-1/800/600",
+        "https://picsum.photos/seed/car-049-2/800/600",
+        "https://picsum.photos/seed/car-049-3/800/600",
+        "https://picsum.photos/seed/car-049-4/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2013-02-08",
+          "type": "Cambio de aceite",
+          "description": "Aceite sintético 5W-30",
+          "cost": 45000
+        },
+        {
+          "date": "2014-03-09",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 90000
+        },
+        {
+          "date": "2015-04-10",
+          "type": "Alineación",
+          "description": "Alineación y balanceo",
+          "cost": 45000
+        },
+        {
+          "date": "2016-05-11",
+          "type": "Batería",
+          "description": "Cambio de batería",
+          "cost": 110000
+        },
+        {
+          "date": "2017-06-12",
+          "type": "Filtros",
+          "description": "Filtro de aire y cabina",
+          "cost": 48000
+        }
+      ],
+      "sellerId": "user-003",
+      "isPremium": true,
+      "createdAt": "2024-02-22T10:00:00Z"
+    },
+    {
+      "id": "car-050",
+      "brand": "Chevrolet",
+      "model": "Equinox",
+      "year": 2016,
+      "price": 43666650,
+      "currency": "CRC",
+      "mileage": 125350,
+      "condition": "used",
+      "transmission": "automatic",
+      "fuel": "electric",
+      "location": "Alajuela",
+      "description": "Chevrolet Equinox 2016. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
+      "images": [
+        "https://picsum.photos/seed/car-050-1/800/600",
+        "https://picsum.photos/seed/car-050-2/800/600",
+        "https://picsum.photos/seed/car-050-3/800/600"
+      ],
+      "maintenance": [
+        {
+          "date": "2016-03-11",
+          "type": "Frenos",
+          "description": "Pastillas delanteras",
+          "cost": 85000
+        }
+      ],
+      "sellerId": "user-001",
+      "isPremium": true,
+      "createdAt": "2024-03-23T10:00:00Z"
+    }
+  ]
+}

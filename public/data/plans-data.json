@@ -1,0 +1,39 @@
+{
+	"title": "Planes de suscripción",
+	"subtitle": "Elige el plan ideal para vender tu vehículo en Costa Rica",
+	"plans": [
+		{
+			"id": "free",
+			"name": "Gratis",
+			"price": 0,
+			"currency": "CRC",
+			"period": "siempre",
+			"badge": null,
+			"features": [
+				"1 vehículo activo",
+				"Publicación básica",
+				"Sin badge destacado",
+				"Soporte por email"
+			],
+			"cta": "Empezar gratis",
+			"ctaHref": "./registro.html"
+		},
+		{
+			"id": "premium",
+			"name": "Premium",
+			"price": 5000,
+			"currency": "CRC",
+			"period": "mes",
+			"badge": "Recomendado",
+			"features": [
+				"Vehículos ilimitados",
+				"Badge Premium dorado",
+				"Aparece en destacados del home",
+				"Mayor visibilidad en listados",
+				"Soporte prioritario"
+			],
+			"cta": "Elegir Premium",
+			"ctaHref": "./suscripcion.html"
+		}
+	]
+}

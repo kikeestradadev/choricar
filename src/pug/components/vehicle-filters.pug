@@ -1,0 +1,76 @@
+aside(
+	class='vehicle-filters'
+	data-filters-root
+	aria-label=filtersData.title
+)
+	div(class='vehicle-filters__head')
+		h2(class='vehicle-filters__title')= filtersData.title
+		button(
+			class='vehicle-filters__toggle'
+			type='button'
+			aria-expanded='false'
+			aria-controls='vehicle-filters-panel'
+		)= filtersData.labels.toggle
+	form(class='vehicle-filters__form' id='vehicle-filters-panel')
+		div(class='vehicle-filters__group')
+			label(class='vehicle-filters__label' for='filter-brand')= filtersData.labels.brand
+			select(class='vehicle-filters__select' id='filter-brand' name='brand')
+				option(value='')= filtersData.labels.all
+				each brand in filtersData.brands
+					option(value=brand)= brand
+		div(class='vehicle-filters__group')
+			label(class='vehicle-filters__label' for='filter-model')= filtersData.labels.model
+			select(class='vehicle-filters__select' id='filter-model' name='model')
+				option(value='')= filtersData.labels.all
+		div(class='vehicle-filters__row')
+			div(class='vehicle-filters__group')
+				label(class='vehicle-filters__label' for='filter-year-min')= filtersData.labels.yearMin
+				select(class='vehicle-filters__select' id='filter-year-min' name='yearMin')
+					option(value='')= filtersData.labels.all
+					each year in filtersData.years
+						option(value=year)= year
+			div(class='vehicle-filters__group')
+				label(class='vehicle-filters__label' for='filter-year-max')= filtersData.labels.yearMax
+				select(class='vehicle-filters__select' id='filter-year-max' name='yearMax')
+					option(value='')= filtersData.labels.all
+					each year in filtersData.years
+						option(value=year)= year
+		div(class='vehicle-filters__row')
+			div(class='vehicle-filters__group')
+				label(class='vehicle-filters__label' for='filter-price-min')= filtersData.labels.priceMin
+				input(class='vehicle-filters__input' id='filter-price-min' type='number' name='priceMin' min='0' placeholder='0')
+			div(class='vehicle-filters__group')
+				label(class='vehicle-filters__label' for='filter-price-max')= filtersData.labels.priceMax
+				input(class='vehicle-filters__input' id='filter-price-max' type='number' name='priceMax' min='0' placeholder='45000000')
+		div(class='vehicle-filters__group')
+			label(class='vehicle-filters__label' for='filter-condition')= filtersData.labels.condition
+			select(class='vehicle-filters__select' id='filter-condition' name='condition')
+				option(value='')= filtersData.labels.all
+				each item in filtersData.conditions
+					option(value=item.value)= item.label
+		div(class='vehicle-filters__group')
+			label(class='vehicle-filters__label' for='filter-transmission')= filtersData.labels.transmission
+			select(class='vehicle-filters__select' id='filter-transmission' name='transmission')
+				option(value='')= filtersData.labels.all
+				each item in filtersData.transmissions
+					option(value=item.value)= item.label
+		div(class='vehicle-filters__group')
+			label(class='vehicle-filters__label' for='filter-fuel')= filtersData.labels.fuel
+			select(class='vehicle-filters__select' id='filter-fuel' name='fuel')
+				option(value='')= filtersData.labels.all
+				each item in filtersData.fuels
+					option(value=item.value)= item.label
+		div(class='vehicle-filters__group')
+			label(class='vehicle-filters__label' for='filter-location')= filtersData.labels.location
+			select(class='vehicle-filters__select' id='filter-location' name='location')
+				option(value='')= filtersData.labels.all
+				each location in filtersData.locations
+					option(value=location)= location
+		div(class='vehicle-filters__group')
+			label(class='vehicle-filters__label' for='filter-sort')= filtersData.labels.sort
+			select(class='vehicle-filters__select' id='filter-sort' name='sort')
+				each item in filtersData.sortOptions
+					option(value=item.value)= item.label
+		div(class='vehicle-filters__actions')
+			button(class='vehicle-filters__clear' type='reset')= filtersData.labels.clear
+script(type='application/json' id='filters-models-data-list')!= JSON.stringify(filtersData.modelsByBrand)

@@ -1,0 +1,27 @@
+.dashboard-subscription {
+	&__title {
+		margin: 0 0 0.75rem;
+		font-size: 1.2rem;
+	}
+
+	&__plan {
+		margin: 0 0 1rem;
+		color: var(--color-text-muted);
+	}
+
+	&__link {
+		display: inline-flex;
+		background: var(--color-accent);
+		color: #fff;
+		text-decoration: none;
+		border-radius: var(--radius-btn);
+		padding: 0.65rem 1rem;
+		font-weight: 700;
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				background: var(--color-accent-hover);
+			}
+		}
+	}
+}

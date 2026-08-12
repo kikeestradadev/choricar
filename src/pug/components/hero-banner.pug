@@ -1,0 +1,57 @@
+section(class='hero-banner')
+	div(class='main-container hero-banner__shell')
+		div(class='container hero-banner__container')
+			div(class='hero-banner__slider swiper')
+				div(class='swiper-wrapper')
+					each slide in heroBannerData.slides
+						div(class='swiper-slide hero-banner__slide')
+							img(class='hero-banner__image' src=slide.image alt=slide.alt)
+							div(class='hero-banner__overlay')
+								p(class='hero-banner__eyebrow')= slide.eyebrow
+								h1(class='hero-banner__title')= slide.title
+								p(class='hero-banner__subtitle')= slide.subtitle
+				div(class='swiper-pagination hero-banner__pagination')
+			form(
+				class='hero-banner__search'
+				action=heroBannerData.search.action
+				method='get'
+				role='search'
+				aria-label='Buscador principal'
+			)
+				div(class='hero-banner__field')
+					label(class='hero-banner__label' for='hero-brand')= heroBannerData.search.brandLabel
+					select(class='hero-banner__select' id='hero-brand' name='brand')
+						option(value='')= heroBannerData.search.allLabel
+						each brand in filtersData.brands
+							option(value=brand)= brand
+				div(class='hero-banner__field')
+					label(class='hero-banner__label' for='hero-model')= heroBannerData.search.modelLabel
+					select(class='hero-banner__select' id='hero-model' name='model')
+						option(value='')= heroBannerData.search.allLabel
+				div(class='hero-banner__field')
+					label(class='hero-banner__label' for='hero-year')= heroBannerData.search.yearLabel
+					select(class='hero-banner__select' id='hero-year' name='yearMin')
+						option(value='')= heroBannerData.search.allLabel
+						each year in filtersData.years
+							option(value=year)= year
+				button(class='hero-banner__submit' type='submit')= heroBannerData.search.buttonLabel
+script(type='application/json' id='filters-models-data')!= JSON.stringify(filtersData.modelsByBrand)
+section(class='hero-banner-how')
+	div(class='main-container hero-banner-how__shell')
+		div(class='container hero-banner-how__container')
+			h2(class='hero-banner-how__title')= heroBannerData.howItWorks.title
+			div(class='hero-banner-how__steps')
+				each step in heroBannerData.howItWorks.steps
+					article(class='hero-banner-how__step')
+						span(class='hero-banner-how__number' aria-hidden='true')= step.number
+						h3(class='hero-banner-how__step-title')= step.title
+						p(class='hero-banner-how__step-text')= step.text
+section(class='featured-vehicles' data-featured-root)
+	div(class='main-container featured-vehicles__shell')
+		div(class='container featured-vehicles__container')
+			div(class='featured-vehicles__head')
+				div(class='featured-vehicles__titles')
+					h2(class='featured-vehicles__title')= heroBannerData.featured.title
+					p(class='featured-vehicles__subtitle')= heroBannerData.featured.subtitle
+				a(class='featured-vehicles__cta' href=heroBannerData.featured.ctaHref)= heroBannerData.featured.cta
+			div(class='featured-vehicles__grid' aria-live='polite')

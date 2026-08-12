@@ -1,0 +1,18 @@
+{
+	"logo": "Choricar",
+	"logoHref": "./index.html",
+	"searchPlaceholder": "Buscar marca, modelo…",
+	"searchHref": "./vehiculos.html",
+	"nav": [
+		{ "label": "Explorar", "href": "./vehiculos.html" },
+		{ "label": "Vender", "href": "./agregar-vehiculo.html" },
+		{ "label": "Planes", "href": "./suscripcion.html" },
+		{ "label": "Dashboard", "href": "./dashboard.html" }
+	],
+	"loginLabel": "Iniciar sesión",
+	"loginHref": "./login.html",
+	"registerLabel": "Registrarse",
+	"registerHref": "./registro.html",
+	"logoutLabel": "Cerrar sesión",
+	"menuToggleLabel": "Abrir menú"
+}

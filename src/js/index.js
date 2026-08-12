@@ -2,13 +2,40 @@ import internalModule from './modules/internalModule';
 import styleGuideContainer from './modules/styleGuideContainer';
 import personaGrid from './modules/personaGrid';
 import tutorGrid from './modules/tutorGrid';
+import mainHeader, { ensureStore } from './modules/mainHeader';
+import heroSlider from './modules/heroSlider';
+import featuredVehicles from './modules/featuredVehicles';
+import vehicleGrid from './modules/vehicleGrid';
+import vehicleFilters from './modules/vehicleFilters';
+import vehicleDetail from './modules/vehicleDetail';
+import vehicleGallerySlider from './modules/vehicleGallerySlider';
+import authForm from './modules/authForm';
+import dashboard from './modules/dashboard';
+import vehicleForm from './modules/vehicleForm';
+import paymentModal from './modules/paymentModal';
+import subscriptionPlans from './modules/subscriptionPlans';
+import toast from './modules/toast';
 import Prism from 'prismjs';
 
-const initComponents = () => {
+const initComponents = async () => {
+	await ensureStore();
 	internalModule();
 	styleGuideContainer();
 	tutorGrid();
 	personaGrid();
+	mainHeader();
+	heroSlider();
+	featuredVehicles();
+	vehicleFilters();
+	vehicleGrid();
+	vehicleDetail();
+	vehicleGallerySlider();
+	authForm();
+	dashboard();
+	vehicleForm();
+	paymentModal();
+	subscriptionPlans();
+	toast();
 	Prism.highlightAll();
 };
 

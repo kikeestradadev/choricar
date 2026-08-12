@@ -1,0 +1,18 @@
+.listings-page {
+	padding: 1.5rem 0 3rem;
+
+	&__title {
+		margin-bottom: 1.25rem;
+	}
+
+	&__layout {
+		display: grid;
+		gap: 1.25rem;
+
+		@media (width >= $l) {
+			grid-template-columns: 280px minmax(0, 1fr);
+			align-items: start;
+			gap: 1.75rem;
+		}
+	}
+}

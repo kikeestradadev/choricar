@@ -1,0 +1,20 @@
+extends ../config/template
+
+block append config
+	- currentPage = 'suscripcion';
+	- siteName = 'Choricar';
+	- content = 'content';
+	- pageDescription = 'Planes Gratis y Premium para vendedores en Choricar.';
+
+block main-header
+	include ../components/main-header
+
+block main-container
+	include ../components/subscription-plans
+	include ../components/payment-modal
+	include ../components/toast
+
+block main-footer
+	include ../components/main-footer
+
+block scripts

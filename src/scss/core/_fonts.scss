@@ -1,74 +1,57 @@
-h1, h2, h3, h4, h5, h6{
-	color					: var(--header-color); 
-	margin					: 0;
+h1, h2, h3, h4, h5, h6 {
+	color: var(--header-color);
+	margin: 0;
+	font-family: var(--font-heading);
 }
 
-// Default text styles 
-body {font-family: 'Inter' }
-h1{
-	font					: normal normal 600 36px/43px Inter;
-	letter-spacing			: -0.72px;	
-	@media (width >= $l) {
-		font				: normal normal 600 51px/56px Inter;
-		letter-spacing		: -0.66px;
-		
-	}	
+body {
+	font-family: var(--font-body);
+	color: var(--color-text);
 }
-h2{
-		font				: normal normal 600 29px/35px Inter;
-		letter-spacing		: -0.58px;
-	
+
+h1 {
+	font: normal normal 700 32px/1.2 var(--font-heading);
+	letter-spacing: -0.02em;
 	@media (width >= $l) {
-		font				: normal normal 600 41px/49px Inter;
-		letter-spacing		: -0.82px; 
+		font: normal normal 700 48px/1.15 var(--font-heading);
 	}
-	
 }
-h3{
-		font				: normal normal 600 24px/29px Inter;
-		letter-spacing		: -0.48px;
-		
-	@media (width >= $l) {		
-		font				: normal normal 600 27px/32px Inter;
-		letter-spacing		: -0.54px;
+h2 {
+	font: normal normal 600 26px/1.25 var(--font-heading);
+	letter-spacing: -0.02em;
+	@media (width >= $l) {
+		font: normal normal 600 36px/1.2 var(--font-heading);
 	}
-	
 }
-h4{
-		font				: normal normal 600 20px/28px Inter;
-		letter-spacing		: -0.4px;	
+h3 {
+	font: normal normal 600 22px/1.3 var(--font-heading);
 	@media (width >= $l) {
-		font				: normal normal 600 23px/28px Inter;
-		letter-spacing		: -0.46px;		
+		font: normal normal 600 26px/1.3 var(--font-heading);
 	}
-	
 }
-h5{
-	font					: normal normal 600 17px/27px Inter;
-	letter-spacing			: -0.34px;
-		
+h4 {
+	font: normal normal 600 18px/1.35 var(--font-heading);
 	@media (width >= $l) {
-		font				: normal normal 600 19px/23px Inter;
-		letter-spacing		: -0.38px;		
+		font: normal normal 600 20px/1.35 var(--font-heading);
 	}
-	
 }
-h6{
-		font				: normal normal 600 14px/25px Inter;
-		letter-spacing		: -0.28px;
-	
+h5 {
+	font: normal normal 600 16px/1.4 var(--font-heading);
 	@media (width >= $l) {
-		font				: normal normal 600 15px/27px Inter;
-		letter-spacing		: -0.3px;		
-	}	
+		font: normal normal 600 17px/1.4 var(--font-heading);
+	}
 }
-p{
-	font					: normal normal normal 15px/27px Inter;
-	letter-spacing			: 0px;
-	--paragraph-color		:#1F2024;
+h6 {
+	font: normal normal 600 14px/1.4 var(--font-heading);
 	@media (width >= $l) {
-		font				: normal normal normal 16px/22px Inter;
-		letter-spacing		: 0px;
+		font: normal normal 600 15px/1.4 var(--font-heading);
+	}
+}
+p {
+	font: normal normal 400 15px/1.6 var(--font-body);
+	color: var(--paragraph-color);
+	@media (width >= $l) {
+		font: normal normal 400 16px/1.6 var(--font-body);
 	}
 }
 a {

@@ -1,0 +1,14 @@
+{
+	"title": "Checkout Premium",
+	"subtitle": "Pago simulado — no se cobra nada real",
+	"fields": {
+		"cardName": "Nombre en la tarjeta",
+		"cardNumber": "Número de tarjeta",
+		"expiry": "Vencimiento (MM/AA)",
+		"cvv": "CVV"
+	},
+	"submit": "Confirmar pago",
+	"cancel": "Cancelar",
+	"amountLabel": "Total",
+	"amount": "₡5,000 / mes"
+}

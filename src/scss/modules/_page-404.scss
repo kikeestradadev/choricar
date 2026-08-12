@@ -1,0 +1,38 @@
+.page-404 {
+	padding: 4rem 0;
+
+	&__container {
+		text-align: center;
+		background: #fff;
+		border-radius: var(--radius-card);
+		box-shadow: var(--color-card-shadow);
+		padding: 3rem 1.5rem;
+	}
+
+	&__title {
+		font-size: 4rem;
+		color: var(--color-primary);
+		margin-bottom: 0.5rem;
+	}
+
+	&__text {
+		margin: 0 0 1.25rem;
+		color: var(--color-text-muted);
+	}
+
+	&__link {
+		display: inline-flex;
+		background: var(--color-accent);
+		color: #fff;
+		text-decoration: none;
+		border-radius: var(--radius-btn);
+		padding: 0.75rem 1.2rem;
+		font-weight: 700;
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				background: var(--color-accent-hover);
+			}
+		}
+	}
+}

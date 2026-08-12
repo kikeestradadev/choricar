@@ -1,0 +1,13 @@
+section(class='dashboard-profile' data-dashboard-profile)
+	h2(class='dashboard-profile__title') Perfil
+	form(class='dashboard-profile__form' novalidate)
+		div(class='dashboard-profile__group')
+			label(class='dashboard-profile__label' for='profile-name') Nombre
+			input(class='dashboard-profile__input' id='profile-name' name='name' type='text' required)
+		div(class='dashboard-profile__group')
+			label(class='dashboard-profile__label' for='profile-email') Correo
+			input(class='dashboard-profile__input' id='profile-email' name='email' type='email' required)
+		div(class='dashboard-profile__group')
+			label(class='dashboard-profile__label' for='profile-phone') Teléfono
+			input(class='dashboard-profile__input' id='profile-phone' name='phone' type='tel')
+		button(class='dashboard-profile__submit' type='submit') Guardar cambios

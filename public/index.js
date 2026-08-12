@@ -2224,13 +2224,1564 @@ ${tutor.nombre || id}`)) return;
   };
   var tutorGrid_default = tutorGrid;
 
+  // src/js/db/ecommerceStore.js
+  var STORAGE_KEY = "choricar-ecommerce-store-v2";
+  var STORE_EVENT = "ecommerce-store-updated";
+  var CARS_URL = "./data/db/cars.json";
+  var USERS_URL = "./data/db/users.json";
+  var SUBSCRIPTIONS_URL = "./data/db/subscriptions.json";
+  var createId2 = (prefix = "id") => {
+    if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+      return `${prefix}-${crypto.randomUUID().slice(0, 8)}`;
+    }
+    return `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2, 8)}`;
+  };
+  var emptyStore = () => ({
+    cars: [],
+    users: [],
+    subscriptions: [],
+    session: null
+  });
+  var readStore2 = (storageKey = STORAGE_KEY) => {
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (!raw) return null;
+      const parsed = JSON.parse(raw);
+      if (!Array.isArray(parsed == null ? void 0 : parsed.cars) || !Array.isArray(parsed == null ? void 0 : parsed.users)) {
+        return null;
+      }
+      return {
+        cars: parsed.cars,
+        users: parsed.users,
+        subscriptions: Array.isArray(parsed.subscriptions) ? parsed.subscriptions : [],
+        session: parsed.session || null
+      };
+    } catch (e) {
+      return null;
+    }
+  };
+  var writeStore2 = (storageKey, store) => {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(store));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  };
+  var ensureIds2 = (list, prefix) => list.map(
+    (item) => (item == null ? void 0 : item.id) ? item : {
+      ...item,
+      id: createId2(prefix)
+    }
+  );
+  var dispatchStoreUpdate2 = () => {
+    document.dispatchEvent(new CustomEvent(STORE_EVENT));
+  };
+  var memoryStore = null;
+  var getStore = () => memoryStore || readStore2() || emptyStore();
+  var persistStore2 = (store = getStore()) => {
+    memoryStore = {
+      cars: store.cars || [],
+      users: store.users || [],
+      subscriptions: store.subscriptions || [],
+      session: store.session || null
+    };
+    if (!writeStore2(STORAGE_KEY, memoryStore)) return false;
+    dispatchStoreUpdate2();
+    return true;
+  };
+  var loadEcommerceStore = async ({
+    carsUrl = CARS_URL,
+    usersUrl = USERS_URL,
+    subscriptionsUrl = SUBSCRIPTIONS_URL
+  } = {}) => {
+    const stored = readStore2();
+    if (stored) {
+      memoryStore = {
+        cars: ensureIds2(stored.cars, "car"),
+        users: ensureIds2(stored.users, "user"),
+        subscriptions: ensureIds2(stored.subscriptions, "sub"),
+        session: stored.session || null
+      };
+      writeStore2(STORAGE_KEY, memoryStore);
+      return { ...memoryStore, source: "localStorage" };
+    }
+    const [carsRes, usersRes, subsRes] = await Promise.all([
+      fetch(carsUrl),
+      fetch(usersUrl),
+      fetch(subscriptionsUrl).catch(() => null)
+    ]);
+    if (!carsRes.ok) throw new Error(`GET ${carsUrl} failed`);
+    if (!usersRes.ok) throw new Error(`GET ${usersUrl} failed`);
+    const [carsData, usersData] = await Promise.all([carsRes.json(), usersRes.json()]);
+    let subscriptions = [];
+    if (subsRes && subsRes.ok) {
+      const subsData = await subsRes.json();
+      subscriptions = Array.isArray(subsData.subscriptions) ? subsData.subscriptions : [];
+    }
+    memoryStore = {
+      cars: ensureIds2(Array.isArray(carsData.cars) ? carsData.cars : [], "car"),
+      users: ensureIds2(Array.isArray(usersData.users) ? usersData.users : [], "user"),
+      subscriptions: ensureIds2(subscriptions, "sub"),
+      session: null
+    };
+    writeStore2(STORAGE_KEY, memoryStore);
+    return { ...memoryStore, source: carsUrl };
+  };
+  var getCars = () => getStore().cars.slice();
+  var getCarById = (id) => getStore().cars.find((car) => car.id === id) || null;
+  var addCar = (carData) => {
+    const store = getStore();
+    const user = getCurrentUser();
+    if (!user) throw new Error("Debes iniciar sesi\xF3n para publicar");
+    const userCars = store.cars.filter((c) => c.sellerId === user.id);
+    if (user.plan !== "premium" && userCars.length >= 1) {
+      throw new Error("LIMIT_FREE");
+    }
+    const car = {
+      ...carData,
+      id: carData.id || createId2("car"),
+      sellerId: user.id,
+      isPremium: user.plan === "premium",
+      maintenance: Array.isArray(carData.maintenance) ? carData.maintenance : [],
+      images: Array.isArray(carData.images) ? carData.images : [],
+      createdAt: carData.createdAt || (/* @__PURE__ */ new Date()).toISOString()
+    };
+    store.cars = [car, ...store.cars];
+    persistStore2(store);
+    return car;
+  };
+  var updateCar = (id, data) => {
+    const store = getStore();
+    const index = store.cars.findIndex((car) => car.id === id);
+    if (index < 0) throw new Error("Veh\xEDculo no encontrado");
+    const user = getCurrentUser();
+    if (!user || store.cars[index].sellerId !== user.id) {
+      throw new Error("No tienes permiso para editar este veh\xEDculo");
+    }
+    store.cars[index] = {
+      ...store.cars[index],
+      ...data,
+      id,
+      sellerId: store.cars[index].sellerId
+    };
+    persistStore2(store);
+    return store.cars[index];
+  };
+  var deleteCar = (id) => {
+    const store = getStore();
+    const car = store.cars.find((c) => c.id === id);
+    if (!car) throw new Error("Veh\xEDculo no encontrado");
+    const user = getCurrentUser();
+    if (!user || car.sellerId !== user.id) {
+      throw new Error("No tienes permiso para eliminar este veh\xEDculo");
+    }
+    store.cars = store.cars.filter((c) => c.id !== id);
+    store.users = store.users.map((u) => ({
+      ...u,
+      favorites: (u.favorites || []).filter((favId) => favId !== id)
+    }));
+    persistStore2(store);
+    return true;
+  };
+  var registerUser = (userData) => {
+    const store = getStore();
+    const email = String(userData.email || "").trim().toLowerCase();
+    if (!email || !userData.password) {
+      throw new Error("Email y contrase\xF1a son obligatorios");
+    }
+    if (store.users.some((u) => u.email.toLowerCase() === email)) {
+      throw new Error("Este correo ya est\xE1 registrado");
+    }
+    const user = {
+      id: createId2("user"),
+      name: userData.name || "Usuario",
+      email,
+      password: String(userData.password),
+      avatar: userData.avatar || `https://i.pravatar.cc/150?u=${encodeURIComponent(email)}`,
+      phone: userData.phone || "",
+      plan: "free",
+      favorites: [],
+      createdAt: (/* @__PURE__ */ new Date()).toISOString()
+    };
+    store.users = [...store.users, user];
+    store.session = { userId: user.id };
+    persistStore2(store);
+    return { ...user, password: void 0 };
+  };
+  var loginUser = (email, password) => {
+    const store = getStore();
+    const normalized = String(email || "").trim().toLowerCase();
+    const user = store.users.find(
+      (u) => u.email.toLowerCase() === normalized && u.password === String(password)
+    );
+    if (!user) throw new Error("Correo o contrase\xF1a incorrectos");
+    store.session = { userId: user.id };
+    persistStore2(store);
+    return { ...user, password: void 0 };
+  };
+  var loginWithSocial = (provider, profile = {}) => {
+    const store = getStore();
+    const email = profile.email || `${provider}-${Date.now()}@choricar.social`;
+    let user = store.users.find((u) => u.email.toLowerCase() === email.toLowerCase());
+    if (!user) {
+      user = {
+        id: createId2("user"),
+        name: profile.name || `Usuario ${provider}`,
+        email: email.toLowerCase(),
+        password: createId2("social"),
+        avatar: profile.avatar || `https://i.pravatar.cc/150?u=${encodeURIComponent(email)}`,
+        phone: "",
+        plan: "free",
+        favorites: [],
+        provider,
+        createdAt: (/* @__PURE__ */ new Date()).toISOString()
+      };
+      store.users = [...store.users, user];
+    }
+    store.session = { userId: user.id, provider };
+    persistStore2(store);
+    return { ...user, password: void 0 };
+  };
+  var logout = () => {
+    const store = getStore();
+    store.session = null;
+    persistStore2(store);
+  };
+  var getCurrentUser = () => {
+    var _a;
+    const store = getStore();
+    if (!((_a = store.session) == null ? void 0 : _a.userId)) return null;
+    const user = store.users.find((u) => u.id === store.session.userId);
+    if (!user) return null;
+    const { password, ...safe } = user;
+    return safe;
+  };
+  var updateUser = (id, data) => {
+    const store = getStore();
+    const index = store.users.findIndex((u) => u.id === id);
+    if (index < 0) throw new Error("Usuario no encontrado");
+    const current = getCurrentUser();
+    if (!current || current.id !== id) {
+      throw new Error("No tienes permiso para editar este perfil");
+    }
+    const next = { ...store.users[index], ...data, id };
+    if (data.password === "" || data.password == null) {
+      next.password = store.users[index].password;
+    }
+    store.users[index] = next;
+    persistStore2(store);
+    const { password, ...safe } = next;
+    return safe;
+  };
+  var toggleFavorite = (userId, carId) => {
+    const store = getStore();
+    const index = store.users.findIndex((u) => u.id === userId);
+    if (index < 0) throw new Error("Usuario no encontrado");
+    const favorites = Array.isArray(store.users[index].favorites) ? [...store.users[index].favorites] : [];
+    const favIndex = favorites.indexOf(carId);
+    if (favIndex >= 0) {
+      favorites.splice(favIndex, 1);
+    } else {
+      favorites.push(carId);
+    }
+    store.users[index] = { ...store.users[index], favorites };
+    persistStore2(store);
+    return favorites;
+  };
+  var subscribe = (userId, plan = "premium") => {
+    const store = getStore();
+    const index = store.users.findIndex((u) => u.id === userId);
+    if (index < 0) throw new Error("Usuario no encontrado");
+    store.users[index] = { ...store.users[index], plan };
+    store.cars = store.cars.map(
+      (car) => car.sellerId === userId ? { ...car, isPremium: plan === "premium" } : car
+    );
+    const start = /* @__PURE__ */ new Date();
+    const end = new Date(start);
+    end.setFullYear(end.getFullYear() + 1);
+    store.subscriptions = [
+      {
+        id: createId2("sub"),
+        userId,
+        plan,
+        startDate: start.toISOString().slice(0, 10),
+        endDate: end.toISOString().slice(0, 10)
+      },
+      ...store.subscriptions.filter((s) => s.userId !== userId)
+    ];
+    persistStore2(store);
+    return getCurrentUser();
+  };
+  var getUserById = (id) => {
+    const user = getStore().users.find((u) => u.id === id);
+    if (!user) return null;
+    const { password, ...safe } = user;
+    return safe;
+  };
+  var formatPrice = (price, currency = "CRC") => {
+    const value = Number(price) || 0;
+    if (currency === "USD") {
+      return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumFractionDigits: 0
+      }).format(value);
+    }
+    return new Intl.NumberFormat("es-CR", {
+      style: "currency",
+      currency: "CRC",
+      maximumFractionDigits: 0
+    }).format(value);
+  };
+  var formatMileage = (km) => `${new Intl.NumberFormat("es-CR").format(Number(km) || 0)} km`;
+  var conditionLabel = (condition) => condition === "new" ? "Nuevo" : "Usado";
+  var transmissionLabel = (value) => value === "automatic" ? "Autom\xE1tica" : "Manual";
+  var fuelLabel = (value) => {
+    const map = {
+      gasoline: "Gasolina",
+      diesel: "Di\xE9sel",
+      electric: "El\xE9ctrico",
+      hybrid: "H\xEDbrido"
+    };
+    return map[value] || value;
+  };
+
+  // src/js/modules/mainHeader.js
+  var closeUserMenus = (except = null) => {
+    document.querySelectorAll("[data-user-menu].is-open").forEach((menu) => {
+      if (except && menu === except) return;
+      menu.classList.remove("is-open");
+      const trigger = menu.querySelector("[data-user-menu-trigger]");
+      const panel = menu.querySelector("[data-user-menu-panel]");
+      trigger == null ? void 0 : trigger.setAttribute("aria-expanded", "false");
+      if (panel) panel.hidden = true;
+    });
+  };
+  var setMobileNavOpen = (root, open) => {
+    const toggle = root.querySelector("[data-nav-toggle]");
+    const nav = root.querySelector("[data-nav-panel]");
+    const backdrop = root.querySelector("[data-nav-backdrop]");
+    toggle == null ? void 0 : toggle.setAttribute("aria-expanded", String(open));
+    toggle == null ? void 0 : toggle.setAttribute("aria-label", open ? "Cerrar men\xFA" : "Abrir men\xFA");
+    nav == null ? void 0 : nav.classList.toggle("is-open", open);
+    backdrop == null ? void 0 : backdrop.classList.toggle("is-open", open);
+    if (backdrop) backdrop.hidden = !open;
+    document.body.classList.toggle("has-mobile-nav", open);
+  };
+  var renderAuthSlot = (root) => {
+    var _a;
+    const slot = root.querySelector("[data-auth-slot]");
+    if (!slot) return;
+    const user = getCurrentUser();
+    if (!user) {
+      slot.innerHTML = `
+			<a class="main-header__btn main-header__btn--ghost" href="./login.html">Iniciar sesi\xF3n</a>
+			<a class="main-header__btn main-header__btn--accent" href="./registro.html">Registrarse</a>
+		`;
+      return;
+    }
+    slot.innerHTML = `
+		<div class="main-header__user-menu" data-user-menu>
+			<button
+				class="main-header__avatar-btn"
+				type="button"
+				data-user-menu-trigger
+				aria-expanded="false"
+				aria-haspopup="true"
+				aria-controls="main-header-user-panel"
+				aria-label="Men\xFA de cuenta"
+			>
+				<img class="main-header__avatar" src="${user.avatar}" alt="" width="32" height="32" />
+			</button>
+			<div class="main-header__user-tip" id="main-header-user-panel" role="menu" hidden data-user-menu-panel>
+				<button class="main-header__user-tip-btn" type="button" role="menuitem" data-logout>Cerrar sesi\xF3n</button>
+			</div>
+		</div>
+	`;
+    const menu = slot.querySelector("[data-user-menu]");
+    const trigger = slot.querySelector("[data-user-menu-trigger]");
+    const panel = slot.querySelector("[data-user-menu-panel]");
+    const setOpen = (open) => {
+      menu == null ? void 0 : menu.classList.toggle("is-open", open);
+      trigger == null ? void 0 : trigger.setAttribute("aria-expanded", String(open));
+      if (panel) panel.hidden = !open;
+    };
+    trigger == null ? void 0 : trigger.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const willOpen = trigger.getAttribute("aria-expanded") !== "true";
+      closeUserMenus(menu);
+      setOpen(willOpen);
+    });
+    panel == null ? void 0 : panel.addEventListener("click", (event) => {
+      event.stopPropagation();
+    });
+    (_a = slot.querySelector("[data-logout]")) == null ? void 0 : _a.addEventListener("click", () => {
+      logout();
+      window.location.href = "./index.html";
+    });
+  };
+  var mainHeader = () => {
+    document.querySelectorAll(".main-header").forEach((root) => {
+      if (root.dataset.mainHeaderReady === "true") {
+        renderAuthSlot(root);
+        return;
+      }
+      const toggle = root.querySelector("[data-nav-toggle]");
+      const backdrop = root.querySelector("[data-nav-backdrop]");
+      const nav = root.querySelector("[data-nav-panel]");
+      const openNav = () => setMobileNavOpen(root, true);
+      const closeNav = () => setMobileNavOpen(root, false);
+      toggle == null ? void 0 : toggle.addEventListener("click", () => {
+        const open = toggle.getAttribute("aria-expanded") === "true";
+        if (open) closeNav();
+        else openNav();
+      });
+      backdrop == null ? void 0 : backdrop.addEventListener("click", closeNav);
+      nav == null ? void 0 : nav.querySelectorAll(".main-header__link").forEach((link) => {
+        link.addEventListener("click", closeNav);
+      });
+      document.addEventListener("click", () => closeUserMenus());
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeUserMenus();
+          closeNav();
+        }
+      });
+      window.addEventListener("resize", () => {
+        if (window.matchMedia(`(min-width: 960px)`).matches) {
+          closeNav();
+        }
+      });
+      renderAuthSlot(root);
+      document.addEventListener(STORE_EVENT, () => renderAuthSlot(root));
+      root.dataset.mainHeaderReady = "true";
+    });
+  };
+  var ensureStore = async () => {
+    try {
+      await loadEcommerceStore();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  var mainHeader_default = mainHeader;
+
+  // src/js/modules/heroSlider.js
+  var heroSlider = () => {
+    if (typeof Swiper === "undefined") return;
+    document.querySelectorAll(".hero-banner").forEach((root) => {
+      if (root.dataset.heroSliderReady === "true") return;
+      const el = root.querySelector(".hero-banner__slider");
+      if (!el) return;
+      new Swiper(el, {
+        slidesPerView: 1,
+        loop: true,
+        autoplay: { delay: 5500, disableOnInteraction: false },
+        pagination: {
+          el: root.querySelector(".hero-banner__pagination"),
+          clickable: true
+        }
+      });
+      const modelsDataEl = document.getElementById("filters-models-data");
+      let modelsByBrand = {};
+      try {
+        modelsByBrand = modelsDataEl ? JSON.parse(modelsDataEl.textContent) : {};
+      } catch (e) {
+        modelsByBrand = {};
+      }
+      const brandSelect = root.querySelector("#hero-brand");
+      const modelSelect = root.querySelector("#hero-model");
+      const fillModels = (brand) => {
+        if (!modelSelect) return;
+        modelSelect.innerHTML = '<option value="">Todas</option>';
+        (modelsByBrand[brand] || []).forEach((model) => {
+          const option = document.createElement("option");
+          option.value = model;
+          option.textContent = model;
+          modelSelect.append(option);
+        });
+      };
+      brandSelect == null ? void 0 : brandSelect.addEventListener("change", () => fillModels(brandSelect.value));
+      root.dataset.heroSliderReady = "true";
+    });
+  };
+  var heroSlider_default = heroSlider;
+
+  // src/js/modules/toast.js
+  var toast = () => {
+    document.querySelectorAll(".toast").forEach((root) => {
+      if (root.dataset.toastReady === "true") return;
+      const closeBtn = root.querySelector("[data-toast-close]");
+      closeBtn == null ? void 0 : closeBtn.addEventListener("click", () => {
+        root.hidden = true;
+      });
+      root.dataset.toastReady = "true";
+    });
+  };
+  var showToast = (message, type = "success") => {
+    let root = document.querySelector(".toast");
+    if (!root) {
+      root = document.createElement("div");
+      root.className = "toast";
+      root.innerHTML = '<p class="toast__message" data-toast-message></p><button class="toast__close" type="button" aria-label="Cerrar" data-toast-close>\xD7</button>';
+      document.body.append(root);
+      toast();
+    }
+    const messageEl = root.querySelector("[data-toast-message]");
+    if (messageEl) messageEl.textContent = message;
+    root.classList.toggle("toast--error", type === "error");
+    root.classList.toggle("toast--success", type !== "error");
+    root.hidden = false;
+    window.clearTimeout(root._toastTimer);
+    root._toastTimer = window.setTimeout(() => {
+      root.hidden = true;
+    }, 3200);
+  };
+  var toast_default = toast;
+
+  // src/js/modules/vehicleCard.js
+  var createVehicleCardElement = (car, { favorited = false } = {}) => {
+    var _a;
+    const article = document.createElement("article");
+    article.className = "vehicle-card";
+    article.dataset.vehicleId = car.id;
+    const href = `./vehiculo.html?id=${encodeURIComponent(car.id)}`;
+    const image = ((_a = car.images) == null ? void 0 : _a[0]) || "https://picsum.photos/seed/fallback/800/600";
+    const title = `${car.brand} ${car.model}`;
+    article.innerHTML = `
+		<a class="vehicle-card__media" href="${href}">
+			<img class="vehicle-card__image" src="${image}" alt="${title}" loading="lazy" />
+			<span class="vehicle-card__badge vehicle-card__badge--condition">${conditionLabel(car.condition)}</span>
+			${car.isPremium ? '<span class="vehicle-card__badge vehicle-card__badge--premium">Premium</span>' : ""}
+		</a>
+		<div class="vehicle-card__body">
+			<div class="vehicle-card__top">
+				<h3 class="vehicle-card__title">
+					<a class="vehicle-card__title-link" href="${href}">${title}</a>
+				</h3>
+				<button class="vehicle-card__fav${favorited ? " is-active" : ""}" type="button" aria-label="Favorito" data-card-fav data-car-id="${car.id}" aria-pressed="${favorited}">
+					<span aria-hidden="true">\u2665</span>
+				</button>
+			</div>
+			<p class="vehicle-card__price">${formatPrice(car.price, car.currency)}</p>
+			<ul class="vehicle-card__meta">
+				<li class="vehicle-card__meta-item">${car.year}</li>
+				<li class="vehicle-card__meta-item">${formatMileage(car.mileage)}</li>
+				<li class="vehicle-card__meta-item">${car.location}</li>
+			</ul>
+		</div>
+	`;
+    return article;
+  };
+  var bindFavoriteButtons = (root) => {
+    root.querySelectorAll("[data-card-fav]").forEach((btn) => {
+      if (btn.dataset.favBound === "true") return;
+      btn.dataset.favBound = "true";
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        const user = getCurrentUser();
+        if (!user) {
+          window.location.href = "./login.html";
+          return;
+        }
+        const carId = btn.dataset.carId;
+        try {
+          const favorites = toggleFavorite(user.id, carId);
+          const active = favorites.includes(carId);
+          btn.classList.toggle("is-active", active);
+          btn.setAttribute("aria-pressed", String(active));
+          showToast(active ? "Agregado a favoritos" : "Eliminado de favoritos", "success");
+        } catch (error) {
+          showToast(error.message || "No se pudo actualizar favorito", "error");
+        }
+      });
+    });
+  };
+
+  // src/js/modules/featuredVehicles.js
+  var featuredVehicles = () => {
+    document.querySelectorAll("[data-featured-root]").forEach((root) => {
+      const render = () => {
+        const grid = root.querySelector(".featured-vehicles__grid");
+        if (!grid) return;
+        const user = getCurrentUser();
+        const favorites = (user == null ? void 0 : user.favorites) || [];
+        const premium = getCars().filter((car) => car.isPremium).slice(0, 6);
+        grid.innerHTML = "";
+        premium.forEach((car) => {
+          grid.append(
+            createVehicleCardElement(car, {
+              favorited: favorites.includes(car.id)
+            })
+          );
+        });
+        bindFavoriteButtons(grid);
+      };
+      if (root.dataset.featuredVehiclesReady === "true") {
+        render();
+        return;
+      }
+      render();
+      document.addEventListener(STORE_EVENT, render);
+      root.dataset.featuredVehiclesReady = "true";
+    });
+  };
+  var featuredVehicles_default = featuredVehicles;
+
+  // src/js/modules/vehicleGrid.js
+  var PAGE_SIZE = 12;
+  var readFiltersFromUrl = () => {
+    const params = new URLSearchParams(window.location.search);
+    return {
+      q: params.get("q") || "",
+      brand: params.get("brand") || "",
+      model: params.get("model") || "",
+      yearMin: params.get("yearMin") || "",
+      yearMax: params.get("yearMax") || "",
+      priceMin: params.get("priceMin") || "",
+      priceMax: params.get("priceMax") || "",
+      condition: params.get("condition") || "",
+      transmission: params.get("transmission") || "",
+      fuel: params.get("fuel") || "",
+      location: params.get("location") || "",
+      sort: params.get("sort") || "price-asc",
+      page: Number(params.get("page") || 1)
+    };
+  };
+  var writeFiltersToUrl = (filters) => {
+    const params = new URLSearchParams();
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value !== "" && value != null && !(key === "page" && Number(value) === 1) && !(key === "sort" && value === "price-asc")) {
+        params.set(key, String(value));
+      }
+    });
+    const query = params.toString();
+    const next = `${window.location.pathname}${query ? `?${query}` : ""}`;
+    window.history.replaceState({}, "", next);
+  };
+  var normalize = (value) => String(value || "").trim().toLowerCase().normalize("NFD").replace(/\p{M}/gu, "");
+  var applyFilters = (cars, filters) => {
+    let list = cars.slice();
+    if (filters.q) {
+      const q = normalize(filters.q);
+      list = list.filter(
+        (car) => normalize(`${car.brand} ${car.model} ${car.location} ${car.year}`).includes(q)
+      );
+    }
+    if (filters.brand) {
+      const brand = normalize(filters.brand);
+      list = list.filter((c) => normalize(c.brand) === brand);
+    }
+    if (filters.model) {
+      const model = normalize(filters.model);
+      list = list.filter((c) => normalize(c.model) === model);
+    }
+    if (filters.yearMin) list = list.filter((c) => c.year >= Number(filters.yearMin));
+    if (filters.yearMax) list = list.filter((c) => c.year <= Number(filters.yearMax));
+    if (filters.priceMin) list = list.filter((c) => c.price >= Number(filters.priceMin));
+    if (filters.priceMax) list = list.filter((c) => c.price <= Number(filters.priceMax));
+    if (filters.condition) list = list.filter((c) => c.condition === filters.condition);
+    if (filters.transmission) list = list.filter((c) => c.transmission === filters.transmission);
+    if (filters.fuel) list = list.filter((c) => c.fuel === filters.fuel);
+    if (filters.location) list = list.filter((c) => c.location === filters.location);
+    switch (filters.sort) {
+      case "price-desc":
+        list.sort((a, b) => b.price - a.price);
+        break;
+      case "year-desc":
+        list.sort((a, b) => b.year - a.year);
+        break;
+      case "year-asc":
+        list.sort((a, b) => a.year - b.year);
+        break;
+      case "mileage-asc":
+        list.sort((a, b) => a.mileage - b.mileage);
+        break;
+      default:
+        list.sort((a, b) => a.price - b.price);
+    }
+    return list;
+  };
+  var buildOptionsFromCars = (cars, fallbackModelsByBrand = {}) => {
+    const brands = /* @__PURE__ */ new Set();
+    const years = /* @__PURE__ */ new Set();
+    const modelsByBrand = {};
+    cars.forEach((car) => {
+      if (!(car == null ? void 0 : car.brand)) return;
+      brands.add(car.brand);
+      if (car.year != null) years.add(Number(car.year));
+      if (!modelsByBrand[car.brand]) modelsByBrand[car.brand] = /* @__PURE__ */ new Set();
+      if (car.model) modelsByBrand[car.brand].add(car.model);
+    });
+    Object.entries(fallbackModelsByBrand).forEach(([brand, models]) => {
+      brands.add(brand);
+      if (!modelsByBrand[brand]) modelsByBrand[brand] = /* @__PURE__ */ new Set();
+      (models || []).forEach((model) => modelsByBrand[brand].add(model));
+    });
+    const normalizedModels = {};
+    Object.keys(modelsByBrand).sort((a, b) => a.localeCompare(b, "es")).forEach((brand) => {
+      normalizedModels[brand] = [...modelsByBrand[brand]].sort(
+        (a, b) => a.localeCompare(b, "es")
+      );
+    });
+    return {
+      brands: [...brands].sort((a, b) => a.localeCompare(b, "es")),
+      years: [...years].sort((a, b) => a - b),
+      modelsByBrand: normalizedModels
+    };
+  };
+  var fillSelect = (select, values, { allLabel = "Todas", selected = "" } = {}) => {
+    if (!select) return;
+    select.innerHTML = "";
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = allLabel;
+    select.append(placeholder);
+    values.forEach((value) => {
+      const option = document.createElement("option");
+      option.value = String(value);
+      option.textContent = String(value);
+      if (String(value) === String(selected)) option.selected = true;
+      select.append(option);
+    });
+  };
+  var vehicleGrid = () => {
+    const filterRoot = document.querySelector("[data-filters-root]");
+    const gridRoot = document.querySelector("[data-vehicle-grid]");
+    if (!gridRoot) return;
+    if (gridRoot.dataset.vehicleGridReady === "true") return;
+    let fallbackModelsByBrand = {};
+    const modelsDataEl = document.getElementById("filters-models-data-list") || document.getElementById("filters-models-data");
+    try {
+      fallbackModelsByBrand = modelsDataEl ? JSON.parse(modelsDataEl.textContent) : {};
+    } catch (e) {
+      fallbackModelsByBrand = {};
+    }
+    const form = filterRoot == null ? void 0 : filterRoot.querySelector(".vehicle-filters__form");
+    const brandSelect = form == null ? void 0 : form.querySelector('[name="brand"]');
+    const modelSelect = form == null ? void 0 : form.querySelector('[name="model"]');
+    const yearMinSelect = form == null ? void 0 : form.querySelector('[name="yearMin"]');
+    const yearMaxSelect = form == null ? void 0 : form.querySelector('[name="yearMax"]');
+    const listEl = gridRoot.querySelector("[data-grid-list]");
+    const countEl = gridRoot.querySelector("[data-grid-count]");
+    const pageInfo = gridRoot.querySelector("[data-page-info]");
+    const prevBtn = gridRoot.querySelector("[data-page-prev]");
+    const nextBtn = gridRoot.querySelector("[data-page-next]");
+    let modelsByBrand = { ...fallbackModelsByBrand };
+    const syncFilterOptions = (filters = {}) => {
+      const options = buildOptionsFromCars(getCars(), fallbackModelsByBrand);
+      modelsByBrand = options.modelsByBrand;
+      const currentBrand = filters.brand || (brandSelect == null ? void 0 : brandSelect.value) || "";
+      const currentModel = filters.model || (modelSelect == null ? void 0 : modelSelect.value) || "";
+      const currentYearMin = filters.yearMin || (yearMinSelect == null ? void 0 : yearMinSelect.value) || "";
+      const currentYearMax = filters.yearMax || (yearMaxSelect == null ? void 0 : yearMaxSelect.value) || "";
+      fillSelect(brandSelect, options.brands, {
+        allLabel: "Todas",
+        selected: currentBrand
+      });
+      fillSelect(modelSelect, modelsByBrand[currentBrand] || [], {
+        allLabel: "Todas",
+        selected: currentModel
+      });
+      fillSelect(yearMinSelect, options.years, {
+        allLabel: "Todas",
+        selected: currentYearMin
+      });
+      fillSelect(yearMaxSelect, options.years, {
+        allLabel: "Todas",
+        selected: currentYearMax
+      });
+    };
+    const getFiltersFromForm = () => {
+      const base = readFiltersFromUrl();
+      if (!form) return base;
+      const data = new FormData(form);
+      return {
+        ...base,
+        brand: data.get("brand") || "",
+        model: data.get("model") || "",
+        yearMin: data.get("yearMin") || "",
+        yearMax: data.get("yearMax") || "",
+        priceMin: data.get("priceMin") || "",
+        priceMax: data.get("priceMax") || "",
+        condition: data.get("condition") || "",
+        transmission: data.get("transmission") || "",
+        fuel: data.get("fuel") || "",
+        location: data.get("location") || "",
+        sort: data.get("sort") || "price-asc",
+        page: base.page || 1
+      };
+    };
+    const render = (filters = getFiltersFromForm()) => {
+      syncFilterOptions(filters);
+      if (filters.brand && filters.model) {
+        const allowed = modelsByBrand[filters.brand] || [];
+        if (!allowed.includes(filters.model)) {
+          filters = { ...filters, model: "" };
+          if (modelSelect) modelSelect.value = "";
+        }
+      }
+      const user = getCurrentUser();
+      const favorites = (user == null ? void 0 : user.favorites) || [];
+      const filtered = applyFilters(getCars(), filters);
+      const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+      const page = Math.min(Math.max(1, Number(filters.page) || 1), totalPages);
+      const start = (page - 1) * PAGE_SIZE;
+      const pageItems = filtered.slice(start, start + PAGE_SIZE);
+      if (countEl) {
+        countEl.textContent = `${filtered.length} veh\xEDculo${filtered.length === 1 ? "" : "s"} encontrados`;
+      }
+      if (listEl) {
+        listEl.innerHTML = "";
+        if (!pageItems.length) {
+          listEl.innerHTML = '<p class="vehicle-grid__empty">No hay resultados con esos filtros.</p>';
+        } else {
+          pageItems.forEach((car) => {
+            listEl.append(
+              createVehicleCardElement(car, {
+                favorited: favorites.includes(car.id)
+              })
+            );
+          });
+          bindFavoriteButtons(listEl);
+        }
+      }
+      if (pageInfo) pageInfo.textContent = `${page} / ${totalPages}`;
+      if (prevBtn) prevBtn.disabled = page <= 1;
+      if (nextBtn) nextBtn.disabled = page >= totalPages;
+      const nextFilters = { ...filters, page };
+      writeFiltersToUrl(nextFilters);
+      gridRoot._filters = nextFilters;
+    };
+    const initial = readFiltersFromUrl();
+    render(initial);
+    brandSelect == null ? void 0 : brandSelect.addEventListener("change", () => {
+      const filters = { ...getFiltersFromForm(), model: "", page: 1 };
+      render(filters);
+    });
+    form == null ? void 0 : form.addEventListener("change", (event) => {
+      if (event.target === brandSelect) return;
+      const filters = { ...getFiltersFromForm(), page: 1 };
+      render(filters);
+    });
+    form == null ? void 0 : form.addEventListener("reset", () => {
+      window.setTimeout(() => {
+        render({
+          q: "",
+          brand: "",
+          model: "",
+          yearMin: "",
+          yearMax: "",
+          priceMin: "",
+          priceMax: "",
+          condition: "",
+          transmission: "",
+          fuel: "",
+          location: "",
+          sort: "price-asc",
+          page: 1
+        });
+      }, 0);
+    });
+    prevBtn == null ? void 0 : prevBtn.addEventListener("click", () => {
+      const filters = { ...gridRoot._filters || getFiltersFromForm() };
+      filters.page = Math.max(1, (filters.page || 1) - 1);
+      render(filters);
+    });
+    nextBtn == null ? void 0 : nextBtn.addEventListener("click", () => {
+      const filters = { ...gridRoot._filters || getFiltersFromForm() };
+      filters.page = (filters.page || 1) + 1;
+      render(filters);
+    });
+    document.addEventListener(
+      STORE_EVENT,
+      () => render(gridRoot._filters || getFiltersFromForm())
+    );
+    gridRoot.dataset.vehicleGridReady = "true";
+  };
+  var vehicleGrid_default = vehicleGrid;
+
+  // src/js/modules/vehicleFilters.js
+  var vehicleFilters = () => {
+    document.querySelectorAll("[data-filters-root]").forEach((root) => {
+      if (root.dataset.vehicleFiltersReady === "true") return;
+      const toggle = root.querySelector(".vehicle-filters__toggle");
+      const form = root.querySelector(".vehicle-filters__form");
+      toggle == null ? void 0 : toggle.addEventListener("click", () => {
+        const open = toggle.getAttribute("aria-expanded") === "true";
+        toggle.setAttribute("aria-expanded", String(!open));
+        form == null ? void 0 : form.classList.toggle("is-open", !open);
+      });
+      root.dataset.vehicleFiltersReady = "true";
+    });
+  };
+  var vehicleFilters_default = vehicleFilters;
+
+  // src/js/modules/vehicleGallerySlider.js
+  var vehicleGallerySlider = () => {
+    if (typeof Swiper === "undefined") return;
+    document.querySelectorAll(".vehicle-gallery-slider").forEach((root) => {
+      if (root.dataset.vehicleGallerySliderReady === "true") return;
+      const el = root.querySelector(".swiper");
+      if (!el) return;
+      root._swiper = new Swiper(el, {
+        slidesPerView: 1,
+        spaceBetween: 8,
+        navigation: {
+          nextEl: root.querySelector(".swiper-button-next"),
+          prevEl: root.querySelector(".swiper-button-prev")
+        },
+        pagination: {
+          el: root.querySelector(".swiper-pagination"),
+          clickable: true
+        }
+      });
+      root.dataset.vehicleGallerySliderReady = "true";
+    });
+  };
+  var vehicleGallerySlider_default = vehicleGallerySlider;
+
+  // src/js/modules/vehicleDetail.js
+  var renderMaintenance = (root, maintenance = []) => {
+    const empty = root.querySelector("[data-maintenance-empty]");
+    const list = root.querySelector("[data-maintenance-items]");
+    if (!list) return;
+    list.innerHTML = "";
+    if (!maintenance.length) {
+      if (empty) empty.hidden = false;
+      return;
+    }
+    if (empty) empty.hidden = true;
+    maintenance.slice().sort((a, b) => String(b.date).localeCompare(String(a.date))).forEach((item) => {
+      const li = document.createElement("li");
+      li.className = "maintenance-list__item";
+      li.innerHTML = `
+				<div class="maintenance-list__head">
+					<strong class="maintenance-list__type">${item.type}</strong>
+					<span class="maintenance-list__date">${item.date}</span>
+				</div>
+				<p class="maintenance-list__desc">${item.description || ""}</p>
+				<p class="maintenance-list__cost">${formatPrice(item.cost, "CRC")}</p>
+			`;
+      list.append(li);
+    });
+  };
+  var vehicleDetail = () => {
+    document.querySelectorAll("[data-vehicle-detail]").forEach((root) => {
+      var _a;
+      if (root.dataset.vehicleDetailReady === "true") return;
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
+      const loading = root.querySelector("[data-detail-loading]");
+      const empty = root.querySelector("[data-detail-empty]");
+      const content = root.querySelector("[data-detail-content]");
+      const render = () => {
+        var _a2;
+        const car = id ? getCarById(id) : null;
+        if (loading) loading.hidden = true;
+        if (!car) {
+          if (empty) empty.hidden = false;
+          if (content) content.hidden = true;
+          return;
+        }
+        if (empty) empty.hidden = true;
+        if (content) content.hidden = false;
+        const setText = (selector, value) => {
+          const el = root.querySelector(selector);
+          if (el) el.textContent = value;
+        };
+        setText("[data-detail-title]", `${car.brand} ${car.model}`);
+        setText("[data-detail-price]", formatPrice(car.price, car.currency));
+        setText("[data-detail-condition]", conditionLabel(car.condition));
+        setText("[data-detail-year]", String(car.year));
+        setText("[data-detail-mileage]", formatMileage(car.mileage));
+        setText("[data-detail-transmission]", transmissionLabel(car.transmission));
+        setText("[data-detail-fuel]", fuelLabel(car.fuel));
+        setText("[data-detail-location]", car.location);
+        setText("[data-detail-description]", car.description || "");
+        const premium = root.querySelector("[data-detail-premium]");
+        if (premium) premium.hidden = !car.isPremium;
+        const gallery = root.querySelector("[data-detail-gallery]");
+        if (gallery) {
+          gallery.innerHTML = "";
+          (car.images || []).forEach((src) => {
+            const slide = document.createElement("div");
+            slide.className = "swiper-slide";
+            slide.innerHTML = `<img class="vehicle-detail__image" src="${src}" alt="${car.brand} ${car.model}" />`;
+            gallery.append(slide);
+          });
+          root.querySelector(".vehicle-gallery-slider").dataset.vehicleGallerySliderReady = "false";
+          vehicleGallerySlider_default();
+        }
+        renderMaintenance(root, car.maintenance);
+        const seller = getUserById(car.sellerId);
+        const sellerEl = root.querySelector("[data-detail-seller]");
+        if (sellerEl) {
+          sellerEl.innerHTML = seller ? `
+						<img class="vehicle-detail__seller-avatar" src="${seller.avatar}" alt="" width="64" height="64" />
+						<div>
+							<p class="vehicle-detail__seller-name">${seller.name}</p>
+							<p class="vehicle-detail__seller-meta">${seller.phone || ""}</p>
+							<p class="vehicle-detail__seller-meta">${seller.email || ""}</p>
+							<p class="vehicle-detail__seller-plan">Plan: ${seller.plan === "premium" ? "Premium" : "Gratis"}</p>
+						</div>
+					` : "<p>Vendedor no disponible</p>";
+        }
+        const contact = root.querySelector("[data-detail-contact]");
+        if (contact && (seller == null ? void 0 : seller.email)) {
+          contact.href = `mailto:${seller.email}?subject=${encodeURIComponent(`Consulta: ${car.brand} ${car.model}`)}`;
+        }
+        const favBtn = root.querySelector("[data-detail-fav]");
+        const user = getCurrentUser();
+        const isFav = Boolean((_a2 = user == null ? void 0 : user.favorites) == null ? void 0 : _a2.includes(car.id));
+        favBtn == null ? void 0 : favBtn.classList.toggle("is-active", isFav);
+        favBtn == null ? void 0 : favBtn.setAttribute("aria-pressed", String(isFav));
+      };
+      root.querySelectorAll("[data-tab]").forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const name = tab.dataset.tab;
+          root.querySelectorAll("[data-tab]").forEach((t) => {
+            const active = t === tab;
+            t.classList.toggle("is-active", active);
+            t.setAttribute("aria-selected", String(active));
+          });
+          root.querySelectorAll("[data-panel]").forEach((panel) => {
+            const active = panel.dataset.panel === name;
+            panel.classList.toggle("is-active", active);
+            panel.hidden = !active;
+          });
+        });
+      });
+      (_a = root.querySelector("[data-detail-fav]")) == null ? void 0 : _a.addEventListener("click", () => {
+        const user = getCurrentUser();
+        if (!user) {
+          window.location.href = "./login.html";
+          return;
+        }
+        try {
+          const favorites = toggleFavorite(user.id, id);
+          const active = favorites.includes(id);
+          const favBtn = root.querySelector("[data-detail-fav]");
+          favBtn == null ? void 0 : favBtn.classList.toggle("is-active", active);
+          showToast(active ? "Agregado a favoritos" : "Eliminado de favoritos", "success");
+        } catch (error) {
+          showToast(error.message || "Error", "error");
+        }
+      });
+      render();
+      document.addEventListener(STORE_EVENT, render);
+      root.dataset.vehicleDetailReady = "true";
+    });
+  };
+  var vehicleDetail_default = vehicleDetail;
+
+  // src/js/modules/authForm.js
+  var authForm = () => {
+    document.querySelectorAll("[data-auth-form]").forEach((root) => {
+      if (root.dataset.authFormReady === "true") return;
+      const mode = root.dataset.authMode || "login";
+      const form = root.querySelector(".auth-form__form");
+      const errorEl = root.querySelector("[data-auth-error]");
+      form == null ? void 0 : form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (errorEl) {
+          errorEl.hidden = true;
+          errorEl.textContent = "";
+        }
+        const data = new FormData(form);
+        try {
+          if (mode === "register") {
+            registerUser({
+              name: data.get("name"),
+              email: data.get("email"),
+              password: data.get("password"),
+              phone: data.get("phone")
+            });
+            showToast("Cuenta creada correctamente", "success");
+          } else {
+            loginUser(data.get("email"), data.get("password"));
+            showToast("Sesi\xF3n iniciada", "success");
+          }
+          window.setTimeout(() => {
+            window.location.href = "./dashboard.html";
+          }, 400);
+        } catch (error) {
+          if (errorEl) {
+            errorEl.hidden = false;
+            errorEl.textContent = error.message || "Error de autenticaci\xF3n";
+          }
+          showToast(error.message || "Error", "error");
+        }
+      });
+      root.querySelectorAll("[data-social]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const provider = btn.dataset.social;
+          try {
+            loginWithSocial(provider, {
+              name: provider === "google" ? "Cuenta Google" : "Cuenta Facebook",
+              email: `${provider}.demo@choricar.social`,
+              avatar: `https://i.pravatar.cc/150?u=${provider}`
+            });
+            showToast(`Sesi\xF3n con ${provider}`, "success");
+            window.setTimeout(() => {
+              window.location.href = "./dashboard.html";
+            }, 400);
+          } catch (error) {
+            showToast(error.message || "Error social login", "error");
+          }
+        });
+      });
+      root.dataset.authFormReady = "true";
+    });
+  };
+  var authForm_default = authForm;
+
+  // src/js/modules/dashboard.js
+  var renderUserVehicles = (root, user) => {
+    const list = root.querySelector("[data-user-vehicles-list]");
+    const empty = root.querySelector("[data-user-vehicles-empty]");
+    if (!list) return;
+    const cars = getCars().filter((car) => car.sellerId === user.id);
+    list.innerHTML = "";
+    if (!cars.length) {
+      if (empty) empty.hidden = false;
+      return;
+    }
+    if (empty) empty.hidden = true;
+    cars.forEach((car) => {
+      var _a;
+      const row = document.createElement("article");
+      row.className = "user-vehicles__item";
+      row.innerHTML = `
+			<img class="user-vehicles__thumb" src="${((_a = car.images) == null ? void 0 : _a[0]) || ""}" alt="" width="96" height="72" />
+			<div class="user-vehicles__info">
+				<h3 class="user-vehicles__name">${car.brand} ${car.model} ${car.year}</h3>
+				<p class="user-vehicles__price">${formatPrice(car.price, car.currency)}</p>
+			</div>
+			<div class="user-vehicles__actions">
+				<a class="user-vehicles__edit" href="./agregar-vehiculo.html?edit=${encodeURIComponent(car.id)}">Editar</a>
+				<button class="user-vehicles__delete" type="button" data-delete-car="${car.id}">Eliminar</button>
+			</div>
+		`;
+      list.append(row);
+    });
+    list.querySelectorAll("[data-delete-car]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (!window.confirm("\xBFEliminar este veh\xEDculo?")) return;
+        try {
+          deleteCar(btn.dataset.deleteCar);
+          showToast("Veh\xEDculo eliminado", "success");
+        } catch (error) {
+          showToast(error.message || "No se pudo eliminar", "error");
+        }
+      });
+    });
+  };
+  var renderFavorites = (root, user) => {
+    const list = root.querySelector("[data-favorites-list]");
+    const empty = root.querySelector("[data-favorites-empty]");
+    if (!list) return;
+    const cars = (user.favorites || []).map((id) => getCarById(id)).filter(Boolean);
+    list.innerHTML = "";
+    if (!cars.length) {
+      if (empty) empty.hidden = false;
+      return;
+    }
+    if (empty) empty.hidden = true;
+    cars.forEach((car) => {
+      list.append(createVehicleCardElement(car, { favorited: true }));
+    });
+    bindFavoriteButtons(list);
+  };
+  var renderProfile = (root, user) => {
+    const form = root.querySelector(".dashboard-profile__form");
+    if (!form) return;
+    form.elements.namedItem("name").value = user.name || "";
+    form.elements.namedItem("email").value = user.email || "";
+    form.elements.namedItem("phone").value = user.phone || "";
+  };
+  var renderSubscription = (root, user) => {
+    const planEl = root.querySelector("[data-dash-plan]");
+    if (planEl) {
+      planEl.textContent = user.plan === "premium" ? "Plan actual: Premium (veh\xEDculos ilimitados + destacados)" : "Plan actual: Gratis (1 veh\xEDculo activo)";
+    }
+  };
+  var showPanel = (root, panelId) => {
+    root.querySelectorAll("[data-dash-tab]").forEach((btn) => {
+      btn.classList.toggle("is-active", btn.dataset.dashTab === panelId);
+    });
+    root.querySelectorAll("[data-panel]").forEach((panel) => {
+      const active = panel.dataset.panel === panelId;
+      panel.classList.toggle("is-active", active);
+      panel.hidden = !active;
+    });
+  };
+  var dashboard = () => {
+    document.querySelectorAll("[data-dashboard]").forEach((root) => {
+      var _a;
+      if (root.dataset.dashboardReady === "true") return;
+      const guest = root.querySelector("[data-dashboard-guest]");
+      const content = root.querySelector("[data-dashboard-content]");
+      const render = () => {
+        const user = getCurrentUser();
+        if (!user) {
+          if (guest) guest.hidden = false;
+          if (content) content.hidden = true;
+          return;
+        }
+        if (guest) guest.hidden = true;
+        if (content) content.hidden = false;
+        renderUserVehicles(root, user);
+        renderFavorites(root, user);
+        renderProfile(root, user);
+        renderSubscription(root, user);
+      };
+      root.querySelectorAll("[data-dash-tab]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const tab = btn.dataset.dashTab;
+          if (tab === "logout") {
+            logout();
+            window.location.href = "./index.html";
+            return;
+          }
+          showPanel(root, tab);
+        });
+      });
+      (_a = root.querySelector(".dashboard-profile__form")) == null ? void 0 : _a.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const user = getCurrentUser();
+        if (!user) return;
+        const data = new FormData(event.currentTarget);
+        try {
+          updateUser(user.id, {
+            name: data.get("name"),
+            email: data.get("email"),
+            phone: data.get("phone")
+          });
+          showToast("Perfil actualizado", "success");
+        } catch (error) {
+          showToast(error.message || "Error al guardar", "error");
+        }
+      });
+      render();
+      document.addEventListener(STORE_EVENT, render);
+      root.dataset.dashboardReady = "true";
+    });
+  };
+  var dashboard_default = dashboard;
+
+  // src/js/modules/vehicleForm.js
+  var DEFAULT_IMAGE_COPY = {
+    remove: "Quitar",
+    empty: "A\xFAn no hay im\xE1genes adjuntas.",
+    maxFiles: 5,
+    maxSizeMb: 2
+  };
+  var readFileAsDataUrl = (file) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ""));
+    reader.onerror = () => reject(new Error("No se pudo leer la imagen"));
+    reader.readAsDataURL(file);
+  });
+  var compressImage = (dataUrl, maxWidth = 1200, quality = 0.82) => new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => {
+      const scale = Math.min(1, maxWidth / image.width);
+      const width = Math.round(image.width * scale);
+      const height = Math.round(image.height * scale);
+      const canvas = document.createElement("canvas");
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        resolve(dataUrl);
+        return;
+      }
+      ctx.drawImage(image, 0, 0, width, height);
+      resolve(canvas.toDataURL("image/jpeg", quality));
+    };
+    image.onerror = () => resolve(dataUrl);
+    image.src = dataUrl;
+  });
+  var vehicleForm = () => {
+    document.querySelectorAll("[data-vehicle-form]").forEach((root) => {
+      if (root.dataset.vehicleFormReady === "true") return;
+      const form = root.querySelector(".vehicle-form__form");
+      const titleEl = root.querySelector("[data-form-title]");
+      const submitEl = root.querySelector("[data-form-submit]");
+      const errorEl = root.querySelector("[data-form-error]");
+      const limitEl = root.querySelector("[data-form-limit]");
+      const idInput = root.querySelector("[data-form-id]");
+      const fileInput = root.querySelector("[data-image-input]");
+      const previewsEl = root.querySelector("[data-image-previews]");
+      const emptyEl = root.querySelector("[data-images-empty]");
+      let copy = {
+        editTitle: "Editar veh\xEDculo",
+        submitUpdate: "Guardar cambios",
+        submitCreate: "Publicar",
+        images: DEFAULT_IMAGE_COPY
+      };
+      try {
+        const copyEl = document.getElementById("vehicle-form-copy");
+        if (copyEl) copy = { ...copy, ...JSON.parse(copyEl.textContent) };
+      } catch (e) {
+      }
+      const imageCopy = { ...DEFAULT_IMAGE_COPY, ...copy.images || {} };
+      const maxFiles = Number(imageCopy.maxFiles) || 5;
+      const maxBytes = (Number(imageCopy.maxSizeMb) || 2) * 1024 * 1024;
+      let images = [];
+      const renderPreviews = () => {
+        if (!previewsEl) return;
+        previewsEl.innerHTML = "";
+        if (emptyEl) emptyEl.hidden = images.length > 0;
+        images.forEach((src, index) => {
+          const item = document.createElement("li");
+          item.className = "vehicle-form__preview";
+          item.innerHTML = `
+					<img class="vehicle-form__preview-image" src="${src}" alt="Vista previa ${index + 1}" />
+					<button class="vehicle-form__preview-remove" type="button" data-remove-image="${index}">
+						${imageCopy.remove}
+					</button>
+				`;
+          previewsEl.append(item);
+        });
+        previewsEl.querySelectorAll("[data-remove-image]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const index = Number(btn.dataset.removeImage);
+            images = images.filter((_, i) => i !== index);
+            renderPreviews();
+          });
+        });
+      };
+      const params = new URLSearchParams(window.location.search);
+      const editId = params.get("edit");
+      const user = getCurrentUser();
+      if (!user) {
+        window.location.href = "./login.html";
+        return;
+      }
+      if (editId) {
+        const car = getCarById(editId);
+        if (!car || car.sellerId !== user.id) {
+          showToast("No puedes editar este veh\xEDculo", "error");
+          window.location.href = "./dashboard.html";
+          return;
+        }
+        if (titleEl) titleEl.textContent = copy.editTitle;
+        if (submitEl) submitEl.textContent = copy.submitUpdate;
+        if (idInput) idInput.value = car.id;
+        Object.entries(car).forEach(([key, value]) => {
+          if (key === "images") return;
+          const field = form == null ? void 0 : form.elements.namedItem(key);
+          if (!field || !("value" in field)) return;
+          field.value = value != null ? value : "";
+        });
+        images = Array.isArray(car.images) ? [...car.images] : [];
+      } else {
+        const userCars = getCars().filter((c) => c.sellerId === user.id);
+        if (user.plan !== "premium" && userCars.length >= 1) {
+          if (limitEl) limitEl.hidden = false;
+          if (form) form.hidden = true;
+        }
+      }
+      renderPreviews();
+      fileInput == null ? void 0 : fileInput.addEventListener("change", async () => {
+        const files = [...fileInput.files || []];
+        fileInput.value = "";
+        if (!files.length) return;
+        const available = maxFiles - images.length;
+        if (available <= 0) {
+          showToast(`M\xE1ximo ${maxFiles} im\xE1genes`, "error");
+          return;
+        }
+        const selected = files.slice(0, available);
+        if (files.length > available) {
+          showToast(`Solo se agregaron ${available} imagen(es)`, "error");
+        }
+        try {
+          for (const file of selected) {
+            if (!file.type.startsWith("image/")) {
+              showToast(`Archivo no v\xE1lido: ${file.name}`, "error");
+              continue;
+            }
+            if (file.size > maxBytes) {
+              showToast(
+                `${file.name} supera ${imageCopy.maxSizeMb} MB`,
+                "error"
+              );
+              continue;
+            }
+            const raw = await readFileAsDataUrl(file);
+            const compressed = await compressImage(raw);
+            images.push(compressed);
+          }
+          renderPreviews();
+        } catch (error) {
+          showToast(error.message || "Error al adjuntar im\xE1genes", "error");
+        }
+      });
+      form == null ? void 0 : form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (errorEl) {
+          errorEl.hidden = true;
+          errorEl.textContent = "";
+        }
+        if (!images.length) {
+          const message = "Adjunta al menos una imagen del veh\xEDculo";
+          if (errorEl) {
+            errorEl.hidden = false;
+            errorEl.textContent = message;
+          }
+          showToast(message, "error");
+          return;
+        }
+        const data = new FormData(form);
+        const payload = {
+          brand: data.get("brand"),
+          model: data.get("model"),
+          year: Number(data.get("year")),
+          price: Number(data.get("price")),
+          currency: data.get("currency") || "CRC",
+          mileage: Number(data.get("mileage")),
+          condition: data.get("condition"),
+          transmission: data.get("transmission"),
+          fuel: data.get("fuel"),
+          location: data.get("location"),
+          description: data.get("description"),
+          images: [...images]
+        };
+        try {
+          const id = data.get("id");
+          if (id) {
+            updateCar(String(id), payload);
+            showToast("Veh\xEDculo actualizado", "success");
+          } else {
+            addCar(payload);
+            showToast("Veh\xEDculo publicado", "success");
+          }
+          window.setTimeout(() => {
+            window.location.href = "./dashboard.html";
+          }, 500);
+        } catch (error) {
+          const message = error.message === "LIMIT_FREE" ? "L\xEDmite del plan Gratis alcanzado. Mejora a Premium." : error.message || "No se pudo guardar";
+          if (errorEl) {
+            errorEl.hidden = false;
+            errorEl.textContent = message;
+          }
+          showToast(message, "error");
+        }
+      });
+      root.dataset.vehicleFormReady = "true";
+    });
+  };
+  var vehicleForm_default = vehicleForm;
+
+  // src/js/modules/paymentModal.js
+  var paymentModal = () => {
+    document.querySelectorAll("[data-payment-modal]").forEach((root) => {
+      if (root.dataset.paymentModalReady === "true") return;
+      const form = root.querySelector(".payment-modal__form");
+      const errorEl = root.querySelector("[data-modal-error]");
+      const close = () => {
+        root.hidden = true;
+        document.body.classList.remove("has-modal");
+      };
+      const open = () => {
+        root.hidden = false;
+        document.body.classList.add("has-modal");
+      };
+      root.querySelectorAll("[data-modal-close]").forEach((el) => {
+        el.addEventListener("click", close);
+      });
+      form == null ? void 0 : form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const user = getCurrentUser();
+        if (!user) {
+          window.location.href = "./login.html";
+          return;
+        }
+        const data = new FormData(form);
+        const number = String(data.get("cardNumber") || "").replace(/\s/g, "");
+        if (number.length < 12) {
+          if (errorEl) {
+            errorEl.hidden = false;
+            errorEl.textContent = "Ingresa un n\xFAmero de tarjeta v\xE1lido (simulado)";
+          }
+          return;
+        }
+        try {
+          subscribe(user.id, "premium");
+          showToast("\xA1Bienvenido a Premium!", "success");
+          close();
+          window.setTimeout(() => {
+            window.location.href = "./dashboard.html";
+          }, 600);
+        } catch (error) {
+          showToast(error.message || "No se pudo activar Premium", "error");
+        }
+      });
+      root._openPaymentModal = open;
+      root.dataset.paymentModalReady = "true";
+    });
+  };
+  var openPaymentModal = () => {
+    var _a, _b;
+    const modal = document.querySelector("[data-payment-modal]");
+    if (modal == null ? void 0 : modal._openPaymentModal) {
+      modal._openPaymentModal();
+      return;
+    }
+    paymentModal();
+    (_b = (_a = document.querySelector("[data-payment-modal]")) == null ? void 0 : _a._openPaymentModal) == null ? void 0 : _b.call(_a);
+  };
+  var paymentModal_default = paymentModal;
+
+  // src/js/modules/subscriptionPlans.js
+  var subscriptionPlans = () => {
+    document.querySelectorAll("[data-subscription-plans]").forEach((root) => {
+      if (root.dataset.subscriptionPlansReady === "true") return;
+      root.querySelectorAll("[data-plan-premium]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const user = getCurrentUser();
+          if (!user) {
+            window.location.href = "./login.html";
+            return;
+          }
+          if (user.plan === "premium") {
+            showToast("Ya tienes el plan Premium", "success");
+            return;
+          }
+          openPaymentModal();
+        });
+      });
+      root.dataset.subscriptionPlansReady = "true";
+    });
+  };
+  var subscriptionPlans_default = subscriptionPlans;
+
   // src/js/index.js
   var import_prismjs = __toESM(require_prism(), 1);
-  var initComponents = () => {
+  var initComponents = async () => {
+    await ensureStore();
     internalModule_default();
     styleGuideContainer_default();
     tutorGrid_default();
     personaGrid_default();
+    mainHeader_default();
+    heroSlider_default();
+    featuredVehicles_default();
+    vehicleFilters_default();
+    vehicleGrid_default();
+    vehicleDetail_default();
+    vehicleGallerySlider_default();
+    authForm_default();
+    dashboard_default();
+    vehicleForm_default();
+    paymentModal_default();
+    subscriptionPlans_default();
+    toast_default();
     import_prismjs.default.highlightAll();
   };
   document.addEventListener("DOMContentLoaded", initComponents);

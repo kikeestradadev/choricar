@@ -1,0 +1,35 @@
+div(class='main-container main-header__shell')
+	div(class='container main-header__container')
+		a(class='main-header__logo' href=mainHeaderData.logoHref)= mainHeaderData.logo
+		form(class='main-header__search' action=mainHeaderData.searchHref method='get' role='search')
+			label(class='main-header__search-label' for='header-search') Buscar
+			input(
+				class='main-header__search-input'
+				id='header-search'
+				type='search'
+				name='q'
+				placeholder=mainHeaderData.searchPlaceholder
+				aria-label=mainHeaderData.searchPlaceholder
+			)
+			button(class='main-header__search-btn' type='submit' aria-label='Buscar')
+				span(aria-hidden='true') ⌕
+		div(class='main-header__backdrop' data-nav-backdrop hidden)
+		nav(class='main-header__nav' id='main-header-nav' aria-label='Principal' data-nav-panel)
+			ul(class='main-header__list')
+				each item in mainHeaderData.nav
+					li(class='main-header__item')
+						a(class='main-header__link' href=item.href)= item.label
+		div(class='main-header__auth' data-auth-slot)
+			a(class='main-header__btn main-header__btn--ghost' href=mainHeaderData.loginHref)= mainHeaderData.loginLabel
+			a(class='main-header__btn main-header__btn--accent' href=mainHeaderData.registerHref)= mainHeaderData.registerLabel
+		button(
+			class='main-header__toggle'
+			type='button'
+			aria-expanded='false'
+			aria-controls='main-header-nav'
+			aria-label=mainHeaderData.menuToggleLabel
+			data-nav-toggle
+		)
+			span(class='main-header__toggle-bar' aria-hidden='true')
+			span(class='main-header__toggle-bar' aria-hidden='true')
+			span(class='main-header__toggle-bar' aria-hidden='true')

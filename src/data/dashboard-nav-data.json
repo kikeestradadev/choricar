@@ -1,0 +1,10 @@
+{
+	"title": "Mi cuenta",
+	"items": [
+		{ "id": "vehicles", "label": "Mis vehículos", "icon": "car" },
+		{ "id": "favorites", "label": "Favoritos", "icon": "heart" },
+		{ "id": "profile", "label": "Perfil", "icon": "user" },
+		{ "id": "subscription", "label": "Suscripción", "icon": "star" },
+		{ "id": "logout", "label": "Cerrar sesión", "icon": "logout" }
+	]
+}

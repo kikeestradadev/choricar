@@ -1,0 +1,35 @@
+.dashboard {
+	padding: 1.5rem 0 3rem;
+
+	&__title {
+		margin-bottom: 1rem;
+	}
+
+	&__guest {
+		background: #fff;
+		border-radius: var(--radius-card);
+		padding: 1.5rem;
+		box-shadow: var(--color-card-shadow);
+	}
+
+	&__layout {
+		display: grid;
+		gap: 1.25rem;
+
+		@media (width >= $l) {
+			grid-template-columns: 240px minmax(0, 1fr);
+			align-items: start;
+		}
+	}
+
+	&__panels {
+		min-width: 0;
+	}
+
+	&__panel {
+		background: #fff;
+		border-radius: var(--radius-card);
+		box-shadow: var(--color-card-shadow);
+		padding: 1.25rem;
+	}
+}

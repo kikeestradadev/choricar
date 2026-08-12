@@ -2,11 +2,20 @@ extends ../config/template
 
 block append config
 	- currentPage = 'home';
-	- siteName = 'Layouts';
+	- siteName = 'Choricar';
 	- content = 'content';
-	- pageDescription = 'Pagina inicial de MyBoilerplate';
+	- pageDescription = 'Choricar — compra y vende vehículos en Costa Rica. Filtra por marca, precio y ubicación.';
 
 block main-header
+	include ../components/main-header
+
 block main-container
+	include ../components/hero-banner
+	include ../components/subscription-plans
+	include ../components/payment-modal
+	include ../components/toast
+
 block main-footer
+	include ../components/main-footer
+
 block scripts

@@ -1,0 +1,11 @@
+aside(class='dashboard-nav' data-dashboard-nav aria-label=dashboardNavData.title)
+	h2(class='dashboard-nav__title')= dashboardNavData.title
+	nav(class='dashboard-nav__menu')
+		ul(class='dashboard-nav__list')
+			each item in dashboardNavData.items
+				li(class='dashboard-nav__item')
+					button(
+						class='dashboard-nav__btn' + (item.id === 'vehicles' ? ' is-active' : '')
+						type='button'
+						data-dash-tab=item.id
+					)= item.label

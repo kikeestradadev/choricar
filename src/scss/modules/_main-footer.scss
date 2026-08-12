@@ -1,0 +1,84 @@
+.main-footer {
+	&__container {
+		display: grid;
+		gap: 2rem;
+		padding: 1rem 0 0;
+	}
+
+	&__logo {
+		font-family: var(--font-heading);
+		font-weight: 700;
+		font-size: 1.35rem;
+		margin: 0 0 0.35rem;
+	}
+
+	&__tagline {
+		margin: 0;
+		color: rgba(255, 255, 255, 0.75);
+		max-width: 28ch;
+	}
+
+	&__columns {
+		display: grid;
+		gap: 1.5rem;
+
+		@media (width >= $m) {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	&__title {
+		color: #fff;
+		font-size: 1rem;
+		margin-bottom: 0.75rem;
+	}
+
+	&__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.4rem;
+	}
+
+	&__link {
+		color: rgba(255, 255, 255, 0.8);
+		text-decoration: none;
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				color: var(--color-accent);
+			}
+		}
+	}
+
+	&__social {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+	}
+
+	&__social-link {
+		color: #fff;
+		text-decoration: none;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		border-radius: var(--radius-btn);
+		padding: 0.35rem 0.7rem;
+		font-size: 0.85rem;
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				border-color: var(--color-accent);
+				color: var(--color-accent);
+			}
+		}
+	}
+
+	&__copy {
+		margin: 0;
+		padding-top: 1rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.15);
+		color: rgba(255, 255, 255, 0.6);
+		font-size: 0.85rem;
+	}
+}

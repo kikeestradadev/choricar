@@ -1,0 +1,27 @@
+div(class='payment-modal' data-payment-modal hidden)
+	div(class='payment-modal__backdrop' data-modal-close)
+	div(class='payment-modal__dialog' role='dialog' aria-modal='true' aria-labelledby='payment-modal-title')
+		button(class='payment-modal__close' type='button' aria-label='Cerrar' data-modal-close) ×
+		h2(class='payment-modal__title' id='payment-modal-title')= paymentModalData.title
+		p(class='payment-modal__subtitle')= paymentModalData.subtitle
+		p(class='payment-modal__amount')
+			span= paymentModalData.amountLabel + ': '
+			strong= paymentModalData.amount
+		form(class='payment-modal__form' novalidate)
+			div(class='payment-modal__group')
+				label(class='payment-modal__label' for='card-name')= paymentModalData.fields.cardName
+				input(class='payment-modal__input' id='card-name' name='cardName' type='text' required autocomplete='cc-name')
+			div(class='payment-modal__group')
+				label(class='payment-modal__label' for='card-number')= paymentModalData.fields.cardNumber
+				input(class='payment-modal__input' id='card-number' name='cardNumber' type='text' inputmode='numeric' required maxlength='19' placeholder='4111 1111 1111 1111' autocomplete='cc-number')
+			div(class='payment-modal__row')
+				div(class='payment-modal__group')
+					label(class='payment-modal__label' for='card-expiry')= paymentModalData.fields.expiry
+					input(class='payment-modal__input' id='card-expiry' name='expiry' type='text' required maxlength='5' placeholder='12/28' autocomplete='cc-exp')
+				div(class='payment-modal__group')
+					label(class='payment-modal__label' for='card-cvv')= paymentModalData.fields.cvv
+					input(class='payment-modal__input' id='card-cvv' name='cvv' type='text' inputmode='numeric' required maxlength='4' placeholder='123' autocomplete='cc-csc')
+			p(class='payment-modal__error' data-modal-error hidden role='alert')
+			div(class='payment-modal__actions')
+				button(class='payment-modal__cancel' type='button' data-modal-close)= paymentModalData.cancel
+				button(class='payment-modal__submit' type='submit')= paymentModalData.submit

@@ -1,0 +1,42 @@
+.dashboard-nav {
+	background: #fff;
+	border-radius: var(--radius-card);
+	box-shadow: var(--color-card-shadow);
+	padding: 1rem;
+
+	&__title {
+		font-size: 1.05rem;
+		margin: 0 0 0.85rem;
+	}
+
+	&__list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: grid;
+		gap: 0.35rem;
+	}
+
+	&__btn {
+		width: 100%;
+		text-align: left;
+		border: 0;
+		background: transparent;
+		border-radius: var(--radius-btn);
+		padding: 0.7rem 0.85rem;
+		font-weight: 600;
+		cursor: pointer;
+		color: var(--color-text);
+
+		&.is-active {
+			background: var(--color-primary);
+			color: #fff;
+		}
+
+		@media (hover: hover) and (pointer: fine) {
+			&:not(.is-active):hover {
+				background: var(--color-bg-muted);
+			}
+		}
+	}
+}

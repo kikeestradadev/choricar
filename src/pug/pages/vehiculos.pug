@@ -1,0 +1,25 @@
+extends ../config/template
+
+block append config
+	- currentPage = 'vehiculos';
+	- siteName = 'Choricar';
+	- content = 'content';
+	- pageDescription = 'Explora vehículos nuevos y usados en Costa Rica con filtros avanzados.';
+
+block main-header
+	include ../components/main-header
+
+block main-container
+	section(class='listings-page')
+		div(class='main-container listings-page__shell')
+			div(class='container listings-page__container')
+				h1(class='listings-page__title') Explorar vehículos
+				div(class='listings-page__layout')
+					include ../components/vehicle-filters
+					include ../components/vehicle-grid
+	include ../components/toast
+
+block main-footer
+	include ../components/main-footer
+
+block scripts

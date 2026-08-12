@@ -1,0 +1,33 @@
+section(class='auth-form' data-auth-form data-auth-mode=mode)
+	div(class='main-container auth-form__shell')
+		div(class='container auth-form__container')
+			-
+				const authCopy = mode === 'register' ? authFormData.register : authFormData.login
+			div(class='auth-form__card')
+				h1(class='auth-form__title')= authCopy.title
+				p(class='auth-form__subtitle')= authCopy.subtitle
+				form(class='auth-form__form' novalidate)
+					if mode === 'register'
+						div(class='auth-form__group')
+							label(class='auth-form__label' for='auth-name')= authFormData.fields.name
+							input(class='auth-form__input' id='auth-name' name='name' type='text' required autocomplete='name')
+					div(class='auth-form__group')
+						label(class='auth-form__label' for='auth-email')= authFormData.fields.email
+						input(class='auth-form__input' id='auth-email' name='email' type='email' required autocomplete='email')
+					div(class='auth-form__group')
+						label(class='auth-form__label' for='auth-password')= authFormData.fields.password
+						input(class='auth-form__input' id='auth-password' name='password' type='password' required minlength='6' autocomplete=mode === 'register' ? 'new-password' : 'current-password')
+					if mode === 'register'
+						div(class='auth-form__group')
+							label(class='auth-form__label' for='auth-phone')= authFormData.fields.phone
+							input(class='auth-form__input' id='auth-phone' name='phone' type='tel' autocomplete='tel')
+					p(class='auth-form__error' data-auth-error hidden role='alert')
+					button(class='auth-form__submit' type='submit')= authCopy.submit
+				div(class='auth-form__divider')
+					span(class='auth-form__divider-text')= authFormData.or
+				div(class='auth-form__social')
+					button(class='auth-form__social-btn' type='button' data-social='google')= authFormData.social.google
+					button(class='auth-form__social-btn' type='button' data-social='facebook')= authFormData.social.facebook
+				p(class='auth-form__switch')
+					span= authCopy.switchText + ' '
+					a(class='auth-form__switch-link' href=authCopy.switchHref)= authCopy.switchLabel

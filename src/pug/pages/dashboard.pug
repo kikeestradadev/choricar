@@ -1,0 +1,37 @@
+extends ../config/template
+
+block append config
+	- currentPage = 'dashboard';
+	- siteName = 'Choricar';
+	- content = 'content';
+	- pageDescription = 'Panel de usuario: vehículos, favoritos, perfil y suscripción.';
+
+block main-header
+	include ../components/main-header
+
+block main-container
+	section(class='dashboard' data-dashboard)
+		div(class='main-container dashboard__shell')
+			div(class='container dashboard__container')
+				h1(class='dashboard__title') Dashboard
+				p(class='dashboard__guest' data-dashboard-guest hidden)
+					| Debes 
+					a(href='./login.html') iniciar sesión
+					|  para ver tu panel.
+				div(class='dashboard__layout' data-dashboard-content hidden)
+					include ../components/dashboard-nav
+					div(class='dashboard__panels')
+						div(class='dashboard__panel is-active' data-panel='vehicles')
+							include ../components/user-vehicles
+						div(class='dashboard__panel' data-panel='favorites' hidden)
+							include ../components/favorites-grid
+						div(class='dashboard__panel' data-panel='profile' hidden)
+							include ../components/dashboard-profile
+						div(class='dashboard__panel' data-panel='subscription' hidden)
+							include ../components/dashboard-subscription
+	include ../components/toast
+
+block main-footer
+	include ../components/main-footer
+
+block scripts

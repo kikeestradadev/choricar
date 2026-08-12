@@ -1,0 +1,50 @@
+section(class='vehicle-detail' data-vehicle-detail)
+	div(class='main-container vehicle-detail__shell')
+		div(class='container vehicle-detail__container')
+			div(class='vehicle-detail__loading' data-detail-loading) Cargando vehículo…
+			div(class='vehicle-detail__empty' data-detail-empty hidden)
+				p(class='vehicle-detail__empty-text') No encontramos este vehículo.
+				a(class='vehicle-detail__empty-link' href='./vehiculos.html') Volver al listado
+			div(class='vehicle-detail__content' data-detail-content hidden)
+				div(class='vehicle-detail__gallery vehicle-gallery-slider')
+					div(class='swiper vehicle-detail__swiper')
+						div(class='swiper-wrapper' data-detail-gallery)
+						div(class='swiper-button-prev')
+						div(class='swiper-button-next')
+						div(class='swiper-pagination')
+				div(class='vehicle-detail__info')
+					div(class='vehicle-detail__badges')
+						span(class='vehicle-detail__badge' data-detail-condition)
+						span(class='vehicle-detail__badge vehicle-detail__badge--premium' data-detail-premium hidden) Premium
+					h1(class='vehicle-detail__title' data-detail-title)
+					p(class='vehicle-detail__price' data-detail-price)
+					ul(class='vehicle-detail__specs')
+						li(class='vehicle-detail__spec')
+							span(class='vehicle-detail__spec-label') Año
+							span(class='vehicle-detail__spec-value' data-detail-year)
+						li(class='vehicle-detail__spec')
+							span(class='vehicle-detail__spec-label') Kilometraje
+							span(class='vehicle-detail__spec-value' data-detail-mileage)
+						li(class='vehicle-detail__spec')
+							span(class='vehicle-detail__spec-label') Transmisión
+							span(class='vehicle-detail__spec-value' data-detail-transmission)
+						li(class='vehicle-detail__spec')
+							span(class='vehicle-detail__spec-label') Combustible
+							span(class='vehicle-detail__spec-value' data-detail-fuel)
+						li(class='vehicle-detail__spec')
+							span(class='vehicle-detail__spec-label') Ubicación
+							span(class='vehicle-detail__spec-value' data-detail-location)
+					div(class='vehicle-detail__actions')
+						button(class='vehicle-detail__fav' type='button' data-detail-fav) Favorito
+						a(class='vehicle-detail__contact' href='#' data-detail-contact) Contactar vendedor
+				div(class='vehicle-detail__tabs' data-detail-tabs)
+					div(class='vehicle-detail__tablist' role='tablist')
+						button(class='vehicle-detail__tab is-active' type='button' role='tab' aria-selected='true' data-tab='description') Descripción
+						button(class='vehicle-detail__tab' type='button' role='tab' aria-selected='false' data-tab='maintenance') Mantenimientos
+						button(class='vehicle-detail__tab' type='button' role='tab' aria-selected='false' data-tab='seller') Vendedor
+					div(class='vehicle-detail__panel is-active' role='tabpanel' data-panel='description')
+						p(data-detail-description)
+					div(class='vehicle-detail__panel' role='tabpanel' data-panel='maintenance' hidden)
+						include maintenance-list
+					div(class='vehicle-detail__panel' role='tabpanel' data-panel='seller' hidden)
+						div(class='vehicle-detail__seller' data-detail-seller)

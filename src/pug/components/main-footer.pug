@@ -1,0 +1,17 @@
+div(class='main-container main-footer__shell')
+	div(class='container main-footer__container')
+		div(class='main-footer__brand')
+			p(class='main-footer__logo')= mainFooterData.brand
+			p(class='main-footer__tagline')= mainFooterData.tagline
+		div(class='main-footer__columns')
+			each column in mainFooterData.columns
+				div(class='main-footer__column')
+					h3(class='main-footer__title')= column.title
+					ul(class='main-footer__list')
+						each link in column.links
+							li(class='main-footer__item')
+								a(class='main-footer__link' href=link.href)= link.label
+		div(class='main-footer__social')
+			each social in mainFooterData.social
+				a(class='main-footer__social-link' href=social.href)= social.label
+		p(class='main-footer__copy')= mainFooterData.copyright

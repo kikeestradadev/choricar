@@ -1,0 +1,23 @@
+extends ../config/template
+
+block append config
+	- currentPage = '404';
+	- siteName = 'Choricar';
+	- content = 'content';
+	- pageDescription = 'Página no encontrada.';
+
+block main-header
+	include ../components/main-header
+
+block main-container
+	section(class='page-404')
+		div(class='main-container page-404__shell')
+			div(class='container page-404__container')
+				h1(class='page-404__title') 404
+				p(class='page-404__text') No encontramos esta página.
+				a(class='page-404__link' href='./index.html') Volver al inicio
+
+block main-footer
+	include ../components/main-footer
+
+block scripts

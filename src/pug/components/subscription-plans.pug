@@ -1,0 +1,25 @@
+section(class='subscription-plans' data-subscription-plans)
+	div(class='main-container subscription-plans__shell')
+		div(class='container subscription-plans__container')
+			div(class='subscription-plans__head')
+				h2(class='subscription-plans__title')= plansData.title
+				p(class='subscription-plans__subtitle')= plansData.subtitle
+			div(class='subscription-plans__grid')
+				each plan in plansData.plans
+					article(class='subscription-plans__card' + (plan.id === 'premium' ? ' subscription-plans__card--premium' : ''))
+						if plan.badge
+							span(class='subscription-plans__badge')= plan.badge
+						h3(class='subscription-plans__name')= plan.name
+						p(class='subscription-plans__price')
+							if plan.price === 0
+								span Gratis
+							else
+								span ₡#{plan.price.toLocaleString('es-CR')}
+								span(class='subscription-plans__period') / #{plan.period}
+						ul(class='subscription-plans__features')
+							each feature in plan.features
+								li(class='subscription-plans__feature')= feature
+						if plan.id === 'premium'
+							button(class='subscription-plans__cta subscription-plans__cta--premium' type='button' data-plan-premium)= plan.cta
+						else
+							a(class='subscription-plans__cta' href=plan.ctaHref)= plan.cta
