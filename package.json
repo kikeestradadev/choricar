@@ -1,7 +1,7 @@
 {
 	"name": "choricar",
 	"version": "1.0.0",
-	"assetVersion": "1.0.22",
+	"assetVersion": "1.0.23",
 	"description": "Choricar — sitio estático con Gulp + Sass",
 	"type": "module",
 	"main": "gulpfile.js",
