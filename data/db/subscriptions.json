@@ -1,0 +1,11 @@
+{
+	"subscriptions": [
+		{
+			"id": "sub-001",
+			"userId": "user-001",
+			"plan": "premium",
+			"startDate": "2024-01-01",
+			"endDate": "2024-12-31"
+		}
+	]
+}

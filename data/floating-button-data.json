@@ -1,10 +1,38 @@
 {
 	"home": {
-		"href": "./style-guide.html",
-		"label": "Style Guide"
+		"href": "./vehiculos.html",
+		"label": "Explorar"
 	},
 	"style-guide": {
 		"href": "./index.html",
 		"label": "Home"
+	},
+	"vehiculos": {
+		"href": "./agregar-vehiculo.html",
+		"label": "Vender"
+	},
+	"vehiculo": {
+		"href": "./vehiculos.html",
+		"label": "Explorar"
+	},
+	"dashboard": {
+		"href": "./agregar-vehiculo.html",
+		"label": "Publicar"
+	},
+	"login": {
+		"href": "./registro.html",
+		"label": "Registro"
+	},
+	"registro": {
+		"href": "./login.html",
+		"label": "Login"
+	},
+	"suscripcion": {
+		"href": "./dashboard.html",
+		"label": "Dashboard"
+	},
+	"agregar-vehiculo": {
+		"href": "./dashboard.html",
+		"label": "Dashboard"
 	}
 }

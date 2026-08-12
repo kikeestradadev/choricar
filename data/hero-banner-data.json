@@ -1,0 +1,59 @@
+{
+	"slides": [
+		{
+			"image": "https://picsum.photos/seed/choricar-hero-1/1600/900",
+			"alt": "Vehículos en carretera costarricense",
+			"eyebrow": "Costa Rica",
+			"title": "Encuentra tu próximo vehículo",
+			"subtitle": "Miles de carros nuevos y usados. Filtra por marca, precio y ubicación."
+		},
+		{
+			"image": "https://picsum.photos/seed/choricar-hero-2/1600/900",
+			"alt": "SUV premium",
+			"eyebrow": "Premium",
+			"title": "Destacados con badge dorado",
+			"subtitle": "Los vendedores Premium aparecen primero y ganan más visibilidad."
+		},
+		{
+			"image": "https://picsum.photos/seed/choricar-hero-3/1600/900",
+			"alt": "Vende tu carro",
+			"eyebrow": "Vende fácil",
+			"title": "Publica tu carro en minutos",
+			"subtitle": "Plan gratis con 1 vehículo o Premium ilimitado desde ₡5,000/mes."
+		}
+	],
+	"search": {
+		"brandLabel": "Marca",
+		"modelLabel": "Modelo",
+		"yearLabel": "Año",
+		"buttonLabel": "Buscar",
+		"action": "./vehiculos.html",
+		"allLabel": "Todas"
+	},
+	"howItWorks": {
+		"title": "Cómo funciona",
+		"steps": [
+			{
+				"number": "1",
+				"title": "Busca",
+				"text": "Filtra por marca, precio, año y más."
+			},
+			{
+				"number": "2",
+				"title": "Compara",
+				"text": "Revisa fotos, historial y vendedor."
+			},
+			{
+				"number": "3",
+				"title": "Contacta",
+				"text": "Habla con el vendedor y cierra el trato."
+			}
+		]
+	},
+	"featured": {
+		"title": "Vehículos destacados",
+		"subtitle": "Selección Premium con mayor visibilidad",
+		"cta": "Ver todos",
+		"ctaHref": "./vehiculos.html"
+	}
+}

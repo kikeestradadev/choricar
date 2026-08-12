@@ -1,0 +1,101 @@
+{
+	"title": "Filtros",
+	"brands": [
+		"Toyota",
+		"Honda",
+		"Nissan",
+		"Hyundai",
+		"Kia",
+		"Suzuki",
+		"Mitsubishi",
+		"Mazda",
+		"Ford",
+		"Chevrolet",
+		"BMW",
+		"Mercedes-Benz",
+		"Audi",
+		"Volkswagen",
+		"Volvo",
+		"Jeep",
+		"Land Rover",
+		"Porsche",
+		"Lexus",
+		"Subaru"
+	],
+	"modelsByBrand": {
+		"Toyota": ["Corolla", "RAV4", "Hilux", "Yaris", "Fortuner"],
+		"Honda": ["Civic", "CR-V", "HR-V", "Accord", "Pilot"],
+		"Nissan": ["Sentra", "X-Trail", "Frontier", "Versa", "Kicks"],
+		"Hyundai": ["Tucson", "Elantra", "Santa Fe", "Creta", "Accent"],
+		"Kia": ["Sportage", "Rio", "Sorento", "Seltos", "Forte"],
+		"Suzuki": ["Swift", "Vitara", "Jimny", "Baleno", "SX4"],
+		"Mitsubishi": ["L200", "Outlander", "Montero", "ASX", "Mirage"],
+		"Mazda": ["CX-5", "Mazda3", "CX-30", "CX-9", "Mazda6"],
+		"Ford": ["Ranger", "Escape", "Explorer", "Mustang", "F-150"],
+		"Chevrolet": ["Spark", "Tracker", "Tahoe", "Silverado", "Equinox"],
+		"BMW": ["Serie 3", "X3", "X5", "Serie 5", "X1"],
+		"Mercedes-Benz": ["Clase C", "GLC", "Clase E", "GLA", "CLA"],
+		"Audi": ["A4", "Q5", "A3", "Q3", "A6"],
+		"Volkswagen": ["Jetta", "Tiguan", "Golf", "Taos", "Polo"],
+		"Volvo": ["XC60", "XC90", "S60", "XC40", "V60"],
+		"Jeep": ["Wrangler", "Grand Cherokee", "Compass", "Renegade", "Cherokee"],
+		"Land Rover": ["Discovery", "Range Rover Evoque", "Defender", "Discovery Sport", "Range Rover Sport"],
+		"Porsche": ["Cayenne", "Macan", "911", "Panamera", "Taycan"],
+		"Lexus": ["RX", "NX", "ES", "UX", "GX"],
+		"Subaru": ["Forester", "Outback", "XV", "Impreza", "Ascent"]
+	},
+	"years": [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+	"priceRanges": [
+		{ "label": "Hasta ₡10M", "min": 0, "max": 10000000 },
+		{ "label": "₡10M – ₡20M", "min": 10000000, "max": 20000000 },
+		{ "label": "₡20M – ₡30M", "min": 20000000, "max": 30000000 },
+		{ "label": "Más de ₡30M", "min": 30000000, "max": 999999999 }
+	],
+	"conditions": [
+		{ "value": "new", "label": "Nuevo" },
+		{ "value": "used", "label": "Usado" }
+	],
+	"transmissions": [
+		{ "value": "automatic", "label": "Automática" },
+		{ "value": "manual", "label": "Manual" }
+	],
+	"fuels": [
+		{ "value": "gasoline", "label": "Gasolina" },
+		{ "value": "diesel", "label": "Diésel" },
+		{ "value": "electric", "label": "Eléctrico" },
+		{ "value": "hybrid", "label": "Híbrido" }
+	],
+	"locations": [
+		"San José",
+		"Alajuela",
+		"Heredia",
+		"Cartago",
+		"Guanacaste",
+		"Puntarenas",
+		"Limón"
+	],
+	"sortOptions": [
+		{ "value": "price-asc", "label": "Precio: menor a mayor" },
+		{ "value": "price-desc", "label": "Precio: mayor a menor" },
+		{ "value": "year-desc", "label": "Año: más reciente" },
+		{ "value": "year-asc", "label": "Año: más antiguo" },
+		{ "value": "mileage-asc", "label": "Kilometraje: menor" }
+	],
+	"labels": {
+		"brand": "Marca",
+		"model": "Modelo",
+		"yearMin": "Año desde",
+		"yearMax": "Año hasta",
+		"priceMin": "Precio mín.",
+		"priceMax": "Precio máx.",
+		"condition": "Condición",
+		"transmission": "Transmisión",
+		"fuel": "Combustible",
+		"location": "Ubicación",
+		"sort": "Ordenar por",
+		"apply": "Aplicar",
+		"clear": "Limpiar filtros",
+		"toggle": "Filtros",
+		"all": "Todas"
+	}
+}
