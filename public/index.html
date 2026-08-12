@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Your page description here">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;family=Roboto:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./tailwind-dist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <title>Home | site</title>
+  </head>
+  <body class="home bg-[var(--bg-body)] flex flex-col min-h-screen pt-[var(--header-height)]" itemscope itemtype="http://schema.org/WebPage">
+    <header class="fixed top-0 left-0 right-0 w-full min-h-[var(--header-height)] flex flex-col justify-between z-[1000000] bg-[var(--base-color)]">
+      <div class="container flex items-center justify-between h-full">
+        <div class="logo">
+          <h2 class="text-2xl font-bold text-white">Logo</h2>
+        </div>
+        <button class="relative inline-flex items-center h-8 w-16 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 bg-gray-300 dark:bg-gray-600" id="theme-toggle"><span class="sr-only">Toggle dark mode</span><span class="inline-block h-6 w-6 transform rounded-full bg-white shadow-lg transition-transform translate-x-1 dark:translate-x-9" id="toggle-indicator"></span>
+          <svg class="absolute left-2 w-4 h-4 text-yellow-500 transition-opacity opacity-100 dark:opacity-0" id="sun-icon" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+          </svg>
+          <svg class="absolute right-2 w-4 h-4 text-gray-300 transition-opacity opacity-0 dark:opacity-100" id="moon-icon" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <main class="flex-1">
+      <section class="main-container border border-[steelblue]"> 
+        <div class="container  border border-[tomato]"> 
+          <h1 class="text-6xl font-bold text-gray-900 dark:text-white">Boilerplate</h1>
+        </div>
+      </section>
+      <section class="main-container border border-[steelblue]">
+        <div class="container border border-[tomato]">
+          <div class="py-8">
+            <p class="text-[18px] l:text-[22px] font-bold mb-6">Tabla de colores:</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 l:grid-cols-3 lg:grid-cols-4 xxl:grid-cols-5 gap-5">
+              <article class="rounded bg-white shadow-md overflow-hidden">
+                <div class="h-32" style="background-color: #007BDF;"></div>
+                <div class="p-4 text-center">
+                  <h3 class="font-bold text-[22px]">Principal</h3>
+                  <p class="text-[18px] text-gray-500 mb-3">#007BDF</p>
+                  <p class="text-[16px]">Sass name:<code class="ml-2 bg-gray-100 px-1 rounded text-red-500">$firstColor</code></p>
+                  <p class="text-[16px]">CSS name:<code class="ml-2 bg-gray-100 px-1 rounded text-red-500">--first-color</code></p>
+                </div>
+              </article>
+              <article class="rounded bg-white shadow-md overflow-hidden">
+                <div class="h-32" style="background-color: #006DC6;"></div>
+                <div class="p-4 text-center">
+                  <h3 class="font-bold text-[22px]">Principal Alt</h3>
+                  <p class="text-[18px] text-gray-500 mb-3">#006DC6</p>
+                  <p class="text-[16px]">Sass name:<code class="ml-2 bg-gray-100 px-1 rounded text-red-500">$firstColorAlt</code></p>
+                  <p class="text-[16px]">CSS name:<code class="ml-2 bg-gray-100 px-1 rounded text-red-500">--first-color-alt</code></p>
+                </div>
+              </article>
+              <article class="rounded bg-white shadow-md overflow-hidden">
+                <div class="h-32" style="background-color: #00CBFF;"></div>
+                <div class="p-4 text-center">
+                  <h3 class="font-bold text-[22px]">Secundario</h3>
+                  <p class="text-[18px] text-gray-500 mb-3">#00CBFF</p>
+                  <p class="text-[16px]">Sass name:<code class="ml-2 bg-gray-100 px-1 rounded text-red-500">$secondColor</code></p>
+                  <p class="text-[16px]">CSS name:<code class="ml-2 bg-gray-100 px-1 rounded text-red-500">--second-color</code></p>
+                </div>
+              </article>
+              <article class="rounded bg-white shadow-md overflow-hidden">
+                <div class="h-32" style="background-color: #00BFF0;"></div>
+                <div class="p-4 text-center">
+                  <h3 class="font-bold text-[22px]">Secundario Alt</h3>
+                  <p class="text-[18px] text-gray-500 mb-3">#00BFF0</p>
+                  <p class="text-[16px]">Sass name:<code class="ml-2 bg-gray-100 px-1 rounded text-red-500">$secondColorAlt</code></p>
+                  <p class="text-[16px]">CSS name:<code class="ml-2 bg-gray-100 px-1 rounded text-red-500">--second-color-alt</code></p>
+                </div>
+              </article>
+              <article class="rounded bg-white shadow-md overflow-hidden">
+                <div class="h-32" style="background-color: #FF3C32;"></div>
+                <div class="p-4 text-center">
+                  <h3 class="font-bold text-[22px]">Terciario</h3>
+                  <p class="text-[18px] text-gray-500 mb-3">#FF3C32</p>
+                  <p class="text-[16px]">Sass name:<code class="ml-2 bg-gray-100 px-1 rounded text-red-500">$thirdColor</code></p>
+                  <p class="text-[16px]">CSS name:<code class="ml-2 bg-gray-100 px-1 rounded text-red-500">--third-color</code></p>
+                </div>
+              </article>
+              <article class="rounded bg-white shadow-md overflow-hidden">
+                <div class="h-32" style="background-color: #FF2419;"></div>
+                <div class="p-4 text-center">
+                  <h3 class="font-bold text-[22px]">Terciario Alt</h3>
+                  <p class="text-[18px] text-gray-500 mb-3">#FF2419</p>
+                  <p class="text-[16px]">Sass name:<code class="ml-2 bg-gray-100 px-1 rounded text-red-500">$thirdColorAlt</code></p>
+                  <p class="text-[16px]">CSS name:<code class="ml-2 bg-gray-100 px-1 rounded text-red-500">--third-color-alt</code></p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="main-container border border-[steelblue]"> 
+        <div class="container border border-[tomato]"> 
+          <div class="flex flex-col">
+            <h1 class="font-bold text-[24px] l:text-[36px] mb-2 l:mb-4 leading-[100%]">h1</h1>
+            <h2 class="font-bold text-[20px] l:text-[32px] mb-2 l:mb-4 leading-[100%]">h2</h2>
+            <h3 class="font-bold text-[18px] l:text-[28px] mb-2 l:mb-4 leading-[100%]">h3</h3>
+            <h4 class="font-bold text-[16px] l:text-[24px] mb-2 l:mb-4 leading-[100%]">h4</h4>
+            <h5 class="font-bold text-[14px] l:text-[20px] mb-2 l:mb-4 leading-[100%]">h5</h5>
+            <h6 class="font-bold text-[12px] l:text-[16px] mb-2 l:mb-4 leading-[100%]">h6</h6>
+            <ul class="list-disc pl-6 text-[12px] l:text-[16px] mb-2 l:mb-4">
+              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</li>
+              <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="main-container border border-[steelblue]"> 
+        <div class="container  border border-[tomato]"> 
+          <p class="text-[12px] l:text-[16px] mb-2 l:mb-4 dark:text-white">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi,
+            dolorem autem maiores quis dolor, reprehenderit delectus quia dolore,
+            incidunt obcaecati sequi labore hic? Soluta doloremque vitae explicabo
+            assumenda fugit tenetur.
+          </p>
+          <p class="text-[12px] l:text-[16px] mb-2 l:mb-4 font-secondary dark:text-white">
+             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi,
+            dolorem autem maiores quis dolor, reprehenderit delectus quia dolore,
+            incidunt obcaecati sequi labore hic? Soluta doloremque vitae explicabo
+            assumenda fugit tenetur.
+          </p>
+        </div>
+      </section>
+      <section class="main-container border border-[steelblue]"> 
+        <div class="container border border-[tomato]"> 
+          <h1>Flex</h1>
+          <div class="flex flex-wrap">
+            <div class="w-full sm:w-1/2 m:w-1/3 l:w-1/4 lg:w-1/5 xl:w-1/6 xxl:w-1/7 p-3">
+              <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Core Module1</b></span></div>
+            </div>
+            <div class="w-full sm:w-1/2 m:w-1/3 l:w-1/4 lg:w-1/5 xl:w-1/6 xxl:w-1/7 p-3">
+              <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Core Module2</b></span></div>
+            </div>
+            <div class="w-full sm:w-1/2 m:w-1/3 l:w-1/4 lg:w-1/5 xl:w-1/6 xxl:w-1/7 p-3">
+              <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Core Module3</b></span></div>
+            </div>
+            <div class="w-full sm:w-1/2 m:w-1/3 l:w-1/4 lg:w-1/5 xl:w-1/6 xxl:w-1/7 p-3">
+              <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Core Module4</b></span></div>
+            </div>
+            <div class="w-full sm:w-1/2 m:w-1/3 l:w-1/4 lg:w-1/5 xl:w-1/6 xxl:w-1/7 p-3">
+              <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Core Module5</b></span></div>
+            </div>
+            <div class="w-full sm:w-1/2 m:w-1/3 l:w-1/4 lg:w-1/5 xl:w-1/6 xxl:w-1/7 p-3">
+              <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Core Module6</b></span></div>
+            </div>
+            <div class="w-full sm:w-1/2 m:w-1/3 l:w-1/4 lg:w-1/5 xl:w-1/6 xxl:w-1/7 p-3">
+              <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Core Module7</b></span></div>
+            </div>
+            <div class="w-full sm:w-1/2 m:w-1/3 l:w-1/4 lg:w-1/5 xl:w-1/6 xxl:w-1/7 p-3">
+              <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Core Module8</b></span></div>
+            </div>
+            <div class="w-full sm:w-1/2 m:w-1/3 l:w-1/4 lg:w-1/5 xl:w-1/6 xxl:w-1/7 p-3">
+              <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Core Module9</b></span></div>
+            </div>
+            <div class="w-full sm:w-1/2 m:w-1/3 l:w-1/4 lg:w-1/5 xl:w-1/6 xxl:w-1/7 p-3">
+              <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Core Module10</b></span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="main-container border border-[steelblue]"> 
+        <div class="container  border border-[tomato]"> 
+          <h2 class="internal-module-style">grid</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 m:grid-cols-3 l:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 xxl:grid-cols-7 gap-5">
+            <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Internal Module1</b></span></div>
+            <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Internal Module2</b></span></div>
+            <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Internal Module3</b></span></div>
+            <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Internal Module4</b></span></div>
+            <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Internal Module5</b></span></div>
+            <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Internal Module6</b></span></div>
+            <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Internal Module7</b></span></div>
+            <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Internal Module8</b></span></div>
+            <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Internal Module9</b></span></div>
+            <div class="bg-red-300 min-[640px]:max-[1280px]:bg-[blue] h-32 flex items-center justify-center"><span><b>Internal Module10</b></span></div>
+          </div>
+        </div>
+      </section>
+      <section class="main-container border border-[steelblue]"> 
+        <div class="container  border border-[tomato]"> 
+          <div><img src="images/img4.jpg" style="width:100px">
+            <p>slider_item_1</p>
+          </div>
+          <div><img src="images/img2.jpg" style="width:100px">
+            <p>slider_item_2</p>
+          </div>
+          <div><img src="images/img3.jpg" style="width:100px">
+            <p>slider_item_3</p>
+          </div>
+          <div><img src="images/img4.jpg" style="width:100px">
+            <p>slider_item_4</p>
+          </div>
+          <h1>slider2</h1>
+          <div><img src="images/img4.jpg" style="width:100px">
+            <p>example2 - item 1</p>
+            <p>cat1</p>
+            <p>cat2</p>
+          </div>
+          <div><img src="images/img2.jpg" style="width:100px">
+            <p>example2 - item 2</p>
+            <p>cat1</p>
+            <p>cat2</p>
+          </div>
+          <div><img src="images/img3.jpg" style="width:100px">
+            <p>example2 - item 3</p>
+            <p>cat1</p>
+            <p>cat2</p>
+          </div>
+          <div><img src="images/img4.jpg" style="width:100px">
+            <p>example2 - item 4</p>
+            <p>cat1</p>
+            <p>cat2</p>
+          </div>
+        </div>
+      </section>
+      <section class="main-container border border-[steelblue]"> 
+        <div class="container border border-[tomato]"> 
+          <ul>
+            <li>lorem1</li>
+            <li>lorem2</li>
+            <li>lorem3</li>
+            <li>lorem4</li>
+            <li>lorem5</li>
+          </ul>
+          <ol>
+            <li>lorem1</li>
+            <li>lorem2</li>
+            <li>lorem3</li>
+            <li>lorem4</li>
+            <li>lorem5</li>
+          </ol>
+        </div>
+      </section>
+      <section class="main-container border border-[steelblue]"> 
+        <div class="container border border-[tomato]"> 
+          <h2>side bar</h2>
+          <div class="flex flex-col lg:flex-row">
+            <div class="w-full lg:w-[400px] bg-gray-300 h-32">first Div</div>
+            <div class="w-full lg:flex-1 bg-gray-200 h-32">Second Div</div>
+          </div>
+        </div>
+      </section>
+      <section class="main-container border border-[steelblue] py-8">
+        <div class="container border border-[tomato] mx-auto">
+          <div class="w-full overflow-x-auto">
+            <table class="min-w-full min-w-[640px] table-auto border-collapse rounded-lg overflow-hidden shadow-lg bg-white dark:bg-[var(--base-color)] [&amp;_thead]:bg-[var(--base-color)] [&amp;_thead]:text-white text-sm text-[12px] l:text-[16px]">
+              <thead>
+                <tr>
+                  <th class="px-4 py-2 border-b border-r last:border-r-0 font-semibold text-left whitespace-nowrap">lorem 1</th>
+                  <th class="px-4 py-2 border-b border-r last:border-r-0 font-semibold text-left whitespace-nowrap">lorem 2</th>
+                  <th class="px-4 py-2 border-b border-r last:border-r-0 font-semibold text-left whitespace-nowrap">lorem 3</th>
+                  <th class="px-4 py-2 border-b border-r last:border-r-0 font-semibold text-left whitespace-nowrap">lorem 4</th>
+                  <th class="px-4 py-2 border-b border-r last:border-r-0 font-semibold text-left whitespace-nowrap">lorem 5</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="odd:bg-slate-50 even:bg-white dark:odd:bg-[#232B38] dark:even:bg-[var(--base-color)] hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors">
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 1</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 2</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 3</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 4</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 5</td>
+                </tr>
+                <tr class="odd:bg-slate-50 even:bg-white dark:odd:bg-[#232B38] dark:even:bg-[var(--base-color)] hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors">
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 1</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 2</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 3</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 4</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 5</td>
+                </tr>
+                <tr class="odd:bg-slate-50 even:bg-white dark:odd:bg-[#232B38] dark:even:bg-[var(--base-color)] hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors">
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 1</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 2</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 3</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 4</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 5</td>
+                </tr>
+                <tr class="odd:bg-slate-50 even:bg-white dark:odd:bg-[#232B38] dark:even:bg-[var(--base-color)] hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors">
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 1</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 2</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 3</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 4</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 5</td>
+                </tr>
+                <tr class="odd:bg-slate-50 even:bg-white dark:odd:bg-[#232B38] dark:even:bg-[var(--base-color)] hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors">
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 1</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 2</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 3</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 4</td>
+                  <td class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap">lorem 5</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <section class="main-container border border-[steelblue]"> 
+        <div class="container border border-[tomato] flex gap-2 flex-col">
+          <pre class="language-css" contenteditable="true" spellcheck="false">
+            <style contenteditable spellcheck="false" style="display: block; min-height: 100px;">.editor-css {
+	background-color: #000;
+	color: aqua; 
+	font-size: 2rem; 
+}
+            </style></pre>
+          <div class="editor-css">
+            <h1 class="editor-css-title">editor-css</h1>
+          </div>
+        </div>
+      </section>
+      <style>
+        e[contenteditable="true"] {
+        	outline: none;
+        	border-radius: 8px;
+        	border: 2px solid #5cf;
+        	background: #111;
+        	min-height: 120px;
+        	font-size: 1.1em;
+        	font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+        	margin: 20px 0;
+        	padding: 16px;
+        	transition: box-shadow 0.2s;
+        }
+        pre[contenteditable="true"]:focus {
+        	box-shadow: 0 0 0 2px #09f;
+        }
+      </style>
+      <script>
+        document.querySelectorAll('pre[contenteditable="true"] code').forEach(block => {
+        	block.addEventListener('input', () => {
+        		Prism.highlightElement(block);
+        	});
+        });
+      </script>
+    </main>
+    <footer class="bg-[var(--base-color)] h-[var(--footer-height)] text-white">
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-tsx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-scss.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-markdown.min.js"></script>
+    <script src="./index-dist.js"></script>
+  </body>
+</html>

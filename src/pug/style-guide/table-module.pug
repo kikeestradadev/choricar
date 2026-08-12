@@ -1,0 +1,13 @@
+section(class="main-container border border-[steelblue] py-8")
+	div(class="container border border-[tomato] mx-auto")
+		div(class='w-full overflow-x-auto')
+			table(class="min-w-full min-w-[640px] table-auto border-collapse rounded-lg overflow-hidden shadow-lg bg-white dark:bg-[var(--base-color)] [&_thead]:bg-[var(--base-color)] [&_thead]:text-white text-sm text-[12px] l:text-[16px]")
+				thead
+					tr
+						-for(let i = 1; i<=5; i++)
+							th(class="px-4 py-2 border-b border-r last:border-r-0 font-semibold text-left whitespace-nowrap") lorem #{i}
+				tbody
+					-for(let row = 1; row<=5; row++)
+						tr(class="odd:bg-slate-50 even:bg-white dark:odd:bg-[#232B38] dark:even:bg-[var(--base-color)] hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors")
+							-for(let col = 1; col<=5; col++)
+								td(class="px-4 py-2 border-b border-r last:border-r-0 align-middle dark:text-white whitespace-nowrap") lorem #{col}

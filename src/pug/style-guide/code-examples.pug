@@ -1,0 +1,68 @@
+section(class="main-container border border-[steelblue]") 
+	div(class="container border border-[tomato]") 
+		h2(class="text-4xl font-bold mb-6 text-gray-900 dark:text-white") Code Examples con Prism.js
+		
+		p(class="text-gray-700 dark:text-gray-300 mb-6") Ejemplos de resaltado de sintaxis con Prism.js
+		
+		div(class="space-y-8")
+			
+			//- JavaScript Example
+			div
+				h3(class="text-2xl font-bold mb-3 text-gray-900 dark:text-white") JavaScript
+				pre(class="rounded-lg")
+					code(class="language-javascript").
+						function darkMode() {
+						  const themeToggle = document.getElementById('theme-toggle');
+						  const htmlElement = document.documentElement;
+						  
+						  if (themeToggle) {
+						    themeToggle.addEventListener('click', () => {
+						      htmlElement.classList.toggle('dark');
+						    });
+						  }
+						}
+			
+			//- CSS Example
+			div
+				h3(class="text-2xl font-bold mb-3 text-gray-900 dark:text-white") CSS / SCSS
+				pre(class="rounded-lg")
+					code(class="language-scss").
+						.dark {
+						  --bg-body: #18181b;
+						  --base-color: #202B3A;
+						}
+						
+						:root {
+						  --first-color: #007BDF;
+						  --second-color: #00CBFF;
+						}
+			
+			//- HTML Example
+			div
+				h3(class="text-2xl font-bold mb-3 text-gray-900 dark:text-white") HTML
+				pre(class="rounded-lg")
+					code(class="language-markup").
+						&lt;button id="theme-toggle" class="bg-gray-300 dark:bg-gray-600"&gt;
+						  &lt;span class="sr-only"&gt;Toggle dark mode&lt;/span&gt;
+						&lt;/button&gt;
+			
+			//- JSON Example
+			div
+				h3(class="text-2xl font-bold mb-3 text-gray-900 dark:text-white") JSON
+				pre(class="rounded-lg")
+					code(class="language-json").
+						{
+						  "name": "front-end-prepros-boilerplate-tailwind",
+						  "version": "1.0.0",
+						  "dependencies": {
+						    "tailwindcss": "^4.1.5"
+						  }
+						}
+			
+			//- Bash Example
+			div
+				h3(class="text-2xl font-bold mb-3 text-gray-900 dark:text-white") Bash
+				pre(class="rounded-lg")
+					code(class="language-bash").
+						npm install tailwindcss @tailwindcss/cli
+						npx @tailwindcss/cli -i src/styles/tailwind.css -o public/tailwind-dist.css
