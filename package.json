@@ -1,9 +1,9 @@
 {
-	"name": "front-end-prepros-boilerplate-tailwind-4",
+	"name": "choricar",
 	"version": "1.0.0",
-	"description": "gh=pages link: https://kikeestradadev.github.io/front-end-prepros-boilerplate-tailwind-4",
+	"description": "Choricar — sitio estático. Demo: https://kikeestradadev.github.io/choricar/",
 	"main": "index.js",
-	"homepage": "https://kikeestradadev.github.io/front-end-prepros-boilerplate-tailwind-4/",
+	"homepage": "https://kikeestradadev.github.io/choricar/",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"deploy": "gh-pages -d public",
@@ -17,13 +17,13 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/kikeestradadev/front-end-prepros-boilerplate-tailwind-4.git"
+		"url": "git+https://github.com/kikeestradadev/choricar.git"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/kikeestradadev/front-end-prepros-boilerplate-tailwind-4/issues"
+		"url": "https://github.com/kikeestradadev/choricar/issues"
 	},
 	"devDependencies": {
 		"@tailwindcss/cli": "^4.1.18",
