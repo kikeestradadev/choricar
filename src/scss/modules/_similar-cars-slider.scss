@@ -1,0 +1,70 @@
+.similar-cars-slider {
+	grid-column: 1 / -1;
+	min-width: 0;
+	max-width: 100%;
+	overflow: hidden;
+	padding-bottom: 4.5rem;
+
+	@media (width >= $lg) {
+		padding-bottom: 0;
+	}
+
+	&__title {
+		margin: 0 0 1rem;
+	}
+
+	&__empty {
+		margin: 0;
+		color: var(--color-text-muted);
+	}
+
+	&__swiper {
+		position: relative;
+		width: 100%;
+		max-width: 100%;
+		overflow: hidden;
+		padding-bottom: 2.5rem;
+
+		&[hidden] {
+			display: none;
+		}
+	}
+
+	.swiper-slide {
+		height: auto;
+		max-width: 100%;
+		display: flex;
+	}
+
+	.vehicle-card {
+		width: 100%;
+	}
+
+	&__pagination {
+		.swiper-pagination-bullet-active {
+			background: var(--color-primary);
+		}
+	}
+
+	&__prev,
+	&__next {
+		color: var(--color-primary);
+		display: none;
+
+		@media (width >= $md) {
+			display: flex;
+		}
+
+		&::after {
+			font-size: 1.25rem;
+			font-weight: 700;
+		}
+	}
+
+	@media (hover: hover) and (pointer: fine) {
+		&__prev:hover,
+		&__next:hover {
+			color: var(--color-accent);
+		}
+	}
+}

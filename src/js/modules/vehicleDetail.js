@@ -17,8 +17,9 @@ import {
 import { showToast } from './toast.js';
 import { bindFavoriteButtons, createVehicleCardElement } from './vehicleCard.js';
 import vehicleGallerySlider from './vehicleGallerySlider.js';
+import similarCarsSlider from './similarCarsSlider.js';
 
-const SIMILAR_LIMIT = 3;
+const SIMILAR_LIMIT = 8;
 const PRICE_RANGE = 0.2;
 
 const renderMaintenance = (root, maintenance = []) => {
@@ -180,25 +181,28 @@ const vehicleDetail = () => {
 				}
 			}
 
+			const similarRoot = root.querySelector('.similar-cars-slider');
 			const similarList = root.querySelector('[data-similar-list]');
 			if (similarList) {
 				similarList.innerHTML = '';
 				const similar = getSimilarCars(car);
-				if (!similar.length) {
-					similarList.innerHTML =
-						'<p class="vehicle-detail__similar-empty">No hay vehículos similares por ahora.</p>';
-				} else {
+				if (similar.length) {
 					const user = getCurrentUser();
 					const favorites = user?.favorites || [];
 					similar.forEach((item) => {
-						similarList.append(
+						const slide = document.createElement('div');
+						slide.className = 'swiper-slide';
+						slide.append(
 							createVehicleCardElement(item, {
 								favorited: favorites.includes(item.id),
 							})
 						);
+						similarList.append(slide);
 					});
 					bindFavoriteButtons(similarList);
 				}
+				if (similarRoot) similarRoot.dataset.similarCarsSliderReady = 'false';
+				similarCarsSlider();
 			}
 
 			const favBtn = root.querySelector('[data-detail-fav]');

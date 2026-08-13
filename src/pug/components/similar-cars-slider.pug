@@ -1,0 +1,8 @@
+section(class='similar-cars-slider')
+	h2(class='similar-cars-slider__title')= similarCarsSliderData.title
+	p(class='similar-cars-slider__empty' data-similar-empty hidden)= similarCarsSliderData.empty
+	div(class='swiper similar-cars-slider__swiper')
+		div(class='swiper-wrapper' data-similar-list aria-live='polite')
+		div(class='swiper-pagination similar-cars-slider__pagination')
+		div(class='swiper-button-prev similar-cars-slider__prev')
+		div(class='swiper-button-next similar-cars-slider__next')

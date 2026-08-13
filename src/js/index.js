@@ -9,6 +9,7 @@ import vehicleGrid from './modules/vehicleGrid';
 import vehicleFilters from './modules/vehicleFilters';
 import vehicleDetail from './modules/vehicleDetail';
 import vehicleGallerySlider from './modules/vehicleGallerySlider';
+import similarCarsSlider from './modules/similarCarsSlider';
 import authForm from './modules/authForm';
 import dashboard from './modules/dashboard';
 import vehicleForm from './modules/vehicleForm';
@@ -30,6 +31,7 @@ const initComponents = async () => {
 	vehicleGrid();
 	vehicleDetail();
 	vehicleGallerySlider();
+	similarCarsSlider();
 	authForm();
 	dashboard();
 	vehicleForm();

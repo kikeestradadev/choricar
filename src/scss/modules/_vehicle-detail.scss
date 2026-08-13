@@ -1,4 +1,6 @@
 .vehicle-detail {
+	min-width: 0;
+	max-width: 100%;
 	padding: 1.5rem 0 3rem;
 
 	&__loading,
@@ -7,6 +9,21 @@
 		border-radius: var(--radius-card);
 		padding: 2rem;
 		text-align: center;
+		width: 100%;
+		max-width: 480px;
+		margin-inline: auto;
+
+		@media (width >= $md) {
+			max-width: 600px;
+		}
+
+		@media (width >= $l) {
+			max-width: 800px;
+		}
+
+		@media (width >= $lg) {
+			max-width: none;
+		}
 	}
 
 	&__empty-link {
@@ -23,9 +40,27 @@
 	&__content {
 		display: grid;
 		gap: 1.5rem;
+		width: 100%;
+		min-width: 0;
+		max-width: 480px;
+		margin-inline: auto;
+
+		@media (width >= $md) {
+			max-width: 600px;
+		}
+
+		@media (width >= $l) {
+			max-width: 800px;
+		}
+
+		@media (width >= $lg) {
+			max-width: none;
+			grid-template-columns: 1.4fr 1fr;
+		}
 	}
 
 	&__gallery {
+		min-width: 0;
 		background: #fff;
 		border-radius: var(--radius-card);
 		overflow: hidden;
@@ -63,6 +98,7 @@
 	}
 
 	&__info {
+		min-width: 0;
 		background: #fff;
 		border-radius: var(--radius-card);
 		box-shadow: var(--color-card-shadow);
@@ -248,37 +284,6 @@
 		}
 	}
 
-	&__similar {
-		grid-column: 1 / -1;
-		padding-bottom: 4.5rem;
-
-		@media (width >= $l) {
-			padding-bottom: 0;
-		}
-	}
-
-	&__similar-title {
-		margin: 0 0 1rem;
-	}
-
-	&__similar-list {
-		display: grid;
-		gap: 1.25rem;
-
-		@media (width >= $sm) {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-
-		@media (width >= $l) {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
-		}
-	}
-
-	&__similar-empty {
-		margin: 0;
-		color: var(--color-text-muted);
-	}
-
 	&__sticky-wa {
 		position: fixed;
 		left: 15px;
@@ -296,7 +301,7 @@
 		padding: 0.9rem 1rem;
 		box-shadow: 0 8px 24px rgba(11, 37, 69, 0.18);
 
-		@media (width >= $l) {
+		@media (width >= $lg) {
 			display: none;
 		}
 
@@ -305,11 +310,7 @@
 		}
 	}
 
-	@media (width >= $l) {
-		&__content {
-			grid-template-columns: 1.4fr 1fr;
-		}
-
+	@media (width >= $lg) {
 		&__tabs {
 			grid-column: 1 / -1;
 		}

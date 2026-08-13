@@ -58,9 +58,7 @@ section(class='vehicle-detail' data-vehicle-detail)
 						include maintenance-list
 					div(class='vehicle-detail__panel' role='tabpanel' data-panel='seller' hidden)
 						div(class='vehicle-detail__seller' data-detail-seller)
-				section(class='vehicle-detail__similar')
-					h2(class='vehicle-detail__similar-title') Carros similares
-					div(class='vehicle-detail__similar-list' data-similar-list aria-live='polite')
+				include similar-cars-slider
 			a(
 				class='vehicle-detail__sticky-wa'
 				href='#'
