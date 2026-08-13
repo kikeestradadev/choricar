@@ -8,6 +8,7 @@
 			"avatar": "https://i.pravatar.cc/150?img=1",
 			"phone": "+506 8888-8888",
 			"plan": "premium",
+			"verified": true,
 			"favorites": ["car-003", "car-007", "car-015"],
 			"createdAt": "2024-01-01T10:00:00Z"
 		},
@@ -19,6 +20,7 @@
 			"avatar": "https://i.pravatar.cc/150?img=5",
 			"phone": "+506 8777-7777",
 			"plan": "free",
+			"verified": true,
 			"favorites": ["car-001", "car-012"],
 			"createdAt": "2024-02-15T10:00:00Z"
 		},
@@ -30,6 +32,7 @@
 			"avatar": "https://i.pravatar.cc/150?img=12",
 			"phone": "+506 8666-6666",
 			"plan": "free",
+			"verified": false,
 			"favorites": [],
 			"createdAt": "2024-03-20T10:00:00Z"
 		}

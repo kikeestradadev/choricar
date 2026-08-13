@@ -3,41 +3,76 @@
 	"editTitle": "Editar vehículo",
 	"submitCreate": "Publicar",
 	"submitUpdate": "Guardar cambios",
+	"nextLabel": "Siguiente",
+	"prevLabel": "Atrás",
 	"freeLimitMessage": "Con el plan Gratis solo puedes publicar 1 vehículo. Mejora a Premium para ilimitados.",
 	"upgradeHref": "./suscripcion.html",
 	"upgradeLabel": "Ver planes Premium",
+	"steps": [
+		{
+			"id": 1,
+			"label": "Datos",
+			"title": "Datos del vehículo"
+		},
+		{
+			"id": 2,
+			"label": "Fotos",
+			"title": "Fotos"
+		},
+		{
+			"id": 3,
+			"label": "Confirmar",
+			"title": "Confirmar y publicar"
+		}
+	],
+	"summary": {
+		"title": "Resumen del anuncio",
+		"emptyPhotos": "Sin fotos"
+	},
 	"images": {
 		"label": "Imágenes del vehículo",
 		"button": "Adjuntar imágenes",
-		"hint": "Hasta 5 fotos (JPG, PNG o WebP). Se guardan en este navegador como parte de la demo estática.",
+		"hint": "Mínimo 3 y máximo 10 fotos (JPG, PNG o WebP). Se guardan en este navegador como parte de la demo estática.",
 		"empty": "Aún no hay imágenes adjuntas.",
 		"remove": "Quitar",
-		"maxFiles": 5,
+		"minFiles": 3,
+		"maxFiles": 10,
 		"maxSizeMb": 2
 	},
 	"fields": [
 		{ "name": "brand", "label": "Marca", "type": "select", "required": true },
 		{ "name": "model", "label": "Modelo", "type": "text", "required": true },
 		{ "name": "year", "label": "Año", "type": "number", "required": true, "min": 2010, "max": 2025 },
-		{ "name": "price", "label": "Precio", "type": "number", "required": true, "min": 1 },
-		{ "name": "currency", "label": "Moneda", "type": "select", "required": true, "options": [
-			{ "value": "CRC", "label": "CRC" },
-			{ "value": "USD", "label": "USD" }
-		]},
 		{ "name": "mileage", "label": "Kilometraje", "type": "number", "required": true, "min": 0 },
 		{ "name": "condition", "label": "Condición", "type": "select", "required": true, "options": [
 			{ "value": "new", "label": "Nuevo" },
 			{ "value": "used", "label": "Usado" }
 		]},
-		{ "name": "transmission", "label": "Transmisión", "type": "select", "required": true, "options": [
-			{ "value": "automatic", "label": "Automática" },
-			{ "value": "manual", "label": "Manual" }
+		{ "name": "price", "label": "Precio", "type": "number", "required": true, "min": 1 },
+		{ "name": "currency", "label": "Moneda", "type": "select", "required": true, "options": [
+			{ "value": "CRC", "label": "CRC" },
+			{ "value": "USD", "label": "USD" }
 		]},
+		{ "name": "bodyType", "label": "Tipo de carrocería", "type": "select", "required": true },
 		{ "name": "fuel", "label": "Combustible", "type": "select", "required": true, "options": [
 			{ "value": "gasoline", "label": "Gasolina" },
 			{ "value": "diesel", "label": "Diésel" },
 			{ "value": "electric", "label": "Eléctrico" },
 			{ "value": "hybrid", "label": "Híbrido" }
+		]},
+		{ "name": "transmission", "label": "Transmisión", "type": "select", "required": true, "options": [
+			{ "value": "automatic", "label": "Automática" },
+			{ "value": "manual", "label": "Manual" }
+		]},
+		{ "name": "color", "label": "Color", "type": "select", "required": true, "options": [
+			{ "value": "Blanco", "label": "Blanco" },
+			{ "value": "Negro", "label": "Negro" },
+			{ "value": "Gris", "label": "Gris" },
+			{ "value": "Plata", "label": "Plata" },
+			{ "value": "Rojo", "label": "Rojo" },
+			{ "value": "Azul", "label": "Azul" },
+			{ "value": "Verde", "label": "Verde" },
+			{ "value": "Beige", "label": "Beige" }
 		]},
 		{ "name": "location", "label": "Ubicación", "type": "select", "required": true },
 		{ "name": "description", "label": "Descripción", "type": "textarea", "required": true }
