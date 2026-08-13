@@ -1,0 +1,10 @@
+section(class='budget-search')
+	div(class='main-container budget-search__shell')
+		div(class='container budget-search__container')
+			div(class='budget-search__head')
+				h2(class='budget-search__title')= budgetSearchData.title
+				p(class='budget-search__subtitle')= budgetSearchData.subtitle
+			div(class='budget-search__grid')
+				each item in budgetSearchData.items
+					a(class='budget-search__card' href=item.href)
+						span(class='budget-search__label')= item.label

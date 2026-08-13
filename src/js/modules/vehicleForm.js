@@ -1,8 +1,14 @@
 import {
 	addCar,
+	bodyTypeLabel,
+	conditionLabel,
+	formatMileage,
+	formatPrice,
+	fuelLabel,
 	getCarById,
 	getCars,
 	getCurrentUser,
+	transmissionLabel,
 	updateCar,
 } from '../db/ecommerceStore.js';
 import { showToast } from './toast.js';
@@ -10,7 +16,8 @@ import { showToast } from './toast.js';
 const DEFAULT_IMAGE_COPY = {
 	remove: 'Quitar',
 	empty: 'Aún no hay imágenes adjuntas.',
-	maxFiles: 5,
+	minFiles: 3,
+	maxFiles: 10,
 	maxSizeMb: 2,
 };
 
@@ -44,6 +51,16 @@ const compressImage = (dataUrl, maxWidth = 1200, quality = 0.82) =>
 		image.src = dataUrl;
 	});
 
+const optionLabel = (field, value) => {
+	if (!value) return '—';
+	if (field?.name === 'condition') return conditionLabel(value);
+	if (field?.name === 'fuel') return fuelLabel(value);
+	if (field?.name === 'transmission') return transmissionLabel(value);
+	if (field?.name === 'bodyType') return bodyTypeLabel(value);
+	const match = field?.options?.find((opt) => String(opt.value) === String(value));
+	return match?.label || String(value);
+};
+
 const vehicleForm = () => {
 	document.querySelectorAll('[data-vehicle-form]').forEach((root) => {
 		if (root.dataset.vehicleFormReady === 'true') return;
@@ -51,18 +68,23 @@ const vehicleForm = () => {
 		const form = root.querySelector('.vehicle-form__form');
 		const titleEl = root.querySelector('[data-form-title]');
 		const submitEl = root.querySelector('[data-form-submit]');
+		const nextEl = root.querySelector('[data-step-next]');
+		const prevEl = root.querySelector('[data-step-prev]');
 		const errorEl = root.querySelector('[data-form-error]');
 		const limitEl = root.querySelector('[data-form-limit]');
 		const idInput = root.querySelector('[data-form-id]');
 		const fileInput = root.querySelector('[data-image-input]');
 		const previewsEl = root.querySelector('[data-image-previews]');
 		const emptyEl = root.querySelector('[data-images-empty]');
+		const summaryEl = root.querySelector('[data-form-summary]');
 
 		let copy = {
 			editTitle: 'Editar vehículo',
 			submitUpdate: 'Guardar cambios',
 			submitCreate: 'Publicar',
 			images: DEFAULT_IMAGE_COPY,
+			fields: [],
+			summary: { emptyPhotos: 'Sin fotos' },
 		};
 		try {
 			const copyEl = document.getElementById('vehicle-form-copy');
@@ -72,9 +94,34 @@ const vehicleForm = () => {
 		}
 
 		const imageCopy = { ...DEFAULT_IMAGE_COPY, ...(copy.images || {}) };
-		const maxFiles = Number(imageCopy.maxFiles) || 5;
+		const minFiles = Number(imageCopy.minFiles) || 3;
+		const maxFiles = Number(imageCopy.maxFiles) || 10;
 		const maxBytes = (Number(imageCopy.maxSizeMb) || 2) * 1024 * 1024;
 		let images = [];
+		let currentStep = 1;
+
+		const setError = (message = '') => {
+			if (!errorEl) return;
+			errorEl.hidden = !message;
+			errorEl.textContent = message;
+		};
+
+		const showStep = (step) => {
+			currentStep = step;
+			root.querySelectorAll('[data-step-panel]').forEach((panel) => {
+				panel.hidden = Number(panel.dataset.stepPanel) !== step;
+			});
+			root.querySelectorAll('[data-step-indicator]').forEach((item) => {
+				const index = Number(item.dataset.stepIndicator);
+				item.classList.toggle('is-active', index === step);
+				item.classList.toggle('is-done', index < step);
+			});
+			if (prevEl) prevEl.hidden = step === 1;
+			if (nextEl) nextEl.hidden = step === 3;
+			if (submitEl) submitEl.hidden = step !== 3;
+			if (step === 3) renderSummary();
+			setError('');
+		};
 
 		const renderPreviews = () => {
 			if (!previewsEl) return;
@@ -101,6 +148,66 @@ const vehicleForm = () => {
 					renderPreviews();
 				});
 			});
+		};
+
+		const renderSummary = () => {
+			if (!summaryEl || !form) return;
+			const data = new FormData(form);
+			const rows = (copy.fields || [])
+				.filter((field) => field.name !== 'description')
+				.map((field) => {
+					const raw = data.get(field.name);
+					let display = optionLabel(field, raw);
+					if (field.name === 'price') {
+						display = formatPrice(raw, data.get('currency') || 'CRC');
+					}
+					if (field.name === 'mileage') display = formatMileage(raw);
+					if (field.name === 'currency') return '';
+					return `<div class="vehicle-form__summary-row"><dt>${field.label}</dt><dd>${display || '—'}</dd></div>`;
+				})
+				.join('');
+
+			const description = data.get('description') || '—';
+			summaryEl.innerHTML = `
+				<dl class="vehicle-form__summary-list">${rows}</dl>
+				<p class="vehicle-form__summary-desc">${description}</p>
+				<div class="vehicle-form__summary-photos">
+					${
+						images.length
+							? images
+									.map(
+										(src, index) =>
+											`<img class="vehicle-form__summary-image" src="${src}" alt="Foto ${index + 1}" />`
+									)
+									.join('')
+							: `<p>${copy.summary?.emptyPhotos || 'Sin fotos'}</p>`
+					}
+				</div>
+			`;
+		};
+
+		const validateStep = (step) => {
+			if (step === 1) {
+				const panel = root.querySelector('[data-step-panel="1"]');
+				const fields = panel?.querySelectorAll('input, select, textarea') || [];
+				for (const field of fields) {
+					if (!field.checkValidity()) {
+						field.reportValidity();
+						return false;
+					}
+				}
+				return true;
+			}
+			if (step === 2) {
+				if (images.length < minFiles) {
+					const message = `Adjunta al menos ${minFiles} fotos del vehículo`;
+					setError(message);
+					showToast(message, 'error');
+					return false;
+				}
+				return true;
+			}
+			return true;
 		};
 
 		const params = new URLSearchParams(window.location.search);
@@ -136,10 +243,13 @@ const vehicleForm = () => {
 			if (user.plan !== 'premium' && userCars.length >= 1) {
 				if (limitEl) limitEl.hidden = false;
 				if (form) form.hidden = true;
+				const stepper = root.querySelector('[data-form-stepper]');
+				if (stepper) stepper.hidden = true;
 			}
 		}
 
 		renderPreviews();
+		showStep(1);
 
 		fileInput?.addEventListener('change', async () => {
 			const files = [...(fileInput.files || [])];
@@ -165,10 +275,7 @@ const vehicleForm = () => {
 						continue;
 					}
 					if (file.size > maxBytes) {
-						showToast(
-							`${file.name} supera ${imageCopy.maxSizeMb} MB`,
-							'error'
-						);
+						showToast(`${file.name} supera ${imageCopy.maxSizeMb} MB`, 'error');
 						continue;
 					}
 					const raw = await readFileAsDataUrl(file);
@@ -181,20 +288,28 @@ const vehicleForm = () => {
 			}
 		});
 
+		nextEl?.addEventListener('click', () => {
+			if (!validateStep(currentStep)) return;
+			showStep(Math.min(3, currentStep + 1));
+		});
+
+		prevEl?.addEventListener('click', () => {
+			showStep(Math.max(1, currentStep - 1));
+		});
+
 		form?.addEventListener('submit', async (event) => {
 			event.preventDefault();
-			if (errorEl) {
-				errorEl.hidden = true;
-				errorEl.textContent = '';
+			if (currentStep !== 3) {
+				if (!validateStep(currentStep)) return;
+				showStep(Math.min(3, currentStep + 1));
+				return;
 			}
-
-			if (!images.length) {
-				const message = 'Adjunta al menos una imagen del vehículo';
-				if (errorEl) {
-					errorEl.hidden = false;
-					errorEl.textContent = message;
-				}
-				showToast(message, 'error');
+			if (!validateStep(1)) {
+				showStep(1);
+				return;
+			}
+			if (!validateStep(2)) {
+				showStep(2);
 				return;
 			}
 
@@ -209,6 +324,8 @@ const vehicleForm = () => {
 				condition: data.get('condition'),
 				transmission: data.get('transmission'),
 				fuel: data.get('fuel'),
+				bodyType: data.get('bodyType') || 'sedan',
+				color: data.get('color') || 'Gris',
 				location: data.get('location'),
 				description: data.get('description'),
 				images: [...images],
@@ -231,10 +348,7 @@ const vehicleForm = () => {
 					error.message === 'LIMIT_FREE'
 						? 'Límite del plan Gratis alcanzado. Mejora a Premium.'
 						: error.message || 'No se pudo guardar';
-				if (errorEl) {
-					errorEl.hidden = false;
-					errorEl.textContent = message;
-				}
+				setError(message);
 				showToast(message, 'error');
 			}
 		});

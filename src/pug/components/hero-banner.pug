@@ -11,30 +11,34 @@ section(class='hero-banner')
 								h1(class='hero-banner__title')= slide.title
 								p(class='hero-banner__subtitle')= slide.subtitle
 				div(class='swiper-pagination hero-banner__pagination')
-			form(
-				class='hero-banner__search'
-				action=heroBannerData.search.action
-				method='get'
-				role='search'
-				aria-label='Buscador principal'
-			)
-				div(class='hero-banner__field')
-					label(class='hero-banner__label' for='hero-brand')= heroBannerData.search.brandLabel
-					select(class='hero-banner__select' id='hero-brand' name='brand')
-						option(value='')= heroBannerData.search.allLabel
-						each brand in filtersData.brands
-							option(value=brand)= brand
-				div(class='hero-banner__field')
-					label(class='hero-banner__label' for='hero-model')= heroBannerData.search.modelLabel
-					select(class='hero-banner__select' id='hero-model' name='model')
-						option(value='')= heroBannerData.search.allLabel
-				div(class='hero-banner__field')
-					label(class='hero-banner__label' for='hero-year')= heroBannerData.search.yearLabel
-					select(class='hero-banner__select' id='hero-year' name='yearMin')
-						option(value='')= heroBannerData.search.allLabel
-						each year in filtersData.years
-							option(value=year)= year
-				button(class='hero-banner__submit' type='submit')= heroBannerData.search.buttonLabel
+			div(class='hero-banner__panel')
+				form(
+					class='hero-banner__search'
+					action=heroBannerData.search.action
+					method='get'
+					role='search'
+					aria-label='Buscador principal'
+				)
+					div(class='hero-banner__field')
+						label(class='hero-banner__label' for='hero-brand')= heroBannerData.search.brandLabel
+						select(class='hero-banner__select' id='hero-brand' name='brand')
+							option(value='')= heroBannerData.search.allLabel
+							each brand in filtersData.brands
+								option(value=brand)= brand
+					div(class='hero-banner__field')
+						label(class='hero-banner__label' for='hero-model')= heroBannerData.search.modelLabel
+						select(class='hero-banner__select' id='hero-model' name='model')
+							option(value='')= heroBannerData.search.allLabel
+					div(class='hero-banner__field')
+						label(class='hero-banner__label' for='hero-year')= heroBannerData.search.yearLabel
+						select(class='hero-banner__select' id='hero-year' name='yearMin')
+							option(value='')= heroBannerData.search.allLabel
+							each year in filtersData.years
+								option(value=year)= year
+					button(class='hero-banner__submit' type='submit')= heroBannerData.search.buttonLabel
+				nav(class='hero-banner__tabs' aria-label=heroBannerData.categoryTabs.label)
+					each tab in heroBannerData.categoryTabs.items
+						a(class='hero-banner__tab' href=tab.href)= tab.label
 script(type='application/json' id='filters-models-data')!= JSON.stringify(filtersData.modelsByBrand)
 section(class='hero-banner-how')
 	div(class='main-container hero-banner-how__shell')

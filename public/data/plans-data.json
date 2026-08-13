@@ -35,5 +35,18 @@
 			"cta": "Elegir Premium",
 			"ctaHref": "./suscripcion.html"
 		}
-	]
+	],
+	"compare": {
+		"title": "Compara Gratis y Premium",
+		"freeLabel": "Gratis",
+		"premiumLabel": "Premium",
+		"features": [
+			{ "label": "Vehículos activos", "free": "1", "premium": "Ilimitados" },
+			{ "label": "Badge Destacado", "free": false, "premium": true },
+			{ "label": "Aparece primero en listados", "free": false, "premium": true },
+			{ "label": "Aparece en destacados del home", "free": false, "premium": true },
+			{ "label": "Mayor confianza y visibilidad", "free": false, "premium": true },
+			{ "label": "Soporte", "free": "Email", "premium": "Prioritario" }
+		]
+	}
 }

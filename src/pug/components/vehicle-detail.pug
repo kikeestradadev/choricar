@@ -12,31 +12,41 @@ section(class='vehicle-detail' data-vehicle-detail)
 						div(class='swiper-button-prev')
 						div(class='swiper-button-next')
 						div(class='swiper-pagination')
+					div(class='swiper vehicle-detail__thumbs')
+						div(class='swiper-wrapper' data-detail-thumbs)
 				div(class='vehicle-detail__info')
 					div(class='vehicle-detail__badges')
 						span(class='vehicle-detail__badge' data-detail-condition)
-						span(class='vehicle-detail__badge vehicle-detail__badge--premium' data-detail-premium hidden) Premium
+						span(class='vehicle-detail__badge vehicle-detail__badge--premium' data-detail-premium hidden) Destacado
 					h1(class='vehicle-detail__title' data-detail-title)
 					p(class='vehicle-detail__price' data-detail-price)
-					ul(class='vehicle-detail__specs')
-						li(class='vehicle-detail__spec')
-							span(class='vehicle-detail__spec-label') Año
-							span(class='vehicle-detail__spec-value' data-detail-year)
-						li(class='vehicle-detail__spec')
-							span(class='vehicle-detail__spec-label') Kilometraje
-							span(class='vehicle-detail__spec-value' data-detail-mileage)
-						li(class='vehicle-detail__spec')
-							span(class='vehicle-detail__spec-label') Transmisión
-							span(class='vehicle-detail__spec-value' data-detail-transmission)
-						li(class='vehicle-detail__spec')
-							span(class='vehicle-detail__spec-label') Combustible
-							span(class='vehicle-detail__spec-value' data-detail-fuel)
-						li(class='vehicle-detail__spec')
-							span(class='vehicle-detail__spec-label') Ubicación
-							span(class='vehicle-detail__spec-value' data-detail-location)
+					table(class='vehicle-detail__table')
+						caption(class='vehicle-detail__table-caption') Especificaciones
+						tbody
+							tr
+								th(class='vehicle-detail__th' scope='row') Año
+								td(class='vehicle-detail__td' data-detail-year)
+							tr
+								th(class='vehicle-detail__th' scope='row') Km
+								td(class='vehicle-detail__td' data-detail-mileage)
+							tr
+								th(class='vehicle-detail__th' scope='row') Combustible
+								td(class='vehicle-detail__td' data-detail-fuel)
+							tr
+								th(class='vehicle-detail__th' scope='row') Transmisión
+								td(class='vehicle-detail__td' data-detail-transmission)
+							tr
+								th(class='vehicle-detail__th' scope='row') Color
+								td(class='vehicle-detail__td' data-detail-color)
+							tr
+								th(class='vehicle-detail__th' scope='row') Carrocería
+								td(class='vehicle-detail__td' data-detail-body)
+							tr
+								th(class='vehicle-detail__th' scope='row') Provincia
+								td(class='vehicle-detail__td' data-detail-location)
 					div(class='vehicle-detail__actions')
 						button(class='vehicle-detail__fav' type='button' data-detail-fav) Favorito
-						a(class='vehicle-detail__contact' href='#' data-detail-contact) Contactar vendedor
+						a(class='vehicle-detail__contact' href='#' data-detail-contact target='_blank' rel='noopener noreferrer') Contactar por WhatsApp
 				div(class='vehicle-detail__tabs' data-detail-tabs)
 					div(class='vehicle-detail__tablist' role='tablist')
 						button(class='vehicle-detail__tab is-active' type='button' role='tab' aria-selected='true' data-tab='description') Descripción
@@ -48,3 +58,14 @@ section(class='vehicle-detail' data-vehicle-detail)
 						include maintenance-list
 					div(class='vehicle-detail__panel' role='tabpanel' data-panel='seller' hidden)
 						div(class='vehicle-detail__seller' data-detail-seller)
+				section(class='vehicle-detail__similar')
+					h2(class='vehicle-detail__similar-title') Carros similares
+					div(class='vehicle-detail__similar-list' data-similar-list aria-live='polite')
+			a(
+				class='vehicle-detail__sticky-wa'
+				href='#'
+				data-detail-sticky-wa
+				hidden
+				target='_blank'
+				rel='noopener noreferrer'
+			) Contactar por WhatsApp

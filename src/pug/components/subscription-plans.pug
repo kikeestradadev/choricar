@@ -23,3 +23,30 @@ section(class='subscription-plans' data-subscription-plans)
 							button(class='subscription-plans__cta subscription-plans__cta--premium' type='button' data-plan-premium)= plan.cta
 						else
 							a(class='subscription-plans__cta' href=plan.ctaHref)= plan.cta
+			div(class='subscription-plans__compare')
+				h3(class='subscription-plans__compare-title')= plansData.compare.title
+				div(class='subscription-plans__table-wrap')
+					table(class='subscription-plans__table')
+						thead
+							tr
+								th(class='subscription-plans__th') Característica
+								th(class='subscription-plans__th')= plansData.compare.freeLabel
+								th(class='subscription-plans__th subscription-plans__th--premium')= plansData.compare.premiumLabel
+						tbody
+							each feature in plansData.compare.features
+								tr
+									th(class='subscription-plans__row-label' scope='row')= feature.label
+									td(class='subscription-plans__cell')
+										if feature.free === true
+											span(class='subscription-plans__yes' aria-label='Incluido') ✓
+										else if feature.free === false
+											span(class='subscription-plans__no' aria-label='No incluido') ✕
+										else
+											span= feature.free
+									td(class='subscription-plans__cell subscription-plans__cell--premium')
+										if feature.premium === true
+											span(class='subscription-plans__yes' aria-label='Incluido') ✓
+										else if feature.premium === false
+											span(class='subscription-plans__no' aria-label='No incluido') ✕
+										else
+											span= feature.premium

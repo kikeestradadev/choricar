@@ -1,26 +1,106 @@
 import {
 	getCars,
 	getCurrentUser,
+	getUserById,
 	STORE_EVENT,
 } from '../db/ecommerceStore.js';
 import { bindFavoriteButtons, createVehicleCardElement } from './vehicleCard.js';
 
 const PAGE_SIZE = 12;
 
+const EMPTY_FILTERS = {
+	q: '',
+	brand: '',
+	model: '',
+	yearMin: '',
+	yearMax: '',
+	priceMin: '',
+	priceMax: '',
+	condition: '',
+	transmission: '',
+	fuel: '',
+	bodyType: '',
+	mileageMin: '',
+	mileageMax: '',
+	hasPhotos: '',
+	verifiedOnly: '',
+	location: '',
+	sort: 'price-asc',
+	page: 1,
+};
+
+const CONDITION_ALIASES = {
+	usado: 'used',
+	used: 'used',
+	nuevo: 'new',
+	new: 'new',
+};
+
+const FUEL_ALIASES = {
+	electrico: 'electric',
+	electric: 'electric',
+	hibrido: 'hybrid',
+	hybrid: 'hybrid',
+	gasolina: 'gasoline',
+	gasoline: 'gasoline',
+	diesel: 'diesel',
+};
+
+const BODY_ALIASES = {
+	sedan: 'sedan',
+	suv: 'suv',
+	pickup: 'pickup',
+	'pick-up': 'pickup',
+	hatchback: 'hatchback',
+	van: 'van',
+	convertible: 'convertible',
+};
+
+const isTruthyParam = (value) => value === '1' || value === 'true' || value === true;
+
+const aliasKey = (value, map) => {
+	if (!value) return '';
+	const normalized = String(value)
+		.trim()
+		.toLowerCase()
+		.normalize('NFD')
+		.replace(/\p{M}/gu, '');
+	return map[normalized] || '';
+};
+
 const readFiltersFromUrl = () => {
 	const params = new URLSearchParams(window.location.search);
+	const fuelFromTipo = aliasKey(params.get('tipo'), FUEL_ALIASES);
+	const bodyFromTipo = aliasKey(params.get('tipo'), BODY_ALIASES);
+
 	return {
 		q: params.get('q') || '',
-		brand: params.get('brand') || '',
-		model: params.get('model') || '',
+		brand: params.get('brand') || params.get('marca') || '',
+		model: params.get('model') || params.get('modelo') || '',
 		yearMin: params.get('yearMin') || '',
 		yearMax: params.get('yearMax') || '',
-		priceMin: params.get('priceMin') || '',
-		priceMax: params.get('priceMax') || '',
-		condition: params.get('condition') || '',
+		priceMin: params.get('priceMin') || params.get('precioMin') || '',
+		priceMax: params.get('priceMax') || params.get('precioMax') || params.get('precio') || '',
+		condition:
+			aliasKey(params.get('condition') || params.get('condicion'), CONDITION_ALIASES) ||
+			params.get('condition') ||
+			'',
 		transmission: params.get('transmission') || '',
-		fuel: params.get('fuel') || '',
-		location: params.get('location') || '',
+		fuel:
+			aliasKey(params.get('fuel') || params.get('combustible'), FUEL_ALIASES) ||
+			fuelFromTipo ||
+			params.get('fuel') ||
+			'',
+		bodyType:
+			aliasKey(params.get('bodyType') || params.get('carroceria'), BODY_ALIASES) ||
+			(!fuelFromTipo && bodyFromTipo ? bodyFromTipo : '') ||
+			params.get('bodyType') ||
+			'',
+		mileageMin: params.get('mileageMin') || params.get('kmMin') || '',
+		mileageMax: params.get('mileageMax') || params.get('kmMax') || '',
+		hasPhotos: isTruthyParam(params.get('hasPhotos')) ? '1' : '',
+		verifiedOnly: isTruthyParam(params.get('verifiedOnly')) ? '1' : '',
+		location: params.get('location') || params.get('ubicacion') || '',
 		sort: params.get('sort') || 'price-asc',
 		page: Number(params.get('page') || 1),
 	};
@@ -50,6 +130,21 @@ const normalize = (value) =>
 		.normalize('NFD')
 		.replace(/\p{M}/gu, '');
 
+const compareBySort = (a, b, sort) => {
+	switch (sort) {
+		case 'price-desc':
+			return b.price - a.price;
+		case 'year-desc':
+			return b.year - a.year;
+		case 'year-asc':
+			return a.year - b.year;
+		case 'mileage-asc':
+			return a.mileage - b.mileage;
+		default:
+			return a.price - b.price;
+	}
+};
+
 const applyFilters = (cars, filters) => {
 	let list = cars.slice();
 
@@ -74,24 +169,23 @@ const applyFilters = (cars, filters) => {
 	if (filters.condition) list = list.filter((c) => c.condition === filters.condition);
 	if (filters.transmission) list = list.filter((c) => c.transmission === filters.transmission);
 	if (filters.fuel) list = list.filter((c) => c.fuel === filters.fuel);
+	if (filters.bodyType) list = list.filter((c) => c.bodyType === filters.bodyType);
+	if (filters.mileageMin) list = list.filter((c) => c.mileage >= Number(filters.mileageMin));
+	if (filters.mileageMax) list = list.filter((c) => c.mileage <= Number(filters.mileageMax));
+	if (isTruthyParam(filters.hasPhotos)) {
+		list = list.filter((c) => Array.isArray(c.images) && c.images.length > 0);
+	}
+	if (isTruthyParam(filters.verifiedOnly)) {
+		list = list.filter((c) => Boolean(getUserById(c.sellerId)?.verified));
+	}
 	if (filters.location) list = list.filter((c) => c.location === filters.location);
 
-	switch (filters.sort) {
-		case 'price-desc':
-			list.sort((a, b) => b.price - a.price);
-			break;
-		case 'year-desc':
-			list.sort((a, b) => b.year - a.year);
-			break;
-		case 'year-asc':
-			list.sort((a, b) => a.year - b.year);
-			break;
-		case 'mileage-asc':
-			list.sort((a, b) => a.mileage - b.mileage);
-			break;
-		default:
-			list.sort((a, b) => a.price - b.price);
-	}
+	list.sort((a, b) => {
+		if (Boolean(a.isPremium) !== Boolean(b.isPremium)) {
+			return a.isPremium ? -1 : 1;
+		}
+		return compareBySort(a, b, filters.sort);
+	});
 
 	return list;
 };
@@ -144,6 +238,19 @@ const fillSelect = (select, values, { allLabel = 'Todas', selected = '' } = {}) 
 		option.textContent = String(value);
 		if (String(value) === String(selected)) option.selected = true;
 		select.append(option);
+	});
+};
+
+const applyFiltersToForm = (form, filters) => {
+	if (!form) return;
+	Object.entries(filters).forEach(([key, value]) => {
+		const field = form.elements.namedItem(key);
+		if (!field) return;
+		if (field.type === 'checkbox') {
+			field.checked = isTruthyParam(value);
+		} else if ('value' in field) {
+			field.value = value ?? '';
+		}
 	});
 };
 
@@ -208,6 +315,7 @@ const vehicleGrid = () => {
 		if (!form) return base;
 		const data = new FormData(form);
 		return {
+			...EMPTY_FILTERS,
 			...base,
 			brand: data.get('brand') || '',
 			model: data.get('model') || '',
@@ -218,6 +326,11 @@ const vehicleGrid = () => {
 			condition: data.get('condition') || '',
 			transmission: data.get('transmission') || '',
 			fuel: data.get('fuel') || '',
+			bodyType: data.get('bodyType') || '',
+			mileageMin: data.get('mileageMin') || '',
+			mileageMax: data.get('mileageMax') || '',
+			hasPhotos: form.querySelector('[name="hasPhotos"]')?.checked ? '1' : '',
+			verifiedOnly: form.querySelector('[name="verifiedOnly"]')?.checked ? '1' : '',
 			location: data.get('location') || '',
 			sort: data.get('sort') || 'price-asc',
 			page: base.page || 1,
@@ -226,8 +339,8 @@ const vehicleGrid = () => {
 
 	const render = (filters = getFiltersFromForm()) => {
 		syncFilterOptions(filters);
+		applyFiltersToForm(form, filters);
 
-		// If selected model no longer exists for brand, drop it.
 		if (filters.brand && filters.model) {
 			const allowed = modelsByBrand[filters.brand] || [];
 			if (!allowed.includes(filters.model)) {
@@ -274,7 +387,7 @@ const vehicleGrid = () => {
 		gridRoot._filters = nextFilters;
 	};
 
-	const initial = readFiltersFromUrl();
+	const initial = { ...EMPTY_FILTERS, ...readFiltersFromUrl() };
 	render(initial);
 
 	brandSelect?.addEventListener('change', () => {
@@ -290,21 +403,7 @@ const vehicleGrid = () => {
 
 	form?.addEventListener('reset', () => {
 		window.setTimeout(() => {
-			render({
-				q: '',
-				brand: '',
-				model: '',
-				yearMin: '',
-				yearMax: '',
-				priceMin: '',
-				priceMax: '',
-				condition: '',
-				transmission: '',
-				fuel: '',
-				location: '',
-				sort: 'price-asc',
-				page: 1,
-			});
+			render({ ...EMPTY_FILTERS });
 		}, 0);
 	});
 

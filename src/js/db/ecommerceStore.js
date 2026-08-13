@@ -1,4 +1,13 @@
-export const STORAGE_KEY = 'choricar-ecommerce-store-v2';
+import { isPlaceholderImage, resolveCarImages } from './carImages.js';
+
+export { isPlaceholderImage, resolveCarImages, buildCarImageUrl, buildCarImageUrls } from './carImages.js';
+
+export const STORAGE_KEY = 'choricar-ecommerce-store-v4';
+export const LEGACY_STORAGE_KEY = 'choricar-ecommerce-store-v3';
+export const LEGACY_STORAGE_KEYS = [
+	'choricar-ecommerce-store-v3',
+	'choricar-ecommerce-store-v2',
+];
 export const STORE_EVENT = 'ecommerce-store-updated';
 
 export const CARS_URL = './data/db/cars.json';
@@ -19,6 +28,87 @@ const emptyStore = () => ({
 	session: null,
 });
 
+const BODY_TYPE_BY_MODEL = {
+	Corolla: 'sedan',
+	Civic: 'sedan',
+	Accord: 'sedan',
+	Sentra: 'sedan',
+	Versa: 'sedan',
+	Elantra: 'sedan',
+	Accent: 'sedan',
+	Forte: 'sedan',
+	Mazda6: 'sedan',
+	RAV4: 'suv',
+	Fortuner: 'suv',
+	'CR-V': 'suv',
+	'HR-V': 'suv',
+	Pilot: 'suv',
+	'X-Trail': 'suv',
+	Kicks: 'suv',
+	Tucson: 'suv',
+	'Santa Fe': 'suv',
+	Creta: 'suv',
+	Sportage: 'suv',
+	Sorento: 'suv',
+	Seltos: 'suv',
+	Vitara: 'suv',
+	Jimny: 'suv',
+	Outlander: 'suv',
+	Montero: 'suv',
+	ASX: 'suv',
+	'CX-5': 'suv',
+	'CX-30': 'suv',
+	'CX-9': 'suv',
+	Escape: 'suv',
+	Explorer: 'suv',
+	Tracker: 'suv',
+	Tahoe: 'suv',
+	Equinox: 'suv',
+	Hilux: 'pickup',
+	Frontier: 'pickup',
+	L200: 'pickup',
+	Ranger: 'pickup',
+	'F-150': 'pickup',
+	Silverado: 'pickup',
+	Yaris: 'hatchback',
+	Rio: 'hatchback',
+	Swift: 'hatchback',
+	Baleno: 'hatchback',
+	SX4: 'hatchback',
+	Mirage: 'hatchback',
+	Mazda3: 'hatchback',
+	Spark: 'hatchback',
+	Mustang: 'convertible',
+};
+
+const inferBodyType = (car) => {
+	if (car?.bodyType) return car.bodyType;
+	return BODY_TYPE_BY_MODEL[car?.model] || 'sedan';
+};
+
+const normalizeCar = (car) => ({
+	...car,
+	bodyType: inferBodyType(car),
+	color: car?.color || 'Gris',
+	images: resolveCarImages(car),
+	maintenance: Array.isArray(car?.maintenance) ? car.maintenance : [],
+	isPremium: Boolean(car?.isPremium),
+});
+
+const normalizeUser = (user) => ({
+	...user,
+	verified: Boolean(user?.verified),
+	favorites: Array.isArray(user?.favorites) ? user.favorites : [],
+	plan: user?.plan === 'premium' ? 'premium' : 'free',
+});
+
+const normalizeStoreShape = (parsed) => ({
+	cars: (parsed.cars || []).map(normalizeCar),
+	users: (parsed.users || []).map(normalizeUser),
+	subscriptions: Array.isArray(parsed.subscriptions) ? parsed.subscriptions : [],
+	session: parsed.session || null,
+});
+
 export const readStore = (storageKey = STORAGE_KEY) => {
 	try {
 		const raw = localStorage.getItem(storageKey);
@@ -27,12 +117,7 @@ export const readStore = (storageKey = STORAGE_KEY) => {
 		if (!Array.isArray(parsed?.cars) || !Array.isArray(parsed?.users)) {
 			return null;
 		}
-		return {
-			cars: parsed.cars,
-			users: parsed.users,
-			subscriptions: Array.isArray(parsed.subscriptions) ? parsed.subscriptions : [],
-			session: parsed.session || null,
-		};
+		return normalizeStoreShape(parsed);
 	} catch {
 		return null;
 	}
@@ -77,19 +162,62 @@ export const persistStore = (store = getStore()) => {
 	return true;
 };
 
+const readLegacyStore = () => {
+	for (const key of LEGACY_STORAGE_KEYS) {
+		const stored = readStore(key);
+		if (stored) return stored;
+	}
+	return null;
+};
+
+const overlaySeedImages = (store, seedCars = []) => {
+	const byId = Object.fromEntries(seedCars.map((car) => [car.id, car]));
+	store.cars = store.cars.map((car) => {
+		const seed = byId[car.id];
+		if (!seed) return car;
+		const current = Array.isArray(car.images) ? car.images : [];
+		const stale =
+			current.some(isPlaceholderImage) ||
+			(current.length > 0 &&
+				current.every((src) => isPlaceholderImage(src)));
+		if (!stale) return car;
+		return { ...car, images: Array.isArray(seed.images) ? seed.images : [] };
+	});
+	return store;
+};
+
 export const loadEcommerceStore = async ({
 	carsUrl = CARS_URL,
 	usersUrl = USERS_URL,
 	subscriptionsUrl = SUBSCRIPTIONS_URL,
 } = {}) => {
-	const stored = readStore();
+	const stored = readStore() || readLegacyStore();
 	if (stored) {
 		memoryStore = {
-			cars: ensureIds(stored.cars, 'car'),
-			users: ensureIds(stored.users, 'user'),
+			cars: ensureIds(stored.cars, 'car').map(normalizeCar),
+			users: ensureIds(stored.users, 'user').map(normalizeUser),
 			subscriptions: ensureIds(stored.subscriptions, 'sub'),
 			session: stored.session || null,
 		};
+		const premiumSellers = new Set(
+			memoryStore.users.filter((user) => user.plan === 'premium').map((user) => user.id)
+		);
+		memoryStore.cars = memoryStore.cars.map((car) => ({
+			...car,
+			isPremium: premiumSellers.has(car.sellerId),
+		}));
+		try {
+			const seedRes = await fetch(carsUrl);
+			if (seedRes.ok) {
+				const seedData = await seedRes.json();
+				overlaySeedImages(
+					memoryStore,
+					Array.isArray(seedData.cars) ? seedData.cars : []
+				);
+			}
+		} catch {
+			/* keep stored images if seed overlay fails */
+		}
 		writeStore(STORAGE_KEY, memoryStore);
 		return { ...memoryStore, source: 'localStorage' };
 	}
@@ -111,8 +239,12 @@ export const loadEcommerceStore = async ({
 	}
 
 	memoryStore = {
-		cars: ensureIds(Array.isArray(carsData.cars) ? carsData.cars : [], 'car'),
-		users: ensureIds(Array.isArray(usersData.users) ? usersData.users : [], 'user'),
+		cars: ensureIds(Array.isArray(carsData.cars) ? carsData.cars : [], 'car').map(
+			normalizeCar
+		),
+		users: ensureIds(Array.isArray(usersData.users) ? usersData.users : [], 'user').map(
+			normalizeUser
+		),
 		subscriptions: ensureIds(subscriptions, 'sub'),
 		session: null,
 	};
@@ -135,15 +267,17 @@ export const addCar = (carData) => {
 		throw new Error('LIMIT_FREE');
 	}
 
-	const car = {
+	const car = normalizeCar({
 		...carData,
 		id: carData.id || createId('car'),
 		sellerId: user.id,
 		isPremium: user.plan === 'premium',
+		bodyType: carData.bodyType || 'sedan',
+		color: carData.color || 'Gris',
 		maintenance: Array.isArray(carData.maintenance) ? carData.maintenance : [],
 		images: Array.isArray(carData.images) ? carData.images : [],
 		createdAt: carData.createdAt || new Date().toISOString(),
-	};
+	});
 
 	store.cars = [car, ...store.cars];
 	persistStore(store);
@@ -160,12 +294,12 @@ export const updateCar = (id, data) => {
 		throw new Error('No tienes permiso para editar este vehículo');
 	}
 
-	store.cars[index] = {
+	store.cars[index] = normalizeCar({
 		...store.cars[index],
 		...data,
 		id,
 		sellerId: store.cars[index].sellerId,
-	};
+	});
 	persistStore(store);
 	return store.cars[index];
 };
@@ -209,6 +343,7 @@ export const registerUser = (userData) => {
 		avatar: userData.avatar || `https://i.pravatar.cc/150?u=${encodeURIComponent(email)}`,
 		phone: userData.phone || '',
 		plan: 'free',
+		verified: false,
 		favorites: [],
 		createdAt: new Date().toISOString(),
 	};
@@ -250,6 +385,7 @@ export const loginWithSocial = (provider, profile = {}) => {
 			avatar: profile.avatar || `https://i.pravatar.cc/150?u=${encodeURIComponent(email)}`,
 			phone: '',
 			plan: 'free',
+			verified: false,
 			favorites: [],
 			provider,
 			createdAt: new Date().toISOString(),
@@ -365,6 +501,16 @@ export const getUserById = (id) => {
 	return safe;
 };
 
+export const getCarsBySellerId = (sellerId) =>
+	getStore().cars.filter((car) => car.sellerId === sellerId);
+
+export const whatsappUrl = (phone, text = '') => {
+	const digits = String(phone || '').replace(/\D/g, '');
+	if (!digits) return '';
+	const query = text ? `?text=${encodeURIComponent(text)}` : '';
+	return `https://wa.me/${digits}${query}`;
+};
+
 export const formatPrice = (price, currency = 'CRC') => {
 	const value = Number(price) || 0;
 	if (currency === 'USD') {
@@ -398,4 +544,16 @@ export const fuelLabel = (value) => {
 		hybrid: 'Híbrido',
 	};
 	return map[value] || value;
+};
+
+export const bodyTypeLabel = (value) => {
+	const map = {
+		sedan: 'Sedán',
+		suv: 'SUV',
+		pickup: 'Pick-up',
+		hatchback: 'Hatchback',
+		van: 'Van',
+		convertible: 'Convertible',
+	};
+	return map[value] || value || '—';
 };

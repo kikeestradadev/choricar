@@ -1,22 +1,22 @@
 {
 	"slides": [
 		{
-			"image": "https://picsum.photos/seed/choricar-hero-1/1600/900",
-			"alt": "Vehículos en carretera costarricense",
+			"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/2016_Toyota_HiLux_Invincible_D-4D_4WD_2.4_Front.jpg/1280px-2016_Toyota_HiLux_Invincible_D-4D_4WD_2.4_Front.jpg",
+			"alt": "Toyota Hilux",
 			"eyebrow": "Costa Rica",
 			"title": "Encuentra tu próximo vehículo",
 			"subtitle": "Miles de carros nuevos y usados. Filtra por marca, precio y ubicación."
 		},
 		{
-			"image": "https://picsum.photos/seed/choricar-hero-2/1600/900",
-			"alt": "SUV premium",
+			"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/2024_Toyota_RAV4_Prime_XSE_Premium_in_Silver_Sky_with_Midnight_Black_roof%2C_front_left.jpg/1280px-2024_Toyota_RAV4_Prime_XSE_Premium_in_Silver_Sky_with_Midnight_Black_roof%2C_front_left.jpg",
+			"alt": "Toyota RAV4",
 			"eyebrow": "Premium",
 			"title": "Destacados con badge dorado",
 			"subtitle": "Los vendedores Premium aparecen primero y ganan más visibilidad."
 		},
 		{
-			"image": "https://picsum.photos/seed/choricar-hero-3/1600/900",
-			"alt": "Vende tu carro",
+			"image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Honda_Civic_e-HEV_Sport_%28XI%29_%E2%80%93_f_30062024.jpg/1280px-Honda_Civic_e-HEV_Sport_%28XI%29_%E2%80%93_f_30062024.jpg",
+			"alt": "Honda Civic",
 			"eyebrow": "Vende fácil",
 			"title": "Publica tu carro en minutos",
 			"subtitle": "Plan gratis con 1 vehículo o Premium ilimitado desde ₡5,000/mes."
@@ -29,6 +29,17 @@
 		"buttonLabel": "Buscar",
 		"action": "./vehiculos.html",
 		"allLabel": "Todas"
+	},
+	"categoryTabs": {
+		"label": "Categorías rápidas",
+		"items": [
+			{ "label": "Usados", "href": "./vehiculos.html?condition=used" },
+			{ "label": "Nuevos", "href": "./vehiculos.html?condition=new" },
+			{ "label": "Eléctricos", "href": "./vehiculos.html?fuel=electric" },
+			{ "label": "SUVs", "href": "./vehiculos.html?bodyType=suv" },
+			{ "label": "Pick-ups", "href": "./vehiculos.html?bodyType=pickup" },
+			{ "label": "Menos de ₡5M", "href": "./vehiculos.html?priceMax=5000000" }
+		]
 	},
 	"howItWorks": {
 		"title": "Cómo funciona",

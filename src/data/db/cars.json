@@ -14,10 +14,9 @@
       "location": "Alajuela",
       "description": "Toyota Corolla 2013. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
       "images": [
-        "https://picsum.photos/seed/car-001-1/800/600",
-        "https://picsum.photos/seed/car-001-2/800/600",
-        "https://picsum.photos/seed/car-001-3/800/600",
-        "https://picsum.photos/seed/car-001-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Toyota_Corolla_Hybrid_%28E210%29_IMG_4338.jpg/960px-Toyota_Corolla_Hybrid_%28E210%29_IMG_4338.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Toyota_Corolla_E180_sedan_2_China_2016-04-01.jpg/960px-Toyota_Corolla_E180_sedan_2_China_2016-04-01.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Toyota_Corolla_E180_sedan_China_2016-04-01.jpg/960px-Toyota_Corolla_E180_sedan_China_2016-04-01.jpg"
       ],
       "maintenance": [
         {
@@ -34,8 +33,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-02-02T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-02-02T10:00:00Z",
+      "bodyType": "sedan",
+      "color": "Blanco"
     },
     {
       "id": "car-002",
@@ -51,9 +52,9 @@
       "location": "Heredia",
       "description": "Toyota RAV4 2016. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Heredia.",
       "images": [
-        "https://picsum.photos/seed/car-002-1/800/600",
-        "https://picsum.photos/seed/car-002-2/800/600",
-        "https://picsum.photos/seed/car-002-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/2024_Toyota_RAV4_Prime_XSE_Premium_in_Silver_Sky_with_Midnight_Black_roof%2C_front_left.jpg/960px-2024_Toyota_RAV4_Prime_XSE_Premium_in_Silver_Sky_with_Midnight_Black_roof%2C_front_left.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/A_tourism_car_-_Akagera_National_Park.jpg/960px-A_tourism_car_-_Akagera_National_Park.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Osaka_Auto_Messe_2020_%289%29_-_BEYOND_URBAN_RAV4.jpg/960px-Osaka_Auto_Messe_2020_%289%29_-_BEYOND_URBAN_RAV4.jpg"
       ],
       "maintenance": [
         {
@@ -77,7 +78,9 @@
       ],
       "sellerId": "user-002",
       "isPremium": false,
-      "createdAt": "2024-03-03T10:00:00Z"
+      "createdAt": "2024-03-03T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Negro"
     },
     {
       "id": "car-003",
@@ -93,10 +96,9 @@
       "location": "Cartago",
       "description": "Toyota Hilux 2019. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Cartago.",
       "images": [
-        "https://picsum.photos/seed/car-003-1/800/600",
-        "https://picsum.photos/seed/car-003-2/800/600",
-        "https://picsum.photos/seed/car-003-3/800/600",
-        "https://picsum.photos/seed/car-003-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/2016_Toyota_HiLux_Invincible_D-4D_4WD_2.4_Front.jpg/960px-2016_Toyota_HiLux_Invincible_D-4D_4WD_2.4_Front.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/1988-1991_Toyota_Hilux_%28RN85R%29_2-door_utility_01.jpg/960px-1988-1991_Toyota_Hilux_%28RN85R%29_2-door_utility_01.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/California_Automobile_Museum_8.jpg/960px-California_Automobile_Museum_8.jpg"
       ],
       "maintenance": [
         {
@@ -125,8 +127,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-04-04T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-04-04T10:00:00Z",
+      "bodyType": "pickup",
+      "color": "Gris"
     },
     {
       "id": "car-004",
@@ -141,11 +145,7 @@
       "fuel": "gasoline",
       "location": "Guanacaste",
       "description": "Toyota Yaris 2022. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Guanacaste.",
-      "images": [
-        "https://picsum.photos/seed/car-004-1/800/600",
-        "https://picsum.photos/seed/car-004-2/800/600",
-        "https://picsum.photos/seed/car-004-3/800/600"
-      ],
+      "images": [],
       "maintenance": [
         {
           "date": "2022-05-13",
@@ -180,7 +180,9 @@
       ],
       "sellerId": "user-003",
       "isPremium": false,
-      "createdAt": "2024-05-05T10:00:00Z"
+      "createdAt": "2024-05-05T10:00:00Z",
+      "bodyType": "hatchback",
+      "color": "Plata"
     },
     {
       "id": "car-005",
@@ -196,10 +198,9 @@
       "location": "Puntarenas",
       "description": "Toyota Fortuner 2025. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Puntarenas.",
       "images": [
-        "https://picsum.photos/seed/car-005-1/800/600",
-        "https://picsum.photos/seed/car-005-2/800/600",
-        "https://picsum.photos/seed/car-005-3/800/600",
-        "https://picsum.photos/seed/car-005-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/2015_Toyota_Fortuner_%28New_Zealand%29.jpg/960px-2015_Toyota_Fortuner_%28New_Zealand%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Wikimania_2018%2C_Cape_Town_%28P1050549%29.jpg/960px-Wikimania_2018%2C_Cape_Town_%28P1050549%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Wikimania_2018%2C_Cape_Town_%28P1050548%29.jpg/960px-Wikimania_2018%2C_Cape_Town_%28P1050548%29.jpg"
       ],
       "maintenance": [
         {
@@ -211,7 +212,9 @@
       ],
       "sellerId": "user-001",
       "isPremium": true,
-      "createdAt": "2024-06-06T10:00:00Z"
+      "createdAt": "2024-06-06T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Rojo"
     },
     {
       "id": "car-006",
@@ -227,9 +230,9 @@
       "location": "Limón",
       "description": "Honda Civic 2012. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Limón.",
       "images": [
-        "https://picsum.photos/seed/car-006-1/800/600",
-        "https://picsum.photos/seed/car-006-2/800/600",
-        "https://picsum.photos/seed/car-006-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Honda_Civic_e-HEV_Sport_%28XI%29_%E2%80%93_f_30062024.jpg/960px-Honda_Civic_e-HEV_Sport_%28XI%29_%E2%80%93_f_30062024.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Honda_Civic_%281Y7A1724%29.jpg/960px-Honda_Civic_%281Y7A1724%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Honda%2C_Paris_Motor_Show_2018%2C_Paris_%281Y7A1804%29.jpg/960px-Honda%2C_Paris_Motor_Show_2018%2C_Paris_%281Y7A1804%29.jpg"
       ],
       "maintenance": [
         {
@@ -246,8 +249,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-07-07T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-07-07T10:00:00Z",
+      "bodyType": "sedan",
+      "color": "Azul"
     },
     {
       "id": "car-007",
@@ -263,10 +268,9 @@
       "location": "San José",
       "description": "Honda CR-V 2015. Único dueño, mantenimientos al día, excelente estado general. Ubicado en San José.",
       "images": [
-        "https://picsum.photos/seed/car-007-1/800/600",
-        "https://picsum.photos/seed/car-007-2/800/600",
-        "https://picsum.photos/seed/car-007-3/800/600",
-        "https://picsum.photos/seed/car-007-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Honda_CR-V_e-HEV_Elegance_AWD_%28VI%29_%E2%80%93_f_14072024.jpg/960px-Honda_CR-V_e-HEV_Elegance_AWD_%28VI%29_%E2%80%93_f_14072024.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Paris_Motor_Show_2018%2C_Paris_%281Y7A1207%29.jpg/960px-Paris_Motor_Show_2018%2C_Paris_%281Y7A1207%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Honda%2C_Paris_Motor_Show_2018%2C_Paris_%281Y7A1797%29.jpg/960px-Honda%2C_Paris_Motor_Show_2018%2C_Paris_%281Y7A1797%29.jpg"
       ],
       "maintenance": [
         {
@@ -289,8 +293,10 @@
         }
       ],
       "sellerId": "user-002",
-      "isPremium": true,
-      "createdAt": "2024-08-08T10:00:00Z"
+      "isPremium": false,
+      "createdAt": "2024-08-08T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Verde"
     },
     {
       "id": "car-008",
@@ -306,9 +312,9 @@
       "location": "Alajuela",
       "description": "Honda HR-V 2018. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
       "images": [
-        "https://picsum.photos/seed/car-008-1/800/600",
-        "https://picsum.photos/seed/car-008-2/800/600",
-        "https://picsum.photos/seed/car-008-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/2023_Honda_HR-V_Advance_i-MMD_CVT_1.5.jpg/960px-2023_Honda_HR-V_Advance_i-MMD_CVT_1.5.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/2015_K%C5%82odzko%2C_ul._Dusznicka%2C_myjnia_samochodowa_02.jpg/960px-2015_K%C5%82odzko%2C_ul._Dusznicka%2C_myjnia_samochodowa_02.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Honda_HR-V_Hybrid_Auto_Zuerich_2021_IMG_0619.jpg/960px-Honda_HR-V_Hybrid_Auto_Zuerich_2021_IMG_0619.jpg"
       ],
       "maintenance": [
         {
@@ -337,8 +343,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-09-09T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-09-09T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Beige"
     },
     {
       "id": "car-009",
@@ -353,12 +361,7 @@
       "fuel": "diesel",
       "location": "Heredia",
       "description": "Honda Accord 2021. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Heredia.",
-      "images": [
-        "https://picsum.photos/seed/car-009-1/800/600",
-        "https://picsum.photos/seed/car-009-2/800/600",
-        "https://picsum.photos/seed/car-009-3/800/600",
-        "https://picsum.photos/seed/car-009-4/800/600"
-      ],
+      "images": [],
       "maintenance": [
         {
           "date": "2021-10-28",
@@ -393,7 +396,9 @@
       ],
       "sellerId": "user-003",
       "isPremium": false,
-      "createdAt": "2024-10-10T10:00:00Z"
+      "createdAt": "2024-10-10T10:00:00Z",
+      "bodyType": "sedan",
+      "color": "Blanco"
     },
     {
       "id": "car-010",
@@ -409,14 +414,16 @@
       "location": "Cartago",
       "description": "Honda Pilot 2024. Vehículo nuevo de agencia, garantía de fábrica. Ubicado en Cartago.",
       "images": [
-        "https://picsum.photos/seed/car-010-1/800/600",
-        "https://picsum.photos/seed/car-010-2/800/600",
-        "https://picsum.photos/seed/car-010-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/2023_Honda_Pilot_Touring_in_Radiant_Red%2C_front_left.jpg/960px-2023_Honda_Pilot_Touring_in_Radiant_Red%2C_front_left.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Honda_Pilot-_II_-_Name_That_Car_%284476780629%29.jpg/960px-Honda_Pilot-_II_-_Name_That_Car_%284476780629%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Honda_Pilot_EXL_2010_%2846132248802%29.jpg/960px-Honda_Pilot_EXL_2010_%2846132248802%29.jpg"
       ],
       "maintenance": [],
       "sellerId": "user-001",
       "isPremium": true,
-      "createdAt": "2024-11-11T10:00:00Z"
+      "createdAt": "2024-11-11T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Negro"
     },
     {
       "id": "car-011",
@@ -432,10 +439,9 @@
       "location": "Guanacaste",
       "description": "Nissan Sentra 2011. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Guanacaste.",
       "images": [
-        "https://picsum.photos/seed/car-011-1/800/600",
-        "https://picsum.photos/seed/car-011-2/800/600",
-        "https://picsum.photos/seed/car-011-3/800/600",
-        "https://picsum.photos/seed/car-011-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/2024_Nissan_Sentra_%28B18%29_DSC_3754.jpg/960px-2024_Nissan_Sentra_%28B18%29_DSC_3754.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Jaws_of_Life.jpg/960px-Jaws_of_Life.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/1990_Nissan_Sentra.JPG/960px-1990_Nissan_Sentra.JPG"
       ],
       "maintenance": [
         {
@@ -452,8 +458,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-12-12T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-12-12T10:00:00Z",
+      "bodyType": "sedan",
+      "color": "Gris"
     },
     {
       "id": "car-012",
@@ -469,9 +477,9 @@
       "location": "Puntarenas",
       "description": "Nissan X-Trail 2014. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Puntarenas.",
       "images": [
-        "https://picsum.photos/seed/car-012-1/800/600",
-        "https://picsum.photos/seed/car-012-2/800/600",
-        "https://picsum.photos/seed/car-012-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Nissan_X-Trail_%28T33%29_1X7A7179.jpg/960px-Nissan_X-Trail_%28T33%29_1X7A7179.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Border_Police%2C_Sofia_%28_1070627%29.jpg/960px-Border_Police%2C_Sofia_%28_1070627%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Dongfeng_Aeolus_AX5.jpg/960px-Dongfeng_Aeolus_AX5.jpg"
       ],
       "maintenance": [
         {
@@ -495,7 +503,9 @@
       ],
       "sellerId": "user-002",
       "isPremium": false,
-      "createdAt": "2024-01-13T10:00:00Z"
+      "createdAt": "2024-01-13T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Plata"
     },
     {
       "id": "car-013",
@@ -511,10 +521,9 @@
       "location": "Limón",
       "description": "Nissan Frontier 2017. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Limón.",
       "images": [
-        "https://picsum.photos/seed/car-013-1/800/600",
-        "https://picsum.photos/seed/car-013-2/800/600",
-        "https://picsum.photos/seed/car-013-3/800/600",
-        "https://picsum.photos/seed/car-013-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/2021_Nissan_Frontier_Pro_4X_%28Colombia%3B_facelift%29_front_view_01.png/960px-2021_Nissan_Frontier_Pro_4X_%28Colombia%3B_facelift%29_front_view_01.png",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Auto_Busca_e_Salvamento_6170_CCB-PMPR.png/960px-Auto_Busca_e_Salvamento_6170_CCB-PMPR.png",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/O%27Reilly_Auto_Parts%2C_Adel.JPG/960px-O%27Reilly_Auto_Parts%2C_Adel.JPG"
       ],
       "maintenance": [
         {
@@ -543,8 +552,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-02-14T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-02-14T10:00:00Z",
+      "bodyType": "pickup",
+      "color": "Rojo"
     },
     {
       "id": "car-014",
@@ -560,9 +571,9 @@
       "location": "San José",
       "description": "Nissan Versa 2020. Único dueño, mantenimientos al día, excelente estado general. Ubicado en San José.",
       "images": [
-        "https://picsum.photos/seed/car-014-1/800/600",
-        "https://picsum.photos/seed/car-014-2/800/600",
-        "https://picsum.photos/seed/car-014-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/2011_Nissan_Versa_1.6_Sedan.jpg/960px-2011_Nissan_Versa_1.6_Sedan.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/AutoShare_Cars_in_North_York_Lot.jpg/960px-AutoShare_Cars_in_North_York_Lot.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/EV-12_test_car_%28Nissan_Leaf%29.jpg/960px-EV-12_test_car_%28Nissan_Leaf%29.jpg"
       ],
       "maintenance": [
         {
@@ -597,8 +608,10 @@
         }
       ],
       "sellerId": "user-003",
-      "isPremium": true,
-      "createdAt": "2024-03-15T10:00:00Z"
+      "isPremium": false,
+      "createdAt": "2024-03-15T10:00:00Z",
+      "bodyType": "sedan",
+      "color": "Azul"
     },
     {
       "id": "car-015",
@@ -614,10 +627,9 @@
       "location": "Alajuela",
       "description": "Nissan Kicks 2023. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
       "images": [
-        "https://picsum.photos/seed/car-015-1/800/600",
-        "https://picsum.photos/seed/car-015-2/800/600",
-        "https://picsum.photos/seed/car-015-3/800/600",
-        "https://picsum.photos/seed/car-015-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/2025_Nissan_Kicks_SV_AWD_in_Deep_Blue_Pearl%2C_front_right%2C_2024-10-06.jpg/960px-2025_Nissan_Kicks_SV_AWD_in_Deep_Blue_Pearl%2C_front_right%2C_2024-10-06.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/NissanKicks-Carilo-06281.jpg/960px-NissanKicks-Carilo-06281.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/2022_Nissan_Kicks_e-Power_AUTECH_%28Cockpit%29.jpg/960px-2022_Nissan_Kicks_e-Power_AUTECH_%28Cockpit%29.jpg"
       ],
       "maintenance": [
         {
@@ -629,7 +641,9 @@
       ],
       "sellerId": "user-001",
       "isPremium": true,
-      "createdAt": "2024-04-16T10:00:00Z"
+      "createdAt": "2024-04-16T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Verde"
     },
     {
       "id": "car-016",
@@ -645,9 +659,9 @@
       "location": "Heredia",
       "description": "Hyundai Tucson 2010. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Heredia.",
       "images": [
-        "https://picsum.photos/seed/car-016-1/800/600",
-        "https://picsum.photos/seed/car-016-2/800/600",
-        "https://picsum.photos/seed/car-016-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/2022_Hyundai_Tucson_Preferred%2C_Front_Right%2C_05-24-2021.jpg/960px-2022_Hyundai_Tucson_Preferred%2C_Front_Right%2C_05-24-2021.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Hyundai_Tucson_Plug-in_N-Line_Auto_Zuerich_2021_IMG_0366.jpg/960px-Hyundai_Tucson_Plug-in_N-Line_Auto_Zuerich_2021_IMG_0366.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/CPSP_StW_ME-06-60%401.jpg/960px-CPSP_StW_ME-06-60%401.jpg"
       ],
       "maintenance": [
         {
@@ -664,8 +678,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-05-17T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-05-17T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Beige"
     },
     {
       "id": "car-017",
@@ -681,10 +697,9 @@
       "location": "Cartago",
       "description": "Hyundai Elantra 2013. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Cartago.",
       "images": [
-        "https://picsum.photos/seed/car-017-1/800/600",
-        "https://picsum.photos/seed/car-017-2/800/600",
-        "https://picsum.photos/seed/car-017-3/800/600",
-        "https://picsum.photos/seed/car-017-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/2023_Hyundai_Elantra_Limited_in_Silver%2C_front_left%2C_04-04-2026.jpg/960px-2023_Hyundai_Elantra_Limited_in_Silver%2C_front_left%2C_04-04-2026.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Autosalon_Brno_2011_%28098%29.jpg/960px-Autosalon_Brno_2011_%28098%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Autosalon_Brno_2011_%28099%29.jpg/960px-Autosalon_Brno_2011_%28099%29.jpg"
       ],
       "maintenance": [
         {
@@ -708,7 +723,9 @@
       ],
       "sellerId": "user-002",
       "isPremium": false,
-      "createdAt": "2024-06-18T10:00:00Z"
+      "createdAt": "2024-06-18T10:00:00Z",
+      "bodyType": "sedan",
+      "color": "Blanco"
     },
     {
       "id": "car-018",
@@ -724,9 +741,9 @@
       "location": "Guanacaste",
       "description": "Hyundai Santa Fe 2016. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Guanacaste.",
       "images": [
-        "https://picsum.photos/seed/car-018-1/800/600",
-        "https://picsum.photos/seed/car-018-2/800/600",
-        "https://picsum.photos/seed/car-018-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/2024_Hyundai_Santa_Fe_Luxury_AWD_in_Hampton_Grey%2C_front_left%2C_2024-06-30.jpg/960px-2024_Hyundai_Santa_Fe_Luxury_AWD_in_Hampton_Grey%2C_front_left%2C_2024-06-30.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Geneva_International_Motor_Show_2018%2C_Le_Grand-Saconnex_%281X7A1733%29.jpg/960px-Geneva_International_Motor_Show_2018%2C_Le_Grand-Saconnex_%281X7A1733%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Hyundai_Santa_Fe%2C_GIMS_2018%2C_Le_Grand-Saconnex_%281X7A1737%29.jpg/960px-Hyundai_Santa_Fe%2C_GIMS_2018%2C_Le_Grand-Saconnex_%281X7A1737%29.jpg"
       ],
       "maintenance": [
         {
@@ -755,8 +772,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-07-19T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-07-19T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Negro"
     },
     {
       "id": "car-019",
@@ -772,10 +791,9 @@
       "location": "Puntarenas",
       "description": "Hyundai Creta 2019. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Puntarenas.",
       "images": [
-        "https://picsum.photos/seed/car-019-1/800/600",
-        "https://picsum.photos/seed/car-019-2/800/600",
-        "https://picsum.photos/seed/car-019-3/800/600",
-        "https://picsum.photos/seed/car-019-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/2022_Hyundai_Creta_1.6_Plus_%28Chile%29_front_view.jpg/960px-2022_Hyundai_Creta_1.6_Plus_%28Chile%29_front_view.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Moscow%2C_Hyundai_Creta_%282nd_gen%29_Aug_2025_01.jpg/960px-Moscow%2C_Hyundai_Creta_%282nd_gen%29_Aug_2025_01.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Moscow%2C_Hyundai_Creta_%28SU2%29_in_Russia-Israel_livery_Aug_2025_01.jpg/960px-Moscow%2C_Hyundai_Creta_%28SU2%29_in_Russia-Israel_livery_Aug_2025_01.jpg"
       ],
       "maintenance": [
         {
@@ -811,7 +829,9 @@
       ],
       "sellerId": "user-003",
       "isPremium": false,
-      "createdAt": "2024-08-20T10:00:00Z"
+      "createdAt": "2024-08-20T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Gris"
     },
     {
       "id": "car-020",
@@ -827,9 +847,9 @@
       "location": "Limón",
       "description": "Hyundai Accent 2022. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Limón.",
       "images": [
-        "https://picsum.photos/seed/car-020-1/800/600",
-        "https://picsum.photos/seed/car-020-2/800/600",
-        "https://picsum.photos/seed/car-020-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/2019_Hyundai_Accent_1.6L%2C_front_10.8.19.jpg/960px-2019_Hyundai_Accent_1.6L%2C_front_10.8.19.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Bergingstruck_met_auto_%28tow_truck_with_car%29.jpg/960px-Bergingstruck_met_auto_%28tow_truck_with_car%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Hindu_Blessing_Car_Singapore.jpg/960px-Hindu_Blessing_Car_Singapore.jpg"
       ],
       "maintenance": [
         {
@@ -841,7 +861,9 @@
       ],
       "sellerId": "user-001",
       "isPremium": true,
-      "createdAt": "2024-09-21T10:00:00Z"
+      "createdAt": "2024-09-21T10:00:00Z",
+      "bodyType": "sedan",
+      "color": "Plata"
     },
     {
       "id": "car-021",
@@ -857,15 +879,16 @@
       "location": "San José",
       "description": "Kia Sportage 2025. Vehículo nuevo de agencia, garantía de fábrica. Ubicado en San José.",
       "images": [
-        "https://picsum.photos/seed/car-021-1/800/600",
-        "https://picsum.photos/seed/car-021-2/800/600",
-        "https://picsum.photos/seed/car-021-3/800/600",
-        "https://picsum.photos/seed/car-021-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/2025_Kia_Sportage_S_front_only.jpg/960px-2025_Kia_Sportage_S_front_only.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Kia_Sportage_%28NQ5%29_1X7A0319.jpg/960px-Kia_Sportage_%28NQ5%29_1X7A0319.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/A_neat_row_of_cars_at_Gravells_Kia_Showroom_-_geograph.org.uk_-_7425795.jpg/960px-A_neat_row_of_cars_at_Gravells_Kia_Showroom_-_geograph.org.uk_-_7425795.jpg"
       ],
       "maintenance": [],
       "sellerId": "user-001",
       "isPremium": true,
-      "createdAt": "2024-10-22T10:00:00Z"
+      "createdAt": "2024-10-22T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Rojo"
     },
     {
       "id": "car-022",
@@ -880,11 +903,7 @@
       "fuel": "electric",
       "location": "Alajuela",
       "description": "Kia Rio 2012. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
-      "images": [
-        "https://picsum.photos/seed/car-022-1/800/600",
-        "https://picsum.photos/seed/car-022-2/800/600",
-        "https://picsum.photos/seed/car-022-3/800/600"
-      ],
+      "images": [],
       "maintenance": [
         {
           "date": "2012-11-11",
@@ -907,7 +926,9 @@
       ],
       "sellerId": "user-002",
       "isPremium": false,
-      "createdAt": "2024-11-23T10:00:00Z"
+      "createdAt": "2024-11-23T10:00:00Z",
+      "bodyType": "hatchback",
+      "color": "Azul"
     },
     {
       "id": "car-023",
@@ -923,10 +944,9 @@
       "location": "Heredia",
       "description": "Kia Sorento 2015. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Heredia.",
       "images": [
-        "https://picsum.photos/seed/car-023-1/800/600",
-        "https://picsum.photos/seed/car-023-2/800/600",
-        "https://picsum.photos/seed/car-023-3/800/600",
-        "https://picsum.photos/seed/car-023-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/2024_Kia_Sorento_X-Line_SX_Prestige_%28facelift%29%2C_front_12.20.24.jpg/960px-2024_Kia_Sorento_X-Line_SX_Prestige_%28facelift%29%2C_front_12.20.24.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/2021_Kia_Sorento_SX_AWD%2C_rear_1.14.20.jpg/960px-2021_Kia_Sorento_SX_AWD%2C_rear_1.14.20.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Jinbei_Haixing_T20.jpg/960px-Jinbei_Haixing_T20.jpg"
       ],
       "maintenance": [
         {
@@ -955,8 +975,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-12-24T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-12-24T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Verde"
     },
     {
       "id": "car-024",
@@ -972,9 +994,9 @@
       "location": "Cartago",
       "description": "Kia Seltos 2018. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Cartago.",
       "images": [
-        "https://picsum.photos/seed/car-024-1/800/600",
-        "https://picsum.photos/seed/car-024-2/800/600",
-        "https://picsum.photos/seed/car-024-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Kia_Seltos_SP2_PE_Snow_White_Pearl_%2817%29_%28cropped%29.jpg/960px-Kia_Seltos_SP2_PE_Snow_White_Pearl_%2817%29_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Kia_Seltos_car_Htx_model.jpg/960px-Kia_Seltos_car_Htx_model.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Kia_Seltos_car_Htx_model_%28cropped%29.jpg/960px-Kia_Seltos_car_Htx_model_%28cropped%29.jpg"
       ],
       "maintenance": [
         {
@@ -1010,7 +1032,9 @@
       ],
       "sellerId": "user-003",
       "isPremium": false,
-      "createdAt": "2024-01-25T10:00:00Z"
+      "createdAt": "2024-01-25T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Beige"
     },
     {
       "id": "car-025",
@@ -1026,10 +1050,9 @@
       "location": "Guanacaste",
       "description": "Kia Forte 2021. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Guanacaste.",
       "images": [
-        "https://picsum.photos/seed/car-025-1/800/600",
-        "https://picsum.photos/seed/car-025-2/800/600",
-        "https://picsum.photos/seed/car-025-3/800/600",
-        "https://picsum.photos/seed/car-025-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Kia_K3_BD_FL_Snow_White_Pearl_%2813%29_%28cropped%29.jpg/960px-Kia_K3_BD_FL_Snow_White_Pearl_%2813%29_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/2010_Kia_Forte_Koup_-_2009_NY_Int._Auto_Show.jpg/960px-2010_Kia_Forte_Koup_-_2009_NY_Int._Auto_Show.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/%2712_Kia_Forte_%28MIAS_%2712%29.JPG/960px-%2712_Kia_Forte_%28MIAS_%2712%29.JPG"
       ],
       "maintenance": [
         {
@@ -1041,7 +1064,9 @@
       ],
       "sellerId": "user-001",
       "isPremium": true,
-      "createdAt": "2024-02-26T10:00:00Z"
+      "createdAt": "2024-02-26T10:00:00Z",
+      "bodyType": "sedan",
+      "color": "Blanco"
     },
     {
       "id": "car-026",
@@ -1057,9 +1082,9 @@
       "location": "Puntarenas",
       "description": "Suzuki Swift 2024. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Puntarenas.",
       "images": [
-        "https://picsum.photos/seed/car-026-1/800/600",
-        "https://picsum.photos/seed/car-026-2/800/600",
-        "https://picsum.photos/seed/car-026-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Suzuki_Swift_%282024%29_hybrid_DSC_6076.jpg/960px-Suzuki_Swift_%282024%29_hybrid_DSC_6076.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Jenson_Button_-_Budapest_Show_2012_%2846%29.JPG/960px-Jenson_Button_-_Budapest_Show_2012_%2846%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Suzuki_Swift_Sport%2C_GIMS_2018%2C_Le_Grand-Saconnex%281X7A0523%29.jpg/960px-Suzuki_Swift_Sport%2C_GIMS_2018%2C_Le_Grand-Saconnex%281X7A0523%29.jpg"
       ],
       "maintenance": [
         {
@@ -1076,8 +1101,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-03-27T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-03-27T10:00:00Z",
+      "bodyType": "hatchback",
+      "color": "Negro"
     },
     {
       "id": "car-027",
@@ -1093,10 +1120,9 @@
       "location": "Limón",
       "description": "Suzuki Vitara 2011. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Limón.",
       "images": [
-        "https://picsum.photos/seed/car-027-1/800/600",
-        "https://picsum.photos/seed/car-027-2/800/600",
-        "https://picsum.photos/seed/car-027-3/800/600",
-        "https://picsum.photos/seed/car-027-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/2018_Suzuki_Vitara_%28LY%29_S_Turbo_wagon_%282018-11-02%29_01.jpg/960px-2018_Suzuki_Vitara_%28LY%29_S_Turbo_wagon_%282018-11-02%29_01.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/%2712_Suzuki_Grand_Vitara_--_Front_%28MIAS_%2712%29.JPG/960px-%2712_Suzuki_Grand_Vitara_--_Front_%28MIAS_%2712%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Paris_Motor_Show_2018%2C_Paris_%281Y7A1513%29.jpg/960px-Paris_Motor_Show_2018%2C_Paris_%281Y7A1513%29.jpg"
       ],
       "maintenance": [
         {
@@ -1120,7 +1146,9 @@
       ],
       "sellerId": "user-002",
       "isPremium": false,
-      "createdAt": "2024-04-28T10:00:00Z"
+      "createdAt": "2024-04-28T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Gris"
     },
     {
       "id": "car-028",
@@ -1136,9 +1164,9 @@
       "location": "San José",
       "description": "Suzuki Jimny 2014. Único dueño, mantenimientos al día, excelente estado general. Ubicado en San José.",
       "images": [
-        "https://picsum.photos/seed/car-028-1/800/600",
-        "https://picsum.photos/seed/car-028-2/800/600",
-        "https://picsum.photos/seed/car-028-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/2019_Suzuki_Jimny_SZ5_4X4_Automatic_1.5.jpg/960px-2019_Suzuki_Jimny_SZ5_4X4_Automatic_1.5.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Paris_Motor_Show_2018%2C_Paris_%281Y7A1520%29.jpg/960px-Paris_Motor_Show_2018%2C_Paris_%281Y7A1520%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Paris_Motor_Show_2018%2C_Paris_%281Y7A1516%29.jpg/960px-Paris_Motor_Show_2018%2C_Paris_%281Y7A1516%29.jpg"
       ],
       "maintenance": [
         {
@@ -1168,7 +1196,9 @@
       ],
       "sellerId": "user-001",
       "isPremium": true,
-      "createdAt": "2024-05-01T10:00:00Z"
+      "createdAt": "2024-05-01T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Plata"
     },
     {
       "id": "car-029",
@@ -1184,10 +1214,9 @@
       "location": "Alajuela",
       "description": "Suzuki Baleno 2017. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
       "images": [
-        "https://picsum.photos/seed/car-029-1/800/600",
-        "https://picsum.photos/seed/car-029-2/800/600",
-        "https://picsum.photos/seed/car-029-3/800/600",
-        "https://picsum.photos/seed/car-029-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Suzuki_Baleno_front_20071004.jpg/960px-Suzuki_Baleno_front_20071004.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/SUZUKI_automobile_in_Mustakivi.JPG/960px-SUZUKI_automobile_in_Mustakivi.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Fording_slowly_at_Rufford_Ford.jpg/960px-Fording_slowly_at_Rufford_Ford.jpg"
       ],
       "maintenance": [
         {
@@ -1223,7 +1252,9 @@
       ],
       "sellerId": "user-003",
       "isPremium": false,
-      "createdAt": "2024-06-02T10:00:00Z"
+      "createdAt": "2024-06-02T10:00:00Z",
+      "bodyType": "hatchback",
+      "color": "Rojo"
     },
     {
       "id": "car-030",
@@ -1239,9 +1270,9 @@
       "location": "Heredia",
       "description": "Suzuki SX4 2020. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Heredia.",
       "images": [
-        "https://picsum.photos/seed/car-030-1/800/600",
-        "https://picsum.photos/seed/car-030-2/800/600",
-        "https://picsum.photos/seed/car-030-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Suzuki_SX4_%283rd_generation%29_1X7A6968.jpg/960px-Suzuki_SX4_%283rd_generation%29_1X7A6968.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/%2713_Suzuki_SX4_Hatchback_%28MIAS_%2713%29.jpg/960px-%2713_Suzuki_SX4_Hatchback_%28MIAS_%2713%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Suzuki_SX4_hatch_facelift_II_2_China_2016-04-03.jpg/960px-Suzuki_SX4_hatch_facelift_II_2_China_2016-04-03.jpg"
       ],
       "maintenance": [
         {
@@ -1253,7 +1284,9 @@
       ],
       "sellerId": "user-001",
       "isPremium": true,
-      "createdAt": "2024-07-03T10:00:00Z"
+      "createdAt": "2024-07-03T10:00:00Z",
+      "bodyType": "hatchback",
+      "color": "Azul"
     },
     {
       "id": "car-031",
@@ -1269,15 +1302,16 @@
       "location": "Cartago",
       "description": "Mitsubishi L200 2023. Vehículo nuevo de agencia, garantía de fábrica. Ubicado en Cartago.",
       "images": [
-        "https://picsum.photos/seed/car-031-1/800/600",
-        "https://picsum.photos/seed/car-031-2/800/600",
-        "https://picsum.photos/seed/car-031-3/800/600",
-        "https://picsum.photos/seed/car-031-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Mitsubishi_Triton_LC_2.4_GLS_2WD_Blade_Silver_Metallic_%28cropped%29.jpg/960px-Mitsubishi_Triton_LC_2.4_GLS_2WD_Blade_Silver_Metallic_%28cropped%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/LTTE_car_with_soldiers_in_Killinochi_april_2004.jpg/960px-LTTE_car_with_soldiers_in_Killinochi_april_2004.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Castle_Combe_Circuit_MMB_D1_Castle_Combe_Caloon_Car_Championship.jpg/960px-Castle_Combe_Circuit_MMB_D1_Castle_Combe_Caloon_Car_Championship.jpg"
       ],
       "maintenance": [],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-08-04T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-08-04T10:00:00Z",
+      "bodyType": "pickup",
+      "color": "Verde"
     },
     {
       "id": "car-032",
@@ -1293,9 +1327,9 @@
       "location": "Guanacaste",
       "description": "Mitsubishi Outlander 2010. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Guanacaste.",
       "images": [
-        "https://picsum.photos/seed/car-032-1/800/600",
-        "https://picsum.photos/seed/car-032-2/800/600",
-        "https://picsum.photos/seed/car-032-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/2025_Mitsubishi_Outlander_PHEV_%28fourth_generation%29_IMG_3129.jpg/960px-2025_Mitsubishi_Outlander_PHEV_%28fourth_generation%29_IMG_3129.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Mitsubishi_Outlander_PHEV%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0893%29.jpg/960px-Mitsubishi_Outlander_PHEV%2C_GIMS_2019%2C_Le_Grand-Saconnex_%28GIMS0893%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Auto_2024%2C_Zurich_%28PANA1038%29.jpg/960px-Auto_2024%2C_Zurich_%28PANA1038%29.jpg"
       ],
       "maintenance": [
         {
@@ -1319,7 +1353,9 @@
       ],
       "sellerId": "user-002",
       "isPremium": false,
-      "createdAt": "2024-09-05T10:00:00Z"
+      "createdAt": "2024-09-05T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Beige"
     },
     {
       "id": "car-033",
@@ -1335,10 +1371,9 @@
       "location": "Puntarenas",
       "description": "Mitsubishi Montero 2013. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Puntarenas.",
       "images": [
-        "https://picsum.photos/seed/car-033-1/800/600",
-        "https://picsum.photos/seed/car-033-2/800/600",
-        "https://picsum.photos/seed/car-033-3/800/600",
-        "https://picsum.photos/seed/car-033-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Mitsubishi_V98_Pajero_Long_Body_Super_Exceed_3200_DI-D.JPG/960px-Mitsubishi_V98_Pajero_Long_Body_Super_Exceed_3200_DI-D.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Mitsubishi_Pajero_in_Rally_Dakar_2007.jpg/960px-Mitsubishi_Pajero_in_Rally_Dakar_2007.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/FEMA_-_38450_-_Cars_going_through_flood_water_in_Texas.jpg/960px-FEMA_-_38450_-_Cars_going_through_flood_water_in_Texas.jpg"
       ],
       "maintenance": [
         {
@@ -1367,8 +1402,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-10-06T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-10-06T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Blanco"
     },
     {
       "id": "car-034",
@@ -1384,9 +1421,9 @@
       "location": "Limón",
       "description": "Mitsubishi ASX 2016. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Limón.",
       "images": [
-        "https://picsum.photos/seed/car-034-1/800/600",
-        "https://picsum.photos/seed/car-034-2/800/600",
-        "https://picsum.photos/seed/car-034-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Mitsubishi_ASX_%282019%29_IMG_6615.jpg/960px-Mitsubishi_ASX_%282019%29_IMG_6615.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Automobile_DSC_0163_%285460715712%29.jpg/960px-Automobile_DSC_0163_%285460715712%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Mitsubishi_ASX_Facelift.jpg/960px-Mitsubishi_ASX_Facelift.jpg"
       ],
       "maintenance": [
         {
@@ -1422,7 +1459,9 @@
       ],
       "sellerId": "user-003",
       "isPremium": false,
-      "createdAt": "2024-11-07T10:00:00Z"
+      "createdAt": "2024-11-07T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Negro"
     },
     {
       "id": "car-035",
@@ -1438,10 +1477,9 @@
       "location": "San José",
       "description": "Mitsubishi Mirage 2019. Único dueño, mantenimientos al día, excelente estado general. Ubicado en San José.",
       "images": [
-        "https://picsum.photos/seed/car-035-1/800/600",
-        "https://picsum.photos/seed/car-035-2/800/600",
-        "https://picsum.photos/seed/car-035-3/800/600",
-        "https://picsum.photos/seed/car-035-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/2021_Mitsubishi_Mirage_Carbonite_Edition_in_White_Diamond%2C_front_right.jpg/960px-2021_Mitsubishi_Mirage_Carbonite_Edition_in_White_Diamond%2C_front_right.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Destroyed_Mitsubishi_Mirage_-_Flickr_-_Highway_Patrol_Images.jpg/960px-Destroyed_Mitsubishi_Mirage_-_Flickr_-_Highway_Patrol_Images.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Ouch_-_Flickr_-_Highway_Patrol_Images.jpg/960px-Ouch_-_Flickr_-_Highway_Patrol_Images.jpg"
       ],
       "maintenance": [
         {
@@ -1453,7 +1491,9 @@
       ],
       "sellerId": "user-001",
       "isPremium": true,
-      "createdAt": "2024-12-08T10:00:00Z"
+      "createdAt": "2024-12-08T10:00:00Z",
+      "bodyType": "hatchback",
+      "color": "Gris"
     },
     {
       "id": "car-036",
@@ -1469,9 +1509,9 @@
       "location": "Alajuela",
       "description": "Mazda CX-5 2022. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
       "images": [
-        "https://picsum.photos/seed/car-036-1/800/600",
-        "https://picsum.photos/seed/car-036-2/800/600",
-        "https://picsum.photos/seed/car-036-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/2024_Mazda_CX-5_2.5_S_Select_in_Platinum_Quartz_Metallic%2C_front_right.jpg/960px-2024_Mazda_CX-5_2.5_S_Select_in_Platinum_Quartz_Metallic%2C_front_right.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/2019_Mazda_CX-5_2.5_Skyactiv-G_GLS_%2822%29.jpg/960px-2019_Mazda_CX-5_2.5_Skyactiv-G_GLS_%2822%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Moscow%2C_Mazda_CX-5_Aug_2025_01.jpg/960px-Moscow%2C_Mazda_CX-5_Aug_2025_01.jpg"
       ],
       "maintenance": [
         {
@@ -1488,8 +1528,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-01-09T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-01-09T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Plata"
     },
     {
       "id": "car-037",
@@ -1505,10 +1547,9 @@
       "location": "Heredia",
       "description": "Mazda Mazda3 2025. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Heredia.",
       "images": [
-        "https://picsum.photos/seed/car-037-1/800/600",
-        "https://picsum.photos/seed/car-037-2/800/600",
-        "https://picsum.photos/seed/car-037-3/800/600",
-        "https://picsum.photos/seed/car-037-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mazda3_SKYACTIV-G.jpg/960px-Mazda3_SKYACTIV-G.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/%2714_Mazda_3_Sedan_%28MIAS_%2714%29.jpg/960px-%2714_Mazda_3_Sedan_%28MIAS_%2714%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Mazda_automobile_in_Lasnam%C3%A4e.JPG/960px-Mazda_automobile_in_Lasnam%C3%A4e.JPG"
       ],
       "maintenance": [
         {
@@ -1532,7 +1573,9 @@
       ],
       "sellerId": "user-002",
       "isPremium": false,
-      "createdAt": "2024-02-10T10:00:00Z"
+      "createdAt": "2024-02-10T10:00:00Z",
+      "bodyType": "hatchback",
+      "color": "Rojo"
     },
     {
       "id": "car-038",
@@ -1548,9 +1591,9 @@
       "location": "Cartago",
       "description": "Mazda CX-30 2012. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Cartago.",
       "images": [
-        "https://picsum.photos/seed/car-038-1/800/600",
-        "https://picsum.photos/seed/car-038-2/800/600",
-        "https://picsum.photos/seed/car-038-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Mazda_CX-30_Touring%2C_2020_front.jpg/960px-Mazda_CX-30_Touring%2C_2020_front.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2020_Mazda_CX30_02-15-2020.jpg/960px-2020_Mazda_CX30_02-15-2020.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Mazda_CX-30_IMG_3760.jpg/960px-Mazda_CX-30_IMG_3760.jpg"
       ],
       "maintenance": [
         {
@@ -1579,8 +1622,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-03-11T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-03-11T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Azul"
     },
     {
       "id": "car-039",
@@ -1596,10 +1641,9 @@
       "location": "Guanacaste",
       "description": "Mazda CX-9 2015. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Guanacaste.",
       "images": [
-        "https://picsum.photos/seed/car-039-1/800/600",
-        "https://picsum.photos/seed/car-039-2/800/600",
-        "https://picsum.photos/seed/car-039-3/800/600",
-        "https://picsum.photos/seed/car-039-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Mazda_CX-9_%28TC%29_1X7A0316.jpg/960px-Mazda_CX-9_%28TC%29_1X7A0316.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Auto_Show_044.jpg/960px-Auto_Show_044.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Mazda_CX-9-_V_-_Name_That_Car_%284516279028%29.jpg/960px-Mazda_CX-9-_V_-_Name_That_Car_%284516279028%29.jpg"
       ],
       "maintenance": [
         {
@@ -1635,7 +1679,9 @@
       ],
       "sellerId": "user-003",
       "isPremium": false,
-      "createdAt": "2024-04-12T10:00:00Z"
+      "createdAt": "2024-04-12T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Verde"
     },
     {
       "id": "car-040",
@@ -1651,9 +1697,9 @@
       "location": "Puntarenas",
       "description": "Mazda Mazda6 2018. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Puntarenas.",
       "images": [
-        "https://picsum.photos/seed/car-040-1/800/600",
-        "https://picsum.photos/seed/car-040-2/800/600",
-        "https://picsum.photos/seed/car-040-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/2018_Mazda6_Sport_NAV%2B_Diesel_2.2_Front.jpg/960px-2018_Mazda6_Sport_NAV%2B_Diesel_2.2_Front.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Mazda_6_Sedan.jpg/960px-Mazda_6_Sedan.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Mazda_6_GH_Sport_Heck_1.JPG/960px-Mazda_6_GH_Sport_Heck_1.JPG"
       ],
       "maintenance": [
         {
@@ -1665,7 +1711,9 @@
       ],
       "sellerId": "user-001",
       "isPremium": true,
-      "createdAt": "2024-05-13T10:00:00Z"
+      "createdAt": "2024-05-13T10:00:00Z",
+      "bodyType": "sedan",
+      "color": "Beige"
     },
     {
       "id": "car-041",
@@ -1681,10 +1729,9 @@
       "location": "Limón",
       "description": "Ford Ranger 2021. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Limón.",
       "images": [
-        "https://picsum.photos/seed/car-041-1/800/600",
-        "https://picsum.photos/seed/car-041-2/800/600",
-        "https://picsum.photos/seed/car-041-3/800/600",
-        "https://picsum.photos/seed/car-041-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/Ford_Ranger_%28T6%2C_P703%29_Wildtrak_IMG_7320.jpg/960px-Ford_Ranger_%28T6%2C_P703%29_Wildtrak_IMG_7320.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Madiun_Indonesia_Police-car-01.jpg/960px-Madiun_Indonesia_Police-car-01.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Madiun_Indonesia_Police-car-02.jpg/960px-Madiun_Indonesia_Police-car-02.jpg"
       ],
       "maintenance": [
         {
@@ -1701,8 +1748,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-06-14T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-06-14T10:00:00Z",
+      "bodyType": "pickup",
+      "color": "Blanco"
     },
     {
       "id": "car-042",
@@ -1718,14 +1767,16 @@
       "location": "San José",
       "description": "Ford Escape 2024. Vehículo nuevo de agencia, garantía de fábrica. Ubicado en San José.",
       "images": [
-        "https://picsum.photos/seed/car-042-1/800/600",
-        "https://picsum.photos/seed/car-042-2/800/600",
-        "https://picsum.photos/seed/car-042-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Auto_Show_021.jpg/960px-Auto_Show_021.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Ford_Escape_footwell_intrusion.jpg/960px-Ford_Escape_footwell_intrusion.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Automobile_DSC_0308_%285461024802%29.jpg/960px-Automobile_DSC_0308_%285461024802%29.jpg"
       ],
       "maintenance": [],
       "sellerId": "user-002",
-      "isPremium": true,
-      "createdAt": "2024-07-15T10:00:00Z"
+      "isPremium": false,
+      "createdAt": "2024-07-15T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Negro"
     },
     {
       "id": "car-043",
@@ -1741,10 +1792,9 @@
       "location": "Alajuela",
       "description": "Ford Explorer 2011. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
       "images": [
-        "https://picsum.photos/seed/car-043-1/800/600",
-        "https://picsum.photos/seed/car-043-2/800/600",
-        "https://picsum.photos/seed/car-043-3/800/600",
-        "https://picsum.photos/seed/car-043-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Ford_Explorer_%28sixth_generation%29_IMG_6063.jpg/960px-Ford_Explorer_%28sixth_generation%29_IMG_6063.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/%2709_Ford_Explorer_Sport_Trac_%28Sterling_Ford%29.jpg/960px-%2709_Ford_Explorer_Sport_Trac_%28Sterling_Ford%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/APD_Ford_Explorer_%2815231351364%29.jpg/960px-APD_Ford_Explorer_%2815231351364%29.jpg"
       ],
       "maintenance": [
         {
@@ -1773,8 +1823,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-08-16T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-08-16T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Gris"
     },
     {
       "id": "car-044",
@@ -1790,9 +1842,9 @@
       "location": "Heredia",
       "description": "Ford Mustang 2014. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Heredia.",
       "images": [
-        "https://picsum.photos/seed/car-044-1/800/600",
-        "https://picsum.photos/seed/car-044-2/800/600",
-        "https://picsum.photos/seed/car-044-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Ford_Mustang_VII_GT_Rutesheimer_Autoschau_2025_DSC_9234.jpg/960px-Ford_Mustang_VII_GT_Rutesheimer_Autoschau_2025_DSC_9234.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/%2705-%2709_Ford_Mustang_GT_Liftback_%28Auto_classique_Bellepros_Vaudreuil-Dorion_%2711%29.JPG/960px-%2705-%2709_Ford_Mustang_GT_Liftback_%28Auto_classique_Bellepros_Vaudreuil-Dorion_%2711%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/%2769_Ford_Mustang_%28Auto_classique_Pi%C3%A8ces_auto_Jarry_Laval_%2712%29.jpg/960px-%2769_Ford_Mustang_%28Auto_classique_Pi%C3%A8ces_auto_Jarry_Laval_%2712%29.jpg"
       ],
       "maintenance": [
         {
@@ -1828,7 +1880,9 @@
       ],
       "sellerId": "user-003",
       "isPremium": false,
-      "createdAt": "2024-09-17T10:00:00Z"
+      "createdAt": "2024-09-17T10:00:00Z",
+      "bodyType": "convertible",
+      "color": "Plata"
     },
     {
       "id": "car-045",
@@ -1844,10 +1898,9 @@
       "location": "Cartago",
       "description": "Ford F-150 2017. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Cartago.",
       "images": [
-        "https://picsum.photos/seed/car-045-1/800/600",
-        "https://picsum.photos/seed/car-045-2/800/600",
-        "https://picsum.photos/seed/car-045-3/800/600",
-        "https://picsum.photos/seed/car-045-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/2018_Ford_F-150_XLT_Crew_Cab%2C_front_11.10.19.jpg/960px-2018_Ford_F-150_XLT_Crew_Cab%2C_front_11.10.19.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/EastNOAp06Carpile7.jpg/960px-EastNOAp06Carpile7.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Critter_Control_Service_Vehicle_Ann_Arbor_Michigan.JPG/960px-Critter_Control_Service_Vehicle_Ann_Arbor_Michigan.JPG"
       ],
       "maintenance": [
         {
@@ -1859,7 +1912,9 @@
       ],
       "sellerId": "user-001",
       "isPremium": true,
-      "createdAt": "2024-10-18T10:00:00Z"
+      "createdAt": "2024-10-18T10:00:00Z",
+      "bodyType": "pickup",
+      "color": "Rojo"
     },
     {
       "id": "car-046",
@@ -1875,9 +1930,9 @@
       "location": "Guanacaste",
       "description": "Chevrolet Spark 2020. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Guanacaste.",
       "images": [
-        "https://picsum.photos/seed/car-046-1/800/600",
-        "https://picsum.photos/seed/car-046-2/800/600",
-        "https://picsum.photos/seed/car-046-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/2020_Chevrolet_Spark_LS%2C_front_right%2C_09-07-2024.jpg/960px-2020_Chevrolet_Spark_LS%2C_front_right%2C_09-07-2024.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/LA_Auto_Show_2012_%288257556016%29.jpg/960px-LA_Auto_Show_2012_%288257556016%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/LA_Auto_Show_2012_%288256486485%29.jpg/960px-LA_Auto_Show_2012_%288256486485%29.jpg"
       ],
       "maintenance": [
         {
@@ -1894,8 +1949,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-11-19T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-11-19T10:00:00Z",
+      "bodyType": "hatchback",
+      "color": "Azul"
     },
     {
       "id": "car-047",
@@ -1911,10 +1968,9 @@
       "location": "Puntarenas",
       "description": "Chevrolet Tracker 2023. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Puntarenas.",
       "images": [
-        "https://picsum.photos/seed/car-047-1/800/600",
-        "https://picsum.photos/seed/car-047-2/800/600",
-        "https://picsum.photos/seed/car-047-3/800/600",
-        "https://picsum.photos/seed/car-047-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/%2798_Chevy_Tracker.jpg/960px-%2798_Chevy_Tracker.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Asuna_Sunrunner.jpg/960px-Asuna_Sunrunner.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/ChevroletTrakker-jul2016.jpg/960px-ChevroletTrakker-jul2016.jpg"
       ],
       "maintenance": [
         {
@@ -1938,7 +1994,9 @@
       ],
       "sellerId": "user-002",
       "isPremium": false,
-      "createdAt": "2024-12-20T10:00:00Z"
+      "createdAt": "2024-12-20T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Verde"
     },
     {
       "id": "car-048",
@@ -1954,9 +2012,9 @@
       "location": "Limón",
       "description": "Chevrolet Tahoe 2010. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Limón.",
       "images": [
-        "https://picsum.photos/seed/car-048-1/800/600",
-        "https://picsum.photos/seed/car-048-2/800/600",
-        "https://picsum.photos/seed/car-048-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/2022_Chevrolet_Tahoe_RST%2C_front_3.7.22.jpg/960px-2022_Chevrolet_Tahoe_RST%2C_front_3.7.22.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Holmenkollen_-_Norway_%284617088160%29.jpg/960px-Holmenkollen_-_Norway_%284617088160%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Iowa_Motor_Vehicle_Enforcement_Chevy_Tahoe.jpg/960px-Iowa_Motor_Vehicle_Enforcement_Chevy_Tahoe.jpg"
       ],
       "maintenance": [
         {
@@ -1985,8 +2043,10 @@
         }
       ],
       "sellerId": "user-001",
-      "isPremium": false,
-      "createdAt": "2024-01-21T10:00:00Z"
+      "isPremium": true,
+      "createdAt": "2024-01-21T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Beige"
     },
     {
       "id": "car-049",
@@ -2002,10 +2062,9 @@
       "location": "San José",
       "description": "Chevrolet Silverado 2013. Único dueño, mantenimientos al día, excelente estado general. Ubicado en San José.",
       "images": [
-        "https://picsum.photos/seed/car-049-1/800/600",
-        "https://picsum.photos/seed/car-049-2/800/600",
-        "https://picsum.photos/seed/car-049-3/800/600",
-        "https://picsum.photos/seed/car-049-4/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/2022_Chevrolet_Silverado_2500HD_High_Country%2C_Front_Left%2C_11-21-2021.jpg/960px-2022_Chevrolet_Silverado_2500HD_High_Country%2C_Front_Left%2C_11-21-2021.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/FEMA_-_28729_-_Photograph_by_Mark_Wolfe_taken_on_03-03-2007_in_Alabama.jpg/960px-FEMA_-_28729_-_Photograph_by_Mark_Wolfe_taken_on_03-03-2007_in_Alabama.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/%2713_Chevrolet_Silverado_Extended_Cab_%28MIAS_%2713%29.jpg/960px-%2713_Chevrolet_Silverado_Extended_Cab_%28MIAS_%2713%29.jpg"
       ],
       "maintenance": [
         {
@@ -2040,8 +2099,10 @@
         }
       ],
       "sellerId": "user-003",
-      "isPremium": true,
-      "createdAt": "2024-02-22T10:00:00Z"
+      "isPremium": false,
+      "createdAt": "2024-02-22T10:00:00Z",
+      "bodyType": "pickup",
+      "color": "Blanco"
     },
     {
       "id": "car-050",
@@ -2057,9 +2118,9 @@
       "location": "Alajuela",
       "description": "Chevrolet Equinox 2016. Único dueño, mantenimientos al día, excelente estado general. Ubicado en Alajuela.",
       "images": [
-        "https://picsum.photos/seed/car-050-1/800/600",
-        "https://picsum.photos/seed/car-050-2/800/600",
-        "https://picsum.photos/seed/car-050-3/800/600"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Chevrolet_Equinox_LT_%28III%2C_Facelift%29_%E2%80%93_f_05102022.jpg/960px-Chevrolet_Equinox_LT_%28III%2C_Facelift%29_%E2%80%93_f_05102022.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Tuned_%2706-%2709_Chevrolet_Equinox_%28Byward_Auto_Classic%29.jpg/960px-Tuned_%2706-%2709_Chevrolet_Equinox_%28Byward_Auto_Classic%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Sunbeam_Tiger_%28Auto_classique_Combos_Express_%2713%29_%26_Chevrolet_Equinox.JPG/960px-Sunbeam_Tiger_%28Auto_classique_Combos_Express_%2713%29_%26_Chevrolet_Equinox.JPG"
       ],
       "maintenance": [
         {
@@ -2071,7 +2132,9 @@
       ],
       "sellerId": "user-001",
       "isPremium": true,
-      "createdAt": "2024-03-23T10:00:00Z"
+      "createdAt": "2024-03-23T10:00:00Z",
+      "bodyType": "suv",
+      "color": "Negro"
     }
   ]
 }

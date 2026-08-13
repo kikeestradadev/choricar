@@ -2,7 +2,8 @@ article(class='vehicle-card' data-vehicle-card)
 	a(class='vehicle-card__media' href='#' data-card-link)
 		img(class='vehicle-card__image' src='' alt='' data-card-image loading='lazy')
 		span(class='vehicle-card__badge vehicle-card__badge--condition' data-card-condition)
-		span(class='vehicle-card__badge vehicle-card__badge--premium' data-card-premium hidden) Premium
+		span(class='vehicle-card__badge vehicle-card__badge--premium' data-card-premium hidden) Destacado
+		span(class='vehicle-card__badge vehicle-card__badge--free' data-card-free hidden) Gratis
 	div(class='vehicle-card__body')
 		div(class='vehicle-card__top')
 			h3(class='vehicle-card__title')
@@ -16,7 +17,13 @@ article(class='vehicle-card' data-vehicle-card)
 			)
 				span(aria-hidden='true') ♥
 		p(class='vehicle-card__price' data-card-price)
-		ul(class='vehicle-card__meta')
-			li(class='vehicle-card__meta-item' data-card-year)
-			li(class='vehicle-card__meta-item' data-card-mileage)
-			li(class='vehicle-card__meta-item' data-card-location)
+		ul(class='vehicle-card__pills')
+			li(class='vehicle-card__pill' data-card-year)
+			li(class='vehicle-card__pill' data-card-mileage)
+			li(class='vehicle-card__pill' data-card-fuel)
+			li(class='vehicle-card__pill' data-card-transmission)
+		p(class='vehicle-card__location' data-card-location)
+		div(class='vehicle-card__actions')
+			a(class='vehicle-card__details' href='#' data-card-details) Ver detalles
+			a(class='vehicle-card__whatsapp' href='#' data-card-whatsapp hidden) WhatsApp
+	span(class='vehicle-card__tooltip' data-card-tooltip hidden) Vendedor Premium — mayor confianza y visibilidad

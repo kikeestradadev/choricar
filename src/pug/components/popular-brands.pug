@@ -1,0 +1,11 @@
+section(class='popular-brands')
+	div(class='main-container popular-brands__shell')
+		div(class='container popular-brands__container')
+			div(class='popular-brands__head')
+				h2(class='popular-brands__title')= popularBrandsData.title
+				p(class='popular-brands__subtitle')= popularBrandsData.subtitle
+			div(class='popular-brands__grid')
+				each brand in popularBrandsData.items
+					a(class='popular-brands__card' href=brand.href)
+						span(class='popular-brands__mark' aria-hidden='true')= brand.mark
+						span(class='popular-brands__name')= brand.name

@@ -1,0 +1,12 @@
+{
+	"title": "Marcas populares en Costa Rica",
+	"subtitle": "Las 6 más buscadas para comprar y vender",
+	"items": [
+		{ "name": "Toyota", "href": "./vehiculos.html?brand=Toyota", "mark": "T" },
+		{ "name": "Honda", "href": "./vehiculos.html?brand=Honda", "mark": "H" },
+		{ "name": "Nissan", "href": "./vehiculos.html?brand=Nissan", "mark": "N" },
+		{ "name": "Hyundai", "href": "./vehiculos.html?brand=Hyundai", "mark": "Hy" },
+		{ "name": "Kia", "href": "./vehiculos.html?brand=Kia", "mark": "K" },
+		{ "name": "Suzuki", "href": "./vehiculos.html?brand=Suzuki", "mark": "S" }
+	]
+}

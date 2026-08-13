@@ -1,0 +1,22 @@
+{
+	"title": "Buscar por presupuesto",
+	"subtitle": "Encuentra vehículos según lo que quieres invertir",
+	"items": [
+		{
+			"label": "Menos de ₡5M",
+			"href": "./vehiculos.html?priceMax=5000000"
+		},
+		{
+			"label": "₡5M–₡10M",
+			"href": "./vehiculos.html?priceMin=5000000&priceMax=10000000"
+		},
+		{
+			"label": "₡10M–₡20M",
+			"href": "./vehiculos.html?priceMin=10000000&priceMax=20000000"
+		},
+		{
+			"label": "Más de ₡20M",
+			"href": "./vehiculos.html?priceMin=20000000"
+		}
+	]
+}

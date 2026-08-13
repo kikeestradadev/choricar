@@ -1,4 +1,5 @@
 .vehicle-card {
+	position: relative;
 	background: #fff;
 	border-radius: var(--radius-card);
 	box-shadow: var(--color-card-shadow);
@@ -6,6 +7,11 @@
 	display: flex;
 	flex-direction: column;
 	height: 100%;
+	border: 2px solid transparent;
+
+	&--premium {
+		border-color: var(--color-premium);
+	}
 
 	&__media {
 		position: relative;
@@ -26,6 +32,12 @@
 		&:hover .vehicle-card__image {
 			transform: scale(1.04);
 		}
+
+		&--premium:hover .vehicle-card__tooltip {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+		}
 	}
 
 	&__badge {
@@ -45,6 +57,14 @@
 			right: 0.75rem;
 			background: var(--color-premium);
 			color: #1a1a1a;
+		}
+
+		&--free {
+			left: auto;
+			right: 0.75rem;
+			background: rgba(255, 255, 255, 0.92);
+			color: var(--color-text-muted);
+			font-weight: 600;
 		}
 	}
 
@@ -112,22 +132,97 @@
 		color: var(--color-primary);
 	}
 
-	&__meta {
+	&__pills {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 0.5rem;
+		gap: 0.4rem;
+	}
+
+	&__pill {
+		border-radius: 999px;
+		background: var(--color-bg-muted);
+		color: var(--color-text-muted);
+		font-size: 0.75rem;
+		font-weight: 600;
+		padding: 0.2rem 0.55rem;
+	}
+
+	&__location {
+		margin: 0;
 		color: var(--color-text-muted);
 		font-size: 0.85rem;
 	}
 
-	&__meta-item {
-		&:not(:last-child)::after {
-			content: '·';
-			margin-left: 0.5rem;
-			color: #cbd5e1;
+	&__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: auto;
+		padding-top: 0.35rem;
+	}
+
+	&__details,
+	&__whatsapp {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.35rem;
+		border-radius: var(--radius-btn);
+		padding: 0.55rem 0.8rem;
+		font-size: 0.82rem;
+		font-weight: 700;
+		text-decoration: none;
+		flex: 1;
+		min-width: 0;
+	}
+
+	&__details {
+		background: var(--color-primary);
+		color: #fff;
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				background: var(--color-primary-mid);
+			}
 		}
+	}
+
+	&__whatsapp {
+		background: var(--color-whatsapp);
+		color: #fff;
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				filter: brightness(0.95);
+			}
+		}
+	}
+
+	&__whatsapp-icon {
+		flex-shrink: 0;
+	}
+
+	&__tooltip {
+		position: absolute;
+		left: 0.75rem;
+		right: 0.75rem;
+		top: 3.15rem;
+		bottom: auto;
+		z-index: 2;
+		background: var(--color-primary);
+		color: #fff;
+		font-size: 0.75rem;
+		font-weight: 600;
+		line-height: 1.35;
+		border-radius: 8px;
+		padding: 0.5rem 0.65rem;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(6px);
+		transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+		pointer-events: none;
 	}
 }

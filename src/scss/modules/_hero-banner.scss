@@ -87,7 +87,7 @@
 		}
 	}
 
-	&__search {
+	&__panel {
 		position: relative;
 		z-index: 2;
 		margin: -3.5rem auto 0;
@@ -96,6 +96,13 @@
 		border-radius: var(--radius-card);
 		box-shadow: var(--color-card-shadow);
 		padding: 1rem;
+
+		@media (width >= $l) {
+			padding: 1.25rem;
+		}
+	}
+
+	&__search {
 		display: grid;
 		gap: 0.75rem;
 
@@ -106,7 +113,6 @@
 
 		@media (width >= $l) {
 			grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
-			padding: 1.25rem;
 		}
 	}
 
@@ -145,6 +151,44 @@
 
 		&:focus-visible {
 			outline: 2px solid var(--color-primary);
+			outline-offset: 2px;
+		}
+	}
+
+	&__tabs {
+		display: flex;
+		flex-wrap: nowrap;
+		gap: 0.5rem;
+		overflow-x: auto;
+		margin-top: 0.85rem;
+		padding-bottom: 0.15rem;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	&__tab {
+		flex: 0 0 auto;
+		display: inline-flex;
+		align-items: center;
+		border: 1px solid var(--color-border);
+		border-radius: 999px;
+		padding: 0.45rem 0.85rem;
+		background: var(--color-bg-muted);
+		color: var(--color-primary);
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-decoration: none;
+		white-space: nowrap;
+
+		@media (hover: hover) and (pointer: fine) {
+			&:hover {
+				background: var(--color-primary);
+				border-color: var(--color-primary);
+				color: #fff;
+			}
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--color-accent);
 			outline-offset: 2px;
 		}
 	}

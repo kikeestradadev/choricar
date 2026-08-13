@@ -61,6 +61,26 @@ aside(
 				each item in filtersData.fuels
 					option(value=item.value)= item.label
 		div(class='vehicle-filters__group')
+			label(class='vehicle-filters__label' for='filter-body-type')= filtersData.labels.bodyType
+			select(class='vehicle-filters__select' id='filter-body-type' name='bodyType')
+				option(value='')= filtersData.labels.all
+				each item in filtersData.bodyTypes
+					option(value=item.value)= item.label
+		div(class='vehicle-filters__row')
+			div(class='vehicle-filters__group')
+				label(class='vehicle-filters__label' for='filter-mileage-min')= filtersData.labels.mileageMin
+				input(class='vehicle-filters__input' id='filter-mileage-min' type='number' name='mileageMin' min='0' placeholder='0')
+			div(class='vehicle-filters__group')
+				label(class='vehicle-filters__label' for='filter-mileage-max')= filtersData.labels.mileageMax
+				input(class='vehicle-filters__input' id='filter-mileage-max' type='number' name='mileageMax' min='0' placeholder='200000')
+		div(class='vehicle-filters__checks')
+			label(class='vehicle-filters__check')
+				input(class='vehicle-filters__checkbox' type='checkbox' name='hasPhotos' value='1')
+				span= filtersData.labels.hasPhotos
+			label(class='vehicle-filters__check')
+				input(class='vehicle-filters__checkbox' type='checkbox' name='verifiedOnly' value='1')
+				span= filtersData.labels.verifiedOnly
+		div(class='vehicle-filters__group')
 			label(class='vehicle-filters__label' for='filter-location')= filtersData.labels.location
 			select(class='vehicle-filters__select' id='filter-location' name='location')
 				option(value='')= filtersData.labels.all
